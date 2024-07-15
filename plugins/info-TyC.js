@@ -7,14 +7,14 @@ export default handler
 global.terms = `https://github.com/Khalid-official 
 *=> Ignorance of what is mentioned here does not exempt the owner of the Bot, Sub Bot or user of the bot from the sanctions that may be derived❗*
 
-*⚠️ Privacy Terms*
+*⚠️ Privacy*
 _1.- The information received by the Bot is NOT shared with any third party or with anyone_
 _2.- The images/videos/sticker/audios/etc are not shared with anyone_
 _3.- Your phone number is not shared with absolutely anyone_
 _4.- Card data, locations, addresses, etc. are immediately deleted and are not shared with anyone_
 _5.- All conversations are deleted from time to time and no backup is made (not saved) of any type of information/conversation_
 
-*⚠️ Terms of use*
+*⚠️ Agreement of use*
 _1.- We are not responsible for any misuse that may be given to the Bot_
 _2.- We are not responsible for ignorance and/or lack of knowledge of the subject_
 _3.- The Bot is not active 24 hours unless the owner decides otherwise_
