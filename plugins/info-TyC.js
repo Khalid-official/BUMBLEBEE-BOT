@@ -7,7 +7,7 @@ export default handler
 global.terms = `https://github.com/Khalid-official 
 *=> Ignorance of what is mentioned here does not exempt the owner of the Bot, Sub Bot or user of the bot from the sanctions that may be derived❗*
 
-*⚠️ Privacy*
+*⚠️ Priv∆cy*
 _1.- The information received by the Bot is NOT shared with any third party or with anyone_
 _2.- The images/videos/sticker/audios/etc are not shared with anyone_
 _3.- Your phone number is not shared with absolutely anyone_
