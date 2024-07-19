@@ -1,4 +1,4 @@
- 
+jl 
 <p align="center"> 
 <img src="https://komarev.com/ghpvc/?username=khalid-official&color=brightgreen" />
 
@@ -36,6 +36,10 @@ In case of doubt, before installing BUMBLEBEE-BOT, test the bot here
 
 #### Deploy to Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/khalid-official/BUMBLEBEE-BOT)
+
+
+## ```USER REPLIT```
+[![Run on Repl.it](https://repl.it/badge/github/xIKRATOSx/Ikratos-MD-v1)](https://repl.it/https://github.com/Khalid-official/BUMBLEBEE-BOT)
 
 #### Heroku Buildpack
 | BuildPack | LINK |
