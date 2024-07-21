@@ -64,18 +64,4 @@ $ npm start
 3. Scan the QR code from the second device. (go to whatsapp > Linked Devices > Link a device)
 ---------
 
-
-## BOXMINE
-
-<a href="https://dash.boxmineworld.com/register?ref=Mb0BN5ny"><img src="https://k.top4top.io/p_2413wh2bh0.jpg" width="450" height="230" alt="BoxMine"/></a>
-
-Install the bot with a single click! so that it is active 24/7
-
----------
-* Create an account [`here`](https://dash.boxmineworld.com/register?ref=Mb0BN5ny)
-* Tutorial [`Click Here`](https://youtu.be/xFqjKN1Qt80)
-
-* Dashboard [`Click here`](https://dash.boxmineworld.com)
-* Panel [`Click here`](https://panel.boxmineworld.com/)
-
 ---------
