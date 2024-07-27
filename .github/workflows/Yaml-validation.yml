@@ -1,0 +1,26 @@
+---
+name: YAML Validation
+
+"on":
+  workflow_call:
+    inputs:
+      os:
+        required: true
+        type: string
+      node_version:
+        required: true
+        type: string
+
+jobs:
+  yaml-validation:
+    runs-on: ${{ inputs.os }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node_version }}
+      - uses: actions/checkout@v4
+      - name: Validate YAML
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: .github/workflows/*.yml
+          format: github
