@@ -473,8 +473,8 @@ setInterval(async () => {
   if (stopped === 'close' || !conn || !conn.user) return;
   const _uptime = process.uptime() * 1000;
   const uptime = clockString(_uptime);
-  const bio = `🐝 𝗔𝗖𝗧𝗜𝗩𝗘 𝗧𝗜𝗠𝗘: ${uptime} ┃ 👑 𝗚𝗘𝗡© 𝗕𝘆 𝗕𝗨𝗠𝗕𝗟𝗘-𝗕𝗼𝗧  ┃ 🔗ᴏғᴄ: +254736858034`;
-  await mconn.conn.updateProfileStatus(bio).catch((_) => _);
+  const bio = `[❗𝐈𝐍𝐅𝐎❗] 🐝 ᴀᴄᴛɪᴠᴇ ᴛɪᴍᴇ: ${uptime} 🍯ꜱᴛɪɴɢ ʟɪᴋᴇ🐝 ᴀ ʙᴇᴇ💖`;
+  await conn.updateProfileStatus(bio).catch((_) => _);
 }, 60000);
 function clockString(ms) {
   const d = isNaN(ms) ? '--' : Math.floor(ms / 86400000);
