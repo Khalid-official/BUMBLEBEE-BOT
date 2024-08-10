@@ -1,7 +1,7 @@
 { 
-    "name": "DYLUX-BOT",
+    "name": "BUMBLEBEE-BOT",
     "version": "3.0.0",
-    "description": "Customizable WhatsApp Bot",
+    "description": "If You Like It, Give A 5 Star",
     "main": "index.js",
     "type": "module",
     "directories": {
@@ -21,21 +21,22 @@
         "js-whatsapp",
         "whatsapp",
         "dylux-bot",
+        "bumblebee-bot",
         "senna",
         "multi-device",
         "senna-bot",
         "baileys-md"
     ],
-    "homepage": "https://github.com/Khalid-official/DYLUX-BOT",
+    "homepage": "https://github.com/Khalid-official",
     "author": {
         "name": "khalid-official"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/khalid-official/DYLUX-BOT.git"
+        "url": "git+https://github.com/khalid-official/BUMBLEBEE-BOT.git"
     },
     "bugs": {
-        "url": "https://github.com/Khalid-official/DYLUX-BOT/issues"
+        "url": "https://github.com/Khalid-official/BUMBLEBEE-BOT/issues"
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
@@ -47,7 +48,7 @@
         "form-data": "^4.0.0",
         "cfonts": "^3.1.1",
         "chalk": "^5.1.0",
-        "cheerio": "^1.0.0-rc.12",
+        "cheerio": "^1.0.0-rc.10",
         "colors": "1.4.0",
         "express": "^4.18.1",
         "file-type": "^18.0.0",
