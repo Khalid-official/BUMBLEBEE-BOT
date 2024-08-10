@@ -2,10 +2,12 @@ import {watchFile, unwatchFile} from 'fs';
 import chalk from 'chalk';
 import {fileURLToPath} from 'url';
 import fs from 'fs'; 
-import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 import axios from 'axios';
 import moment from 'moment-timezone';
+
+global.botnumber = ""
+global.confirmCode = ""
 
 global.owner = [
   ['254736958034', '👑 𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓 𝐂𝐑𝐄𝐀𝐓𝐎𝐑👑', true],
@@ -18,7 +20,7 @@ global.owner = [
 global.suittag = ['254114098508'];
 global.prems = ['254114098508'];
 
-global.packname = '𒁂⃝ᰲ𝐊 𝐇 ✰ 𝐋 𝐈 𝐃⃝❦™ ͟͞ 🇨🇺⃝𝐌𝚯𝐃͢𝐙™ ͟͞';
+global.packname = '𒁂⃝ᰲ𝐊𝐇𝐀𝐋𝐈𝐃©_🇨🇺⃝𝐌𝚯𝐃͢𝐙™ ͟͞';
 global.author = '★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★';
 global.wm = '★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★';
 global.igfg = '★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★';
@@ -30,6 +32,10 @@ global.imagen3 = fs.readFileSync('./src/Pre Bot Publi.png');
 global.imagen4 = fs.readFileSync('./Menu.png');
 global.imagen5 = fs.readFileSync('./src/+18.jpg');
 global.imagen6 = fs.readFileSync('./Menu3.png');
+global.imagen7 = fs.readFileSync('./src/menu_pt.png');
+global.imagen8 = fs.readFileSync('./src/menu_fr.png')
+global.imagen9 = fs.readFileSync('./src/menu_en.png')
+global.imagen10 = fs.readFileSync('./src/menu_ru.png')
 
 global.mods = [];
 
@@ -65,8 +71,8 @@ global.htki = '*⭑•̩̩͙⊱•••• ☪*';
 global.htka = '*☪ ••••̩̩͙⊰•⭑*';
 global.comienzo = '• • ◕◕════';
 global.fin = '════◕◕ • •';
-global.botdate = `⫹⫺ Date :  ${moment.tz('America/Los_Angeles').format('DD/MM/YY')}`; // Asia/Jakarta
-global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('America/Los_Angeles').format('HH:mm:ss')}`;// America/Los_Angeles
+global.botdate = `*[ 📅 ] Fecha:*  ${moment.tz('America/Mexico_City').format('DD/MM/YY')}`;
+global.bottime = `*[ ⏳ ] HOUR:* ${moment.tz('America/Mexico_City').format('HH:mm:ss')}`;
 global.fgif = {key: {participant: '0@s.whatsapp.net'}, message: {'videoMessage': {'title': wm, 'h': `Hmm`, 'seconds': '999999999', 'gifPlayback': 'true', 'caption': bottime, 'jpegThumbnail': fs.readFileSync('./Menu.png')}}};
 global.multiplier = 99;
 global.flaaa = [
