@@ -1,7 +1,7 @@
 {
-  "name": "TheMystic-Bot-MD",
+  "name": "BUMBLEBEE BOT",
   "version": "1.0.0",
-  "description": "Subs. al canal de YT The Shadow Borkers - TEAM",
+  "description": "If You Like It, Kindly Give a 5 Star",
   "main": "index.js",
   "type": "module",
   "directories": {
@@ -18,16 +18,16 @@
     "eslint": "eslint .",
     "eslintfix": "eslint --fix ."
   },
-  "homepage": "https://github.com/BrunoSobrino/TheMystic-Bot-MD",
+  "homepage": "https://github.com/khalid-official/BUMBLEBEE-BOT",
   "author": {
-    "name": "BrunoSobrino"
+    "name": "KhalidOfficial"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BrunoSobrino/TheMystic-Bot-MD.git"
+    "url": "git+https://github.com/khalid-official/BUMBLEBEE-BOT.git"
   },
   "bugs": {
-    "url": "https://github.com/BrunoSobrino/TheMystic-Bot-MD/issues"
+    "url": "https://github.com/khalid-official/BUMBLEBEE-BOT/issues"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
