@@ -51,6 +51,7 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
         await conn.sendMessage(m.chat, { document: buff_aud, mimetype: 'audio/mpeg', fileName: ttl + `.mp3` }, { quoted: m });
         return;
       } else {
+        await conn.sendMessage(m.chat, { document: buff_aud, mimetype: 'audio/mpeg', fileName: ttl + `.mp3` }, { quoted: m });
         await conn.sendMessage(m.chat, { audio: buff_aud, mimetype: 'audio/mpeg', fileName: ttl + `.mp3` }, { quoted: m });
         return;
       }
@@ -71,9 +72,11 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
         }
         if (size >= limit_a1 && size <= limit_a2) {
           await conn.sendMessage(m.chat, { document: buff_aud, mimetype: 'audio/mpeg', fileName: ttl + `.mp3` }, { quoted: m });
+          await conn.sendMessage(m.chat, { audio: buff_aud, mimetype: 'audio/mpeg', fileName: ttl + `.mp3` }, { quoted: m });
           return;
         } else {
           await conn.sendMessage(m.chat, { audio: buff_aud, mimetype: 'audio/mpeg', fileName: ttl + `.mp3` }, { quoted: m });
+          await conn.sendMessage(m.chat, { document: buff_aud, mimetype: 'audio/mpeg', fileName: ttl + `.mp3` }, { quoted: m });        
           return;
         }
       } catch {
@@ -82,7 +85,7 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
     }
   }
 
-  if (command === 'play2') {
+  if (command === 'play') {
     try {
       const { status, resultados, error } = await ytmp44(yt_play[0].url);
       if (!status) throw new Error(error);
