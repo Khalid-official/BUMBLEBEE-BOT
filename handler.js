@@ -934,19 +934,19 @@ export async function handler(chatUpdate) {
         if (!('isBanned' in chat)) chat.isBanned = false;
         if (!('welcome' in chat)) chat.welcome = true;
         if (!('detect' in chat)) chat.detect = true;
-        if (!('detect2' in chat)) chat.detect2 = false;
+        if (!('detect2' in chat)) chat.detect2 = true;
         if (!('sWelcome' in chat)) chat.sWelcome = '';
         if (!('sBye' in chat)) chat.sBye = '';
         if (!('sPromote' in chat)) chat.sPromote = '';
         if (!('sDemote' in chat)) chat.sDemote = '';
-        if (!('delete' in chat)) chat.antidelete = false;
+        if (!('delete' in chat)) chat.antidelete = true;
         if (!('modohorny' in chat)) chat.modohorny = false;
         if (!('autosticker' in chat)) chat.autosticker = false;
         if (!('audios' in chat)) chat.audios = false;
         if (!('antiLink' in chat)) chat.antiLink = false;
-        if (!('antiLink2' in chat)) chat.antiLink2 = false;
-        if (!('antiviewonce' in chat)) chat.antiviewonce = false;
-        if (!('antiToxic' in chat)) chat.antiToxic = false;
+        if (!('antiLink2' in chat)) chat.antiLink2 = true;
+        if (!('antiviewonce' in chat)) chat.antiviewonce = true;
+        if (!('antiToxic' in chat)) chat.antiToxic = true;
         if (!('antiTraba' in chat)) chat.antiTraba = false;
         if (!('antiArab' in chat)) chat.antiArab = false;
         if (!('antiArab2' in chat)) chat.antiArab2 = false;
@@ -959,19 +959,19 @@ export async function handler(chatUpdate) {
           isBanned: false,
           welcome: true,
           detect: true,
-	  detect2: false,
+	  detect2: true,
           sWelcome: '',
           sBye: '',
           sPromote: '',
           sDemote: '',
-          antidelete: false,
-          modohorny: true,
+          antidelete: true,
+          modohorny: false,
           autosticker: false,
           audios: true,
           antiLink: false,
-          antiLink2: false,
-          antiviewonce: false,
-          antiToxic: false,
+          antiLink2: true,
+          antiviewonce: true,
+          antiToxic: true,
           antiTraba: false,
           antiArab: false,
 	  antiArab2: false,
@@ -987,12 +987,12 @@ export async function handler(chatUpdate) {
         if (!('self' in settings)) settings.self = false;
         if (!('autoread' in settings)) settings.autoread = false;
         if (!('autoread2' in settings)) settings.autoread2 = false;
-        if (!('restrict' in settings)) settings.restrict = false;
+        if (!('restrict' in settings)) settings.restrict = true;
         if (!('antiCall' in settings)) settings.antiCall = false;
         if (!('antiPrivate' in settings)) settings.antiPrivate = false;
-        if (!('antiBot' in settings)) settings.antiBot = false;
+        if (!('antiBot' in settings)) settings.antiBot = true;
 	if (!('modejadibot' in settings)) settings.modejadibot = true;
-        if (!('antispam' in settings)) settings.antispam = false;
+        if (!('antispam' in settings)) settings.antispam = true;
 	if (!('audios_bot' in settings)) settings.audios_bot = true;  
 	if (!('modoia' in settings)) settings.modoia = false;      
       } else {
@@ -1000,12 +1000,12 @@ export async function handler(chatUpdate) {
           self: false,
           autoread: false,
           autoread2: false,
-          restrict: false,
+          restrict: true,
           antiCall: false,
           antiPrivate: false,
-          antiBot: false,
+          antiBot: true,
 	  modejadibot: true,
-          antispam: false,
+          antispam: true,
 	  audios_bot: true,
 	  modoia: false
         };
