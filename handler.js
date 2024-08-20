@@ -1522,7 +1522,7 @@ let date = d.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'nu
 	if (!msg?.isGroup) return 
 	const antideleteMessage = `
 ┏━━━━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━━━━
-*■ User:* @${participant.split`@`[0]} *■you tried to delete a messag, henre I'll forward it* *■ To disable this feature, type the command:* *—◉ #disable antidelete*
+*■ User:* @${participant.split`@`[0]} *■you tried to delete a messag, hence I'll forward it* *■ To disable this feature, type the command:* *—◉ #disable antidelete*
 ┗━━━━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━━━━`.trim();
         await mconn.conn.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participant]}, {quoted: msg})
         mconn.conn.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
