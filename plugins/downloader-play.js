@@ -13,16 +13,16 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
     } else if (command === 'play2') {
       additionalText = 'video 🎥';
     }
-    const texto1 = `*_◉—⌈🎶🐝 𝗕𝗘𝗘 𝗠𝗨𝗦𝗜𝗖🎶⌋—◉_*\n〆 📌 *𝗧𝗶𝘁𝗹𝗲:* ${yt_play[0].title}
-々 📆 *𝗽𝘂𝗯𝗹𝗶𝘀𝗵𝗲𝗱:* ${yt_play[0].ago}
-〆 ⌚ *Dur𝗮𝘁𝗶𝗼𝗻:* ${secondString(yt_play[0].duration.seconds)}
-々 👀 *Vi𝗲𝘄𝘀:* ${`${MilesNumber(yt_play[0].views)}`}
-〆 👤 *Au𝘁𝗵𝗼𝗿:* ${yt_play[0].author.name}
-々 ⏯️ *C𝗵𝗮𝗻𝗻𝗲𝗹:* ${yt_play[0].author.url}
-〆 🆔 *ID:* ${yt_play[0].videoId}
-々 🪬 *T𝘆𝗽𝗲:* ${yt_play[0].type}
-〆 🔗 *L𝗶𝗻𝗸:* ${yt_play[0].url}\n
-々 *_𝘀𝗲𝗻𝗱𝗶𝗻𝗴 ${additionalText}, 𝗽𝗹𝗲𝗮𝘀𝗲 𝘄𝗮𝗶𝘁 𝗮 𝗺𝗼𝗺𝗲𝗻𝘁．．．_*`.trim();
+    const texto1 = `*_⌈🐝🎶𖦤𝗕𝗘𝗘 𝗠𝗨𝗦𝗜𝗖𖦤🎶🐝⌋_*\n𖦤 📌 *𝗧𝗶𝘁𝗹𝗲:* ${yt_play[0].title}
+𖦤 📆 *𝗽𝘂𝗯𝗹𝗶𝘀𝗵𝗲𝗱:* ${yt_play[0].ago}
+𖦤 ⌚ *Dur𝗮𝘁𝗶𝗼𝗻:* ${secondString(yt_play[0].duration.seconds)}
+𖦤 👀 *Vi𝗲𝘄𝘀:* ${`${MilesNumber(yt_play[0].views)}`}
+𖦤 👤 *Au𝘁𝗵𝗼𝗿:* ${yt_play[0].author.name}
+𖦤 ⏯️ *C𝗵𝗮𝗻𝗻𝗲𝗹:* ${yt_play[0].author.url}
+𖦤 🆔 *ID:* ${yt_play[0].videoId}
+𖦤 🪬 *T𝘆𝗽𝗲:* ${yt_play[0].type}
+𖦤 🔗 *L𝗶𝗻𝗸:* ${yt_play[0].url}\n
+𖦤 *_𝘀𝗲𝗻𝗱𝗶𝗻𝗴 ${additionalText}, 𝗽𝗹𝗲𝗮𝘀𝗲 𝘄𝗮𝗶𝘁 𝗮 𝗺𝗼𝗺𝗲𝗻𝘁．．．_*`.trim();
     conn.sendMessage(m.chat, {image: {url: yt_play[0].thumbnail}, caption: texto1}, {quoted: m});
      if (command == 'play') {
       try {
@@ -64,13 +64,11 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
         const dl_url = await yt.video[q].download();
         const ttl = await yt.title;
         const size = await yt.video[q].fileSizeH;
-        await await conn.sendMessage(m.chat, {document: {url: dl_url}, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `▢ 📌𝗧𝗜𝗧𝗟𝗘: ${ttl}\n▢ 📥𝗩𝗜𝗗𝗘𝗢 𝗦𝗜𝗭𝗘: ${size}`, thumbnail: await fetch(yt.thumbnail)}, {quoted: m});
-        await await conn.sendMessage(m.chat, {video: {url: dl_url}, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `▢ 📌𝗧𝗜𝗧𝗟𝗘: ${ttl}\n▢ 📥𝗩𝗜𝗗𝗘𝗢 𝗦𝗜𝗭𝗘: ${size}`, thumbnail: await fetch(yt.thumbnail)}, {quoted: m});
+        await await conn.sendMessage(m.chat, {document: {url: dl_url}, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `𖦤 📌𝗧𝗜𝗧𝗟𝗘: ${ttl}\n𖦤 📥𝗩𝗜𝗗𝗘𝗢 𝗦𝗜𝗭𝗘: ${size}`, thumbnail: await fetch(yt.thumbnail)}, {quoted: m});
       } catch {
         try {
           const mediaa = await ytMp4(yt_play[0].url);
           await await conn.sendMessage(m.chat, {document: {url: dl_url}, caption: cap, mimetype: 'video/mp4', fileName: ttl + `.mp4`}, {quoted: m});
-          await await conn.sendMessage(m.chat, {video: {url: dl_url}, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `▢ 📌𝗧𝗜𝗧𝗟𝗘: ${ttl}\n▢ 📥𝗩𝗜𝗗𝗘𝗢 𝗦𝗜𝗭𝗘: ${size}`, thumbnail: await fetch(yt.thumbnail)}, {quoted: m});
         } catch {
           try {
             const lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${lolkeysapi}&url=${yt_play[0].url}`);
@@ -79,8 +77,7 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
             const n2 = lolh.result.link;
             const n3 = lolh.result.size;
             const n4 = lolh.result.thumbnail;
-            await await conn.sendMessage(m.chat, {document: {url: dl_url}, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `▢ 📌𝗧𝗜𝗧𝗟𝗘: ${ttl}\n▢ 📥𝗩𝗜𝗗𝗘𝗢 𝗦𝗜𝗭𝗘: ${size}`, thumbnail: await fetch(yt.thumbnail)}, {quoted: m});
-            await await conn.sendMessage(m.chat, {video: {url: dl_url}, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `▢ 📌𝗧𝗜𝗧𝗟𝗘: ${ttl}\n▢ 📥𝗩𝗜𝗗𝗘𝗢 𝗦𝗜𝗭𝗘: ${size}`, thumbnail: await fetch(yt.thumbnail)}, {quoted: m});
+            await await conn.sendMessage(m.chat, {document: {url: dl_url}, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `𖦤 📌𝗧𝗜𝗧𝗟𝗘: ${ttl}\n𖦤 📥𝗩𝗜𝗗𝗘𝗢 𝗦𝗜𝗭𝗘: ${size}`, thumbnail: await fetch(yt.thumbnail)}, {quoted: m});
           } catch {
             await conn.reply(m.chat, '*[❗] 𝗘𝗿𝗿𝗼𝗿 𝗻𝗼 𝗽𝗼𝘀𝘀𝗶𝗯𝗹𝗲 𝘃𝗶𝗱𝗲𝗼 𝗳𝗼𝘂𝗻𝗱*', m);
           }
