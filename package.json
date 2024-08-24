@@ -30,16 +30,16 @@
     "url": "https://github.com/khalid-official/BUMBLEBEE-BOT/issues"
   },
   "license": "GPL-3.0-or-later",
-  "dependencies": {
+    "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "^4.2.4",
     "@brandond/findthelyrics": "^2.0.5",
     "@green-code/music-track-data": "^2.0.3",
-    "@sasmeee/igdl": "npm:@sasmeee/igdl",
     "@sefinek/google-tts-api": "*",
     "@shineiichijo/marika": "^2.0.6",
     "@vitalets/google-translate-api": "^8.0.0",
-    "@whiskeysockets/baileys": "npm:@whiskeysockets/baileys@6.7.2",
+    "@whiskeysockets/baileys": "^6.7.7",
+    "baileys": "git+https://github.com/Skidy89/baileys.git#main",
     "acrcloud": "^1.4.0",
     "api-dylux": "^1.6.2",
     "aptoide-scraper": "^1.0.1",
@@ -64,7 +64,6 @@
     "hispamemes": "^1.0.7",
     "human-readable": "^0.2.1",
     "imagemaker.js": "^2.0.4",
-    "instagram-url-direct": "^1.0.13",
     "jsdom": "^19.0.0",
     "link-preview-js": "^3.0.0",
     "lodash": "^4.17.21",
@@ -94,13 +93,13 @@
     "syntax-error": "^1.4.0",
     "terminal-image": "^2.0.0",
     "url-regex-safe": "^3.0.0",
-    "wa-sticker-formatter": "^4.3.2",
     "yargs": "^17.3.1",
     "yt-search": "^2.10.3",
     "ytdl-core": "github:khlevon/node-ytdl-core#v4.11.4-patch.2"
   },
   "optionalDependencies": {
-    "@xct007/frieren-scraper": "github:xct007/frieren-scraper"
+    "@xct007/frieren-scraper": "github:xct007/frieren-scraper",
+    "wa-sticker-formatter": "^4.3.2"
   },
   "devDependencies": {
     "eslint": "^8.45.0",
