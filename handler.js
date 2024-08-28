@@ -990,6 +990,7 @@ export async function handler(chatUpdate) {
         if (!('restrict' in settings)) settings.restrict = true;
         if (!('antiCall' in settings)) settings.antiCall = false;
         if (!('antiPrivate' in settings)) settings.antiPrivate = false;
+        if (!('antiZimbabwe' in settings)) settings.antiPrivate = true;
         if (!('antiBot' in settings)) settings.antiBot = true;
 	if (!('modejadibot' in settings)) settings.modejadibot = true;
         if (!('antispam' in settings)) settings.antispam = true;
@@ -1003,6 +1004,7 @@ export async function handler(chatUpdate) {
           restrict: true,
           antiCall: false,
           antiPrivate: false,
+          antiZimbabwe: true
           antiBot: true,
 	  modejadibot: true,
           antispam: true,
