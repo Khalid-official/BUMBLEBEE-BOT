@@ -21,9 +21,9 @@ const handler = async (m, {conn, text, participants, args}) => {
       const content = getBinaryNodeChild(user, 'add_request');
       const invite_code = content.attrs.code;
       const invite_code_exp = content.attrs.expiration;
-      const teks = `https://github.com/Khalid-official *[鉂楌潗堭潗嶐潗咅潗庘潡] IT WAS NOT POSSIBLE TO ADD @${jid.split('@')[0]}, THE INVITATION TO THE GROUP WAS SENT TO THE USER IN THEIR PROVIDED*`;
+      const teks = ` *[❗] IT WAS NOT POSSIBLE TO ADD @${jid.split('@')[0]}, THE INVITATION TO THE GROUP WAS SENT TO THE USER IN THEIR PROVIDED*`;
       m.reply(teks, null, {mentions: conn.parseMention(teks)});
-      const captionn = `*[??????] Hey!! Hello,  a person in the group used the command to add you to the group, but I couldn't add you, so I send you the invitation to add yourself, we are waiting for you!!* `;
+      const captionn = `*[❗] Hey!! Hello,  a person in the group used the command to add you to the group, but I couldn't add you, so I send you the invitation to add yourself, we are waiting for you!!* `;
       const messaa = await prepareWAMessageMedia({image: jpegThumbnail}, {upload: conn.waUploadToServer});
       const groupInvite = generateWAMessageFromContent(m.chat, proto.Message.fromObject({groupInviteMessage: {groupJid: m.chat, inviteCode: invite_code, inviteExpiration: invite_code_exp, groupName: await conn.getName(m.chat), caption: captionn, jpegThumbnail: jpegThumbnail}}), {userJid: jid});
       await conn.relayMessage(jid, groupInvite.message, {messageId: groupInvite.key.id});
