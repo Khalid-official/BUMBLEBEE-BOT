@@ -1,6 +1,6 @@
 let spamDetection = {}; // Object to store user activity
 
-export async function before(m, { isAdmin, isBotAdmin }) {
+export async function before(m, { isAdmin, isBotAdmin, command }) {
     if (m.isBaileys && m.fromMe) return true;
 
     let chat = global.db.data.chats[m.chat];
@@ -29,10 +29,24 @@ export async function before(m, { isAdmin, isBotAdmin }) {
     if (m.isGroup) {
         if (userActivity.count > 5) { // Adjust the spam threshold as needed
             if (isBotAdmin) {
-                await this.sendMessage(m.chat, { text: `*Ops!*, \n*${user}, SPAM DETECT!*`, mentions: [m.sender] });
-                await this.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }});
+                // Get the list of admins
+                let groupMetadata = await this.groupMetadata(m.chat);
+                let admins = groupMetadata.participants.filter(p => p.admin !== null).map(p => p.id);
+
+                // Notify admins about the spammer
+                let adminMentions = admins.map(id => `@${id.split('@')[0]}`).join(' ');
+                await this.sendMessage(m.chat, { 
+                    text: `*Ops!*, \n*${user}, SPAM DETECTED AND KICKED!* \n\nAdmins: ${adminMentions}\n\nTo re-add the user, use the command .add <user>`,
+                    mentions: admins
+                });
+
+                // Delete the spam message
+                await this.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet } });
+
+                // Remove the spammer
                 let response = await this.groupParticipantsUpdate(m.chat, [m.sender], 'remove');
                 if (response[0].status === "404") return;
+
             } else {
                 // Bot is not an admin, just delete the spam message
                 await this.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang }});
@@ -47,6 +61,22 @@ export async function before(m, { isAdmin, isBotAdmin }) {
 
             // Delete the spam messages
             await this.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang }});
+        }
+    }
+
+    // Handle the .add command to re-add users
+    if (command === '.add') {
+        if (!isAdmin) return; // Only admins should be able to use this command
+
+        let args = m.text.split(' ');
+        if (args.length !== 2) return;
+
+        let userToAdd = args[1];
+        try {
+            await this.groupParticipantsUpdate(m.chat, [userToAdd], 'add');
+            await this.sendMessage(m.chat, { text: `*${userToAdd}* has been re-added to the group.`, mentions: [userToAdd] });
+        } catch (e) {
+            await this.sendMessage(m.chat, { text: `Failed to re-add *${userToAdd}*.`, mentions: [userToAdd] });
         }
     }
 
