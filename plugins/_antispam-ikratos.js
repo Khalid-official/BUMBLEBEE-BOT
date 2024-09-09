@@ -28,15 +28,21 @@ export async function before(m, { isAdmin, isBotAdmin, command }) {
 
     // Handle group chats
     if (m.isGroup) {
-        if (userActivity.count > 5) { // Adjust the spam threshold as needed
+        if (userActivity.count > 8) { // Adjust the spam threshold to 8 messages
             if (isBotAdmin) {
-                // Get the list of admins
+                // Get the list of admins and owners
                 let groupMetadata = await this.groupMetadata(m.chat);
-                let admins = groupMetadata.participants.filter(p => p.admin !== null).map(p => p.id);
+                let adminsAndOwners = groupMetadata.participants.filter(p => p.admin !== null).map(p => p.id);
+
+                // Skip the kicking if the user is an admin or owner
+                if (adminsAndOwners.includes(m.sender)) {
+                    await this.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang }});
+                    return;
+                }
 
                 // Notify admins about the spammer
-                let adminMentions = admins.map(id => `@${id.split('@')[0]}`).join(' ');
-                for (let adminId of admins) {
+                let adminMentions = adminsAndOwners.map(id => `@${id.split('@')[0]}`).join(' ');
+                for (let adminId of adminsAndOwners) {
                     await this.sendMessage(adminId, {
                         text: `*Ops!*, \n*${user}*, SPAM DETECTED AND KICKED FROM THE GROUP! \n\nTo re-add the user, use the command .add <user>.\n\nPlease check if the user has been re-added by another admin before using the command.`,
                         mentions: [m.sender]
