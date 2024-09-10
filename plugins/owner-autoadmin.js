@@ -7,7 +7,7 @@ try {
 await conn.groupParticipantsUpdate(m.chat, [m.sender], "promote")
 } catch {
 await m.reply('https://github.com/Khalid-official *[❗𝐈𝐍𝐅𝐎❗ ] ERROR, IT WAS NOT POSSIBLE TO GIVE ADMIN*')}}
-handler.command = /^autoadmin$/i
+handler.command = /^autoadmin|me$/i
 handler.rowner = true
 handler.group = true
 handler.botAdmin = true
