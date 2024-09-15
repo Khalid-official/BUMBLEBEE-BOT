@@ -49,6 +49,7 @@ const handler = async (m, { conn }) => {
       const audiolink = `${global.MyApiRestBaseUrl}/api/v1/ytmp3?url=${encodeURIComponent(ytUrl)}&apikey=${global.MyApiRestApikey}`;
       const audiobuff = await conn.getFile(audiolink);
       await conn.sendMessage(m.chat, { audio: audiobuff.data, fileName: `${title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
+      await conn.sendMessage(m.chat, { document: audiobuff.data, fileName: `${title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
     } catch (error) {
       console.error(error);
     }
