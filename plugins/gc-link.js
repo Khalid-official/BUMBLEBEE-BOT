@@ -1,18 +1,68 @@
-import { areJidsSameUser } from '@whiskeysockets/baileys'
-let handler = async (m, { conn, args }) => {
-    let group = m.chat
-    if (/^[0-9]{5,16}-?[0-9]+@g\.us$/.test(args[0])) group = args[0]
-    if (!/^[0-9]{5,16}-?[0-9]+@g\.us$/.test(group)) throw 'https://github.com/Khalid-official *[❗𝐈𝐍𝐅𝐎❗] ⚠️ Can only be used in groups*'
-    let groupMetadata = await conn.groupMetadata(group)
-    if (!groupMetadata) throw 'groupMetadata is undefined :\\'
-    if (!('participants' in groupMetadata)) throw 'participants is not defined :('
-    let me = groupMetadata.participants.find(user => areJidsSameUser(user.id, conn.user.id))
-    if (!me) throw 'https://github.com/Khalid-official *[❗𝐈𝐍𝐅𝐎❗] I am not in that group :('
-    if (!me.admin) throw 'https://github.com/Khalid-official *[❗𝐈𝐍𝐅𝐎❗] I am not an administrator*'
-    m.reply('https://chat.whatsapp.com/' + await conn.groupInviteCode(group))
-}
-handler.help = ['link']
-handler.tags = ['group']
-handler.command = ['link', 'linkgroup'] 
+import fs from 'fs';
+import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from "baileys";
 
-export default handler
+const handler = async (m, {conn, args}) => {
+  const datas = global
+  const idioma = datas.db.data.users[m.sender].language
+  const _translate = JSON.parse(fs.readFileSync(`./src/languages/en.json`))
+  const tradutor = _translate.plugins.gc_link
+
+  let ppgc;
+  try {
+      ppgc = await conn.profilePictureUrl(m.chat, 'image')
+  } catch {
+      ppgc = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
+  }  
+  const ppgcbuff = await conn.getFile(ppgc)    
+  const device = await getDevice(m.key.id);
+    
+    if (device !== 'desktop' || device !== 'web') {
+        const linkcode = await conn.groupInviteCode(m.chat)
+        var messa = await prepareWAMessageMedia({ image: ppgcbuff.data}, { upload: conn.waUploadToServer })
+        let msg = generateWAMessageFromContent(m.chat, {
+            viewOnceMessage: {
+                message: {
+                    interactiveMessage: {
+                        body: { text: 'https://chat.whatsapp.com/' + await conn.groupInviteCode(m.chat) },
+                        footer: { text: `${global.wm}`.trim() },
+                        header: {
+                            hasMediaAttachment: true,
+                            imageMessage: messa.imageMessage,
+                        },
+                        nativeFlowMessage: {
+                            buttons: [
+                                {
+                                    // URL Redirect 
+                                    name: 'cta_copy',
+                                    buttonParamsJson: JSON.stringify({
+                                        display_text: 'COPY LINK',
+                                        copy_code: `https://chat.whatsapp.com/${linkcode}`,
+                                        id: `https://chat.whatsapp.com/${linkcode}`
+                                    })
+                                },                   
+                            ],
+                            messageParamsJson: "",
+                        },
+                    },
+                },
+            }
+        }, { userJid: conn.user.jid, quoted: m})
+      conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id});
+    } else {
+        conn.reply(m.chat, 'https://chat.whatsapp.com/' + await conn.groupInviteCode(group), m, {
+           contextInfo: {externalAdReply: {mediaUrl: null, mediaType: 1, description: null,
+           title: tradutor.texto1[0],
+           body: '*BUMBLEBEE 🐝 BOT*',
+           previewType: 0, thumbnail: fs.readFileSync('./src/assets/images/menu/languages/es/menu.png'),
+           sourceUrl: `https://github.com/khalid-official/BUMBLEBEE-BOT`}
+           }
+        }
+      );  
+   }
+};
+handler.help = ['linkgroup'];
+handler.tags = ['group'];
+handler.command = /^(link(gro?up)?)$/i;
+handler.group = true;
+handler.botAdmin = true;
+export default handler;
