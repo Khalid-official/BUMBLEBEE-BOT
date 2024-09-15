@@ -1,36 +1,41 @@
-import { sticker } from '../lib/sticker.js'
+import {sticker} from '../src/libraries/sticker.js';
 
-let handler = m => m
+const handler = (m) => m;
 
-handler.all = async function (m) {
-let chat = db.data.chats[m.chat]
-let user = db.data.users[m.sender]
+handler.all = async function(m) {
+  const idioma = global.db.data.users[m.sender].language
+  const _translate = JSON.parse(fs.readFileSync(`./src/languages/en.json`))
+  const tradutor = _translate.plugins._autosticker
 
-if (chat.autosticker && m.isGroup) {
-let q = m
-let stiker = false
-let mime = (q.msg || q).mimetype || q.mediaType || ''
-if (/webp/g.test(mime)) return
-if (/image/g.test(mime)) {
-let img = await q.download?.()
-if (!img) return
-stiker = await sticker(img, false, packname, author)
-} else if (/video/g.test(mime)) {
-if (/video/g.test(mime)) if ((q.msg || q).seconds > 8) return await m.reply(`https://github.com/Khalid-official *[❗𝐈𝐍𝐅𝐎❗] THE VIDEO CANNOT LAST MORE THAN 7 SECONDS*\n\nTO DEACTIVATE THIS OPTION, WRITE(#𝚍𝚒𝚜𝚊𝚋𝚕𝚎 𝚊𝚞𝚝𝚘𝚜𝚝𝚒𝚌𝚔𝚎𝚛)`)
-//await this.sendButton(m.chat, '*[❗𝐈𝐍𝐅𝐎❗] THE VIDEO CANNOT LAST MORE THAN 7 SECONDS*', wm, [['𝙳𝙴𝚂𝙰𝙲𝚃𝙸𝚅𝙰𝚁 𝙰𝚄𝚃𝙾𝚂𝚃𝙸𝙲𝙺𝙴𝚁', '/disable autosticker']], m)
-let img = await q.download()
-if (!img) return
-stiker = await sticker(img, false, packname, author)
-} else if (m.text.split(/\n| /i)[0]) {
-if (isUrl(m.text)) stiker = await sticker(false, m.text.split(/\n| /i)[0], packname, author)
-else return 
-}
-if (stiker) {
-await this.sendFile(m.chat, stiker, null, { asSticker: true })
-}}
-return !0
-}
-export default handler
+  const chat = db.data.chats[m.chat];
+  const user = db.data.users[m.sender];
+
+  if (chat.autosticker && m.isGroup) {
+    const q = m;
+    let stiker = false;
+    const mime = (q.msg || q).mimetype || q.mediaType || '';
+    if (/webp/g.test(mime)) return;
+    if (/image/g.test(mime)) {
+      const img = await q.download?.();
+      if (!img) return;
+      stiker = await sticker(img, false, packname, author);
+    } else if (/video/g.test(mime)) {
+      if (/video/g.test(mime)) if ((q.msg || q).seconds > 8) return; //await m.reply(tradutor.texto1);
+      const img = await q.download();
+      if (!img) return;
+      stiker = await sticker(img, false, packname, author);
+    } else if (m.text.split(/\n| /i)[0]) {
+      if (isUrl(m.text)) stiker = await sticker(false, m.text.split(/\n| /i)[0], packname, author);
+      else return;
+    }
+    if (stiker) {
+      await mconn.conn.sendFile(m.chat, stiker, null, {asSticker: true});
+    }
+  }
+  return !0;
+};
+export default handler;
 
 const isUrl = (text) => {
-return text.match(new RegExp(/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)(jpe?g|gif|png|mp4)/, 'gi'))}
+  return text.match(new RegExp(/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)(jpe?g|gif|png|mp4)/, 'gi'));
+};
