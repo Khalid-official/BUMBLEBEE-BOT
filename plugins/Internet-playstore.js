@@ -6,9 +6,9 @@ let handler = async (m, { conn, text }) => {
   const _translate = JSON.parse(fs.readFileSync(`./src/languages/en.json`))
   const tradutor = _translate.plugins.buscador_playstore
   
-  if (!text) throw `https://github.com/Khalid-official *${tradutor.texto1}*`;
+  if (!text) throw `*${tradutor.texto1}*`;
   let res = await gplay.search({ term: text });
-  if (!res.length) throw `https://github.com/Khalid-official *${tradutor.texto2}*`;
+  if (!res.length) throw `*${tradutor.texto2}*`;
   let opt = {
     contextInfo: {
       externalAdReply: {
