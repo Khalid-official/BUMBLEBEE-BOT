@@ -33,7 +33,9 @@ handler.all = async function (m) {
     const randomFact = bumblebeeFacts[Math.floor(Math.random() * bumblebeeFacts.length)]
 
     // Update bio
-    let bio = `\n𝐂𝐨𝐧𝐬𝐭 𝐎𝐰𝐧𝐞𝐫 = 𝐫𝐞𝐪𝐮𝐢𝐫𝐞 ('./𝐊𝐡𝐚𝐥𝐢𝐝𝐎𝐟𝐜') ${muptime}\n\nBumblebee Fact: ${randomFact}\n\n ┃ᴄᴏᴘʏʀɪɢʜᴛ© 2024`
+    let bio = `\n𝐂𝐨𝐧𝐬𝐭 𝐎𝐰𝐧𝐞𝐫 = 𝐫𝐞𝐪𝐮𝐢𝐫𝐞 ('./𝐊𝐡𝐚𝐥𝐢𝐝𝐎𝐟𝐜') ${muptime}\n\n
+    
+    Bumblebee🐝 Facts💯: ${randomFact}\n\n ┃ᴄᴏᴘʏʀɪɢʜᴛ© 2024`
     await this.updateProfileStatus(bio).catch(_ => _)
     setting.status = new Date() * 1
 }
