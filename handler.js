@@ -610,7 +610,7 @@ export async function handler(chatUpdate) {
       }
       if (chat) {
         if (!('isBanned' in chat)) chat.isBanned = false;
-        if (!('welcome' in chat)) chat.welcome = true;
+        if (!('welcome' in chat)) chat.welcome = false;
         if (!('detect' in chat)) chat.detect = true;
         if (!('detect2' in chat)) chat.detect2 = true;
         if (!('sWelcome' in chat)) chat.sWelcome = '';
@@ -618,7 +618,7 @@ export async function handler(chatUpdate) {
         if (!('sPromote' in chat)) chat.sPromote = '';
         if (!('sDemote' in chat)) chat.sDemote = '';
         if (!('delete' in chat)) chat.antidelete = false;
-        if (!('modohorny' in chat)) chat.modohorny = false;
+        if (!('modohorny' in chat)) chat.modohorny = true;
         if (!('autosticker' in chat)) chat.autosticker = false;
         if (!('audios' in chat)) chat.audios = false;
         if (!('antiLink' in chat)) chat.antiLink = false;
@@ -628,14 +628,14 @@ export async function handler(chatUpdate) {
         if (!('antiTraba' in chat)) chat.antiTraba = true;
         if (!('antiArab' in chat)) chat.antiArab = false;
         if (!('antiArab2' in chat)) chat.antiArab2 = false;
-        if (!('antiporno' in chat)) chat.antiporno = false;
+        if (!('antiporno' in chat)) chat.antiporno = true;
         if (!('modoadmin' in chat)) chat.modoadmin = false;
         if (!('simi' in chat)) chat.simi = false;
         if (!isNumber(chat.expired)) chat.expired = 0;
       } else {
         global.db.data.chats[m.chat] = {
           isBanned: false,
-          welcome: true,
+          welcome: false,
           detect: true,
 	  detect2: true,
           sWelcome: '',
@@ -643,7 +643,7 @@ export async function handler(chatUpdate) {
           sPromote: '',
           sDemote: '',
           antidelete: false,
-          modohorny: false,
+          modohorny: true,
           autosticker: false,
           audios: true,
           antiLink: false,
@@ -653,7 +653,7 @@ export async function handler(chatUpdate) {
           antiTraba: true,
           antiArab: false,
 	  antiArab2: false,
-	  antiporno: false,
+	  antiporno: true,
 	  modoadmin: false,
 	  simi: false,
           expired: 0,
