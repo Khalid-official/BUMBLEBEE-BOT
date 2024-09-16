@@ -1,7 +1,7 @@
 import os from 'os';
 import util from 'util';
 import sizeFormatter from 'human-readable';
-import MessageType from '@whiskeysockets/baileys';
+const {generateWAMessageFromContent, prepareWAMessageMedia, proto} = (await import("baileys")).default;
 import fs from 'fs';
 import {performance} from 'perf_hooks';
 const handler = async (m, {conn, usedPrefix}) => {
@@ -29,7 +29,7 @@ const handler = async (m, {conn, usedPrefix}) => {
   };
   const gmt = new Date(0).getTime() - new Date('1 January 1970').getTime();
   const battery = ['100', '99', '98', '97', '96', '95', '94', '93', '92', '91', '90', '89', '88', '87', '86', '85', '84', '83', '82', '81', '80', '79', '78', '77', '76', '75', '74', '73', '72', '71', '70', '69', '68', '67', '66', '65', '64', '63', '62', '61', '60', '59', '58', '57', '56', '55', '54', '53', '52', '51', '50', '49', '48', '47', '46', '45', '44', '43', '42', '41', '40', '39', '38', '37', '36', '35', '34', '33', '32', '31', '30', '29', '28', '27', '26', '25', '24', '23', '22', '21', '20', '19', '18', '17', '16', '15', '14', '13', '12', '11', '10', '9', '8', '7', '6', '5', '4', '3', '2', '1'][Math.floor(((d * 1) + gmt) / 8460) % 100];
-  const info = `https://github.com/Khalid-official 
+  const info = `
 ╭═══〘✯✯✯✯✯✯✯✯✯〙══╮
 ║    ◉— *🚀𝐏𝐈𝐍𝐆🐝𝐁𝐎𝐓🚀* —◉
 ║≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡║
@@ -40,14 +40,17 @@ const handler = async (m, {conn, usedPrefix}) => {
 
 
 `.trim();
-async function loading() {
-  var hawemod = [
-  "《 ▒▒▒▒▒▒▒▒▒▒▒🐝██》10%",
-  "《 ▒▒▒▒▒🐝🐝████》30%",
-  "《 ▒▒▒🐝🐝███████》50%",
-  "《 ▒🐝🐝██████████》80%",
-  "《 🐝🐝████████████》100%"
-  ]   
+async function loading () {
+var hawemod = [
+`🕛 Loading...
+▰▱▱▱▱▱▱▱`,
+`🕒 _Loading..._
+▰▰▰▱▱▱▱▱`,
+`🕧 Loading...,
+▰▰▰▰▰▰▱▱`,
+`🕛 Loading...
+▰▰▰▰▰▰▰▰`,
+]  
         let { key } = await conn.sendMessage(m.chat, {text: `https://github.com/Khalid-official *[❗𝐈𝐍𝐅𝐎❗] ☠BUMBLE🐝 BEE LOADING☠*`}, {quoted: m})
    for (let i = 0; i < hawemod.length; i++) {
      await new Promise(resolve => setTimeout(resolve, 300)); 
