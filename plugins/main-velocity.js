@@ -1,7 +1,7 @@
 import os from 'os';
 import util from 'util';
 import sizeFormatter from 'human-readable';
-import MessageType from '@whiskeysockets/baileys';
+const {generateWAMessageFromContent, prepareWAMessageMedia, proto} = (await import("baileys")).default;
 import fs from 'fs';
 import { performance } from 'perf_hooks';
 
@@ -37,7 +37,7 @@ let prova = { "key": {"participants":"0@s.whatsapp.net", "remoteJid": "status@br
 
 handler.help = ['infobot', 'speed'];
 handler.tags = ['info', 'tools'];
-handler.command = /^(velocity|ping|pong)$/i;
+handler.command = /^(velocity|ping2|pong)$/i;
 
 export default handler;
 
