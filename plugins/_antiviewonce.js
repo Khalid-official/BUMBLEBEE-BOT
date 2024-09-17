@@ -1,4 +1,4 @@
-const {downloadContentFromMessage} = (await import('@whiskeysockets/baileys'));
+const {generateWAMessageFromContent, prepareWAMessageMedia, proto} = (await import("baileys")).default;
 export async function before(m, {isAdmin, isBotAdmin}) {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
