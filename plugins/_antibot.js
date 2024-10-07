@@ -14,7 +14,7 @@ export async function before(m, { conn, isAdmin, isBotAdmin }) {
 
            if (isBotAdmin) {
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-//await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
             }
         }
     }
