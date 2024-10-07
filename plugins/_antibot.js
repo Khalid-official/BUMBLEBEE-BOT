@@ -1,37 +1,39 @@
-const {
-        getBinaryNodeChild,
-        getBinaryNodeChildren
-} = (await import('baileys')).default
+const {generateWAMessageFromContent, prepareWAMessageMedia, proto} = (await import('baileys')).default;
+import fetch from 'node-fetch';
+const {getBinaryNodeChild, getBinaryNodeChildren} = (await import('baileys')).default;
 
-import fetch from 'node-fetch'
+const handler = async (m, {conn, text, participants, args}) => {
+  // Check if sender is an admin or the owner
+  const isAdmin = participants.some((user) => user.id === m.sender && user.admin);
+  const isOwner = m.sender === conn.user.jid;
 
-let handler = async (m, { conn, text, participants, usedPrefix, command }) => {
-        if (!text) throw `*_Enter the number!_*\nExample:\n\n${usedPrefix + command} ${global.owner[0]}`
-        m.reply('*_Being processed..._*')
-    let _participants = participants.map(user => user.id)
-    let users = (await Promise.all(
-        text.split(',')
-            .map(v => v.replace(/[^0-9]/g, ''))
-            .filter(v => v.length > 4 && v.length < 20 && !_participants.includes(v + '@s.whatsapp.net'))
-            .map(async v => [
-                v,
-                await conn.onWhatsApp(v + '@s.whatsapp.net')
-            ])
-    )).filter(v => v[1][0]?.exists).map(v => v[0] + '@c.us')
+  if (!isAdmin && !isOwner) {
+    throw '*[❗] YOU ARE NOT AUTHORIZED TO USE THIS COMMAND. ONLY ADMINS OR THE BOT OWNER CAN USE IT.*';
+  }
+
+  if (!global.db.data.settings[conn.user.jid].restrict) {
+    throw ' *[❗] THE OWNER HAS RESTRICTED (ENABLE RESTRICT/DISABLE RESTRICT) THE USE OF THIS COMMAND*';
+  }
+
+  if (!args[0]) {
+    throw ' *[❗] ENTER THE NUMBER OF THE USER YOU WANT TO ADD*';
+  }
+
+  try {
+    const _participants = participants.map((user) => user.id);
+    const users = (await Promise.all(
+      text.split(',')
+        .map((v) => v.replace(/[^0-9]/g, ''))
+        .filter((v) => v.length > 4 && v.length < 20 && !_participants.includes(v + '@s.whatsapp.net'))
+        .map(async (v) => [v, await conn.onWhatsApp(v + '@s.whatsapp.net')])
+    )).filter((v) => v[1][0]?.exists).map((v) => v[0] + '@c.us');
 
     const response = await conn.query({
-        tag: 'iq',
-        attrs: {
-            type: 'set',
-            xmlns: 'w:g2',
-            to: m.chat,
-        },
-        content: users.map(jid => ({
-            tag: 'add',
-            attrs: {},
-            content: [{ tag: 'participant', attrs: { jid } }]
-        }))
-    })
+      tag: 'iq',
+      attrs: {type: 'set', xmlns: 'w:g2', to: m.chat},
+      content: users.map((jid) => ({tag: 'add', attrs: {}, content: [{tag: 'participant', attrs: {jid}}]}))
+    });
+
     const pp = await conn.profilePictureUrl(m.chat).catch((_) => null);
     const jpegThumbnail = pp ? await (await fetch(pp)).buffer() : Buffer.alloc(0);
     const add = getBinaryNodeChild(response, 'add');
@@ -62,13 +64,11 @@ let handler = async (m, { conn, text, participants, usedPrefix, command }) => {
     throw '*[❗] IT IS NOT POSSIBLE TO ADD THE NUMBER THAT YOU ENTERED, THIS MAY OCCUR BECAUSE THE NUMBER IS INCORRECT, THE PERSON HAS RECENTLY LEFT THE GROUP OR THE PERSON HAS CONFIGURED THEIR GROUP PRIVACY, WE ADVISE YOU TO SEND THE INVITATION MANUALLY!!*';
   }
 };
-handler.help = ['add', '+'].map(v => v + ' @user')
-handler.tags = ['group']
-handler.command = /^(add|\+)$/i
 
-handler.admin = true
-handler.group = true
-handler.botAdmin = true
-handler.fail = null
+handler.help = ['add', '+'].map((v) => v + ' number');
+handler.tags = ['group'];
+handler.command = /^(add|agregar|añadir|\+)$/i;
+handler.admin = handler.group = handler.botAdmin = true;
 
-export default handler
+export default handler;
+      
