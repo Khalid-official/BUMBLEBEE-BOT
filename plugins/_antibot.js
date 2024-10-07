@@ -10,11 +10,11 @@ export async function before(m, { conn, isAdmin, isBotAdmin }) {
         let chat = global.db.data.chats[m.chat];
 
         if (chat.antiBot) {
-           await conn.reply(m.chat, "*[❗𝐈𝐍𝐅𝐎❗] heads up!!*\n*Ops! antibot activated🚫*", null, );
+           await conn.reply(m.chat, "*[❗𝐈𝐍𝐅𝐎❗] heads up!! antibot activated🚫*", null, );
 
-            if (isBotAdmin) {
+           if (isBotAdmin) {
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+//await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
             }
         }
     }
