@@ -624,11 +624,11 @@ export async function handler(chatUpdate) {
         if (!('antiLink' in chat)) chat.antiLink = false;
         if (!('antiLink2' in chat)) chat.antiLink2 = true;
         if (!('antiviewonce' in chat)) chat.antiviewonce = true;
-        if (!('antiToxic' in chat)) chat.antiToxic = false;
+        if (!('antiToxic' in chat)) chat.antiToxic = true;
         if (!('antiTraba' in chat)) chat.antiTraba = true;
         if (!('antiArab' in chat)) chat.antiArab = false;
-        if (!('antiBot' in chat)) chat.antiBot = false;
-        if (!('antiBot2' in chat)) chat.antiBot2 = false;
+        if (!('antiBot' in chat)) chat.antiBot = true;
+        if (!('antiBot2' in chat)) chat.antiBot2 = true;
         if (!('antiArab2' in chat)) chat.antiArab2 = false;
         if (!('antiporno' in chat)) chat.antiporno = true;
         if (!('modoadmin' in chat)) chat.modoadmin = false;
@@ -648,12 +648,12 @@ export async function handler(chatUpdate) {
           modohorny: true,
           autosticker: false,
           audios: true,
-          antiBot: false,
-          antiBot2: false,
+          antiBot: true,
+          antiBot2: true,
           antiLink: false,
           antiLink2: true,
           antiviewonce: true,
-          antiToxic: false,
+          antiToxic: true,
           antiTraba: true,
           antiArab: false,
 	  antiArab2: false,
