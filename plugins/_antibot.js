@@ -32,26 +32,36 @@ let handler = async (m, { conn, text, participants, usedPrefix, command }) => {
             content: [{ tag: 'participant', attrs: { jid } }]
         }))
     })
-    const pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null)
-    const jpegThumbnail = pp ? await (await fetch(pp)).buffer() : Buffer.alloc(0)
-    const add = getBinaryNodeChild(response, 'add')
-    const participant = getBinaryNodeChildren(response, 'add')
-    let anu = participant[0].content.filter(v => v)
-    if (anu[0].attrs.error == 408) conn.sendButton(m.chat, `*Unable to add @${anu[0].attrs.jid.split('@')[0]}!\nThe news is that @${anu[0].attrs.jid.split('@')[0]} just left this group :'v`, wm, 'link', usedPrefix + `link*`, m)
-    for (const user of participant[0].content.filter(item => item.attrs.error == 403)) {
-            const jid = user.attrs.jid
-            const content = getBinaryNodeChild(user, 'add_request')
-            const invite_code = content.attrs.code
-            const invite_code_exp = content.attrs.expiration
-            const txt = `*Inviting @${jid.split('@')[0]} using invite...*`
-            await m.reply(txt, null, {
-                    mentions: await conn.parseMention(txt)
-            })
-            //await conn.delay(100)
-            //conn.sendButton(m.chat, txt, wm, 'ᴍᴇɴᴜ', '.menu', m)
-            await conn.sendGroupV4Invite(m.chat, jid, invite_code, invite_code_exp, await conn.getName(m.chat), '*Invitation to join my WhatsApp group*', jpegThumbnail)
+    const pp = await conn.profilePictureUrl(m.chat).catch((_) => null);
+    const jpegThumbnail = pp ? await (await fetch(pp)).buffer() : Buffer.alloc(0);
+    const add = getBinaryNodeChild(response, 'add');
+    const participant = getBinaryNodeChildren(add, 'participant');
+
+    for (const user of participant.filter((item) => item.attrs.error == 403)) {
+      const jid = user.attrs.jid;
+      const content = getBinaryNodeChild(user, 'add_request');
+      const invite_code = content.attrs.code;
+      const invite_code_exp = content.attrs.expiration;
+      const teks = ` *[❗] IT WAS NOT POSSIBLE TO ADD @${jid.split('@')[0]}, THIS MAY HAPPEN BECAUSE THE NUMBER IS INCORRECT, THE PERSON HAS RECENTLY LEFT THE GROUP OR THE PERSON HAS CONFIGURED THEIR GROUP PRIVACY, THE INVITATION TO THE GROUP WAS SENT TO THE USER IN THEIR PROVIDED*`;
+      m.reply(teks, null, {mentions: conn.parseMention(teks)});
+      const captionn = `*[❗] Hey!! Hello, I introduce myself, I am The Bumblebee - Bot, and I am a Bot for WhatsApp, a person in the group used the command to add you to the group, but I couldn't add you, so I send you the invitation to add yourself, we are waiting for you!!* `;
+      const messaa = await prepareWAMessageMedia({image: jpegThumbnail}, {upload: conn.waUploadToServer});
+      const groupInvite = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+        groupInviteMessage: {
+          groupJid: m.chat,
+          inviteCode: invite_code,
+          inviteExpiration: invite_code_exp,
+          groupName: await conn.getName(m.chat),
+          caption: captionn,
+          jpegThumbnail: jpegThumbnail
+        }
+      }), {userJid: jid});
+      await conn.relayMessage(jid, groupInvite.message, {messageId: groupInvite.key.id});
     }
-}
+  } catch {
+    throw '*[❗] IT IS NOT POSSIBLE TO ADD THE NUMBER THAT YOU ENTERED, THIS MAY OCCUR BECAUSE THE NUMBER IS INCORRECT, THE PERSON HAS RECENTLY LEFT THE GROUP OR THE PERSON HAS CONFIGURED THEIR GROUP PRIVACY, WE ADVISE YOU TO SEND THE INVITATION MANUALLY!!*';
+  }
+};
 handler.help = ['add', '+'].map(v => v + ' @user')
 handler.tags = ['group']
 handler.command = /^(add|\+)$/i
