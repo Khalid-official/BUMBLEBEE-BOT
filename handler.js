@@ -624,7 +624,7 @@ export async function handler(chatUpdate) {
         if (!('antiLink' in chat)) chat.antiLink = false;
         if (!('antiLink2' in chat)) chat.antiLink2 = true;
         if (!('antiviewonce' in chat)) chat.antiviewonce = true;
-        if (!('antiToxic' in chat)) chat.antiToxic = true;
+        if (!('antiToxic' in chat)) chat.antiToxic = false;
         if (!('antiTraba' in chat)) chat.antiTraba = true;
         if (!('antiArab' in chat)) chat.antiArab = false;
         if (!('antiBot' in chat)) chat.antiBot = true;
@@ -653,7 +653,7 @@ export async function handler(chatUpdate) {
           antiLink: false,
           antiLink2: true,
           antiviewonce: true,
-          antiToxic: true,
+          antiToxic: false,
           antiTraba: true,
           antiArab: false,
 	  antiArab2: false,
