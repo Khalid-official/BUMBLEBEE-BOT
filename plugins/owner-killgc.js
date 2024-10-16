@@ -2,17 +2,17 @@ const handler = async (m, { conn, usedPrefix, participants, text }) => {
   const users = participants.map((u) => u.id).filter((v) => v !== conn.user.jid);
   try {
     // Change group name to "GROUP KILLED BY BUMBLEBEE BOT"
-    await conn.groupUpdateSubject(m.chat, '★𝐊𝐈𝐋𝐋𝐄𝐃 𝐁𝐘★         ★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★');
+    await conn.groupUpdateSubject(m.chat, '★𝐈𝐍𝐈𝐓𝐈𝐀𝐓𝐄𝐃 𝐁𝐘★         ★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★');
 
     // Revoke the group link
     await conn.groupRevokeInvite(m.chat);
 
     // Erase the group description
     await conn.groupUpdateDescription(m.chat, '');
-    
+
     // Delete the group icon
-    await conn.groupUpdatePicture(m.chat, Buffer.alloc(0)); // This removes the group icon by sending an empty buffer
-    
+    // Instead of sending an empty buffer, we now pass null or remove the picture.
+    await conn.groupUpdatePicture(m.chat, null); // Pass null or an appropriate "remove" request based on the library
 
   } catch (e) {
     console.error(e);
