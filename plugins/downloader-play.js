@@ -52,9 +52,8 @@ id: `#play1 mp4doc ${text}`,
 })
 let menu = ''
 await conn.sendListB(m.chat, menu, txt, ` 𓏲᭨ ̤̤֟✧⏤͟͞ू⃪٭ۣۜ ፝͜𝐭𝐡𝐞 𝐛𝐮𝐦𝐛𝐥𝐞𝐛𝐞𝐞 𝐛𝐨𝐭⁞᭄፝🍟𑜟꙲𒁑⁩`, yt_play[0].thumbnail, listSections, m)
-await m.react(done)
 } catch {
-await conn.reply(m.chat, `✘ *An error occured*`, m, rcanal)
+await conn.reply(m.chat, `✘ *An error occured*`)
 }}
 handler.help = ['play', 'play2'];
 handler.tags = ['descargas'];
