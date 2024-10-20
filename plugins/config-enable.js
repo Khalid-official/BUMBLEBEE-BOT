@@ -58,6 +58,15 @@ const handler = async (m, {conn, usedPrefix, command, args, isOwner, isAdmin, is
 
 --------------------------------
 
+--------------------------------
+
+*Option:* 🚀 | ANTIBOT
+*Command:* ${usedPrefix + command} autoread
+*Description:* Automatically detects bots inside a group and outside Private chats and automatically kicks/blocks them
+*Note:* This command can only be used by Bot owners only.
+
+--------------------------------
+
 *Option:* 🔊 | SOUNDS
 *Command:* ${usedPrefix + command} audios
 *Description:* Activates or deactivates the audio commands without prefixes, in the group.
@@ -365,6 +374,14 @@ const handler = async (m, {conn, usedPrefix, command, args, isOwner, isAdmin, is
         throw false;
       }
       bot.antiCall = isEnable;
+      break;
+      case 'antibot':
+      isAll = true;
+      if (!isROwner) {
+        global.dfail('rowner', m, conn);
+        throw false;
+      }
+      bot.antiBot = isEnable;
       break;
     case 'antiprivate':
       isAll = true;
