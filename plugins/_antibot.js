@@ -1,21 +1,29 @@
 export async function before(m, { conn, isAdmin, isBotAdmin }) {
-    if (!m.isGroup) return;
     let chat = global.db.data.chats[m.chat]
     let delet = m.key.participant
     let bang = m.key.id
     let bot = global.db.data.settings[this.user.jid] || {}
+
+    // If message is from the bot itself, ignore
     if (m.fromMe) return true;
 
-    if (m.id.startsWith('3EB0') && m.id.length === 22) {
-        let chat = global.db.data.chats[m.chat];
+    // Check for bot message IDs in both group and private chats
+    if ((m.id.startsWith('3EB0') || m.id.startsWith('BAE5')) && m.id.length === 22) {
 
-        if (chat.antiBot) {
-         //   await conn.reply(m.chat, "     ͞ ͟͞ ͟𝗔𝗜-𝗬𝗮𝗲𝗺𝗼𝗿𝗶🌸͟ ͟͞ ͞   \n╚▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬▭╝\n\n𝑆𝑜𝑦 𝑨𝒊-𝒀𝒂𝒆𝒎𝒐𝒓𝒊-𝑴𝑫 𝑙𝑎 𝑚𝑒𝑗𝑜𝑟 𝑏𝑜𝑡 𝑑𝑒 𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑!!\n𝐸𝑠𝑡𝑒 𝑔𝑟𝑢𝑝𝑜 𝑛𝑜 𝑡𝑒 𝑛𝑒𝑐𝑒𝑠𝑖𝑡𝑎, 𝑎𝑑𝑖𝑜𝑠𝑖𝑡𝑜 𝑏𝑜𝑡 𝑑𝑒 𝑠𝑒𝑔𝑢𝑛𝑑𝑎.", null, rcanal);
-
-            if (isBotAdmin) {
-await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+        // If in a group chat
+        if (m.isGroup) {
+            let chat = global.db.data.chats[m.chat];
+            if (chat.antiBot && isBotAdmin) {
+                // Delete bot message and remove the bot from the group
+                await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
+                await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
             }
+        } 
+        // If in a private chat
+        else {
+            // Delete bot message and block the bot
+            await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
+            await conn.updateBlockStatus(m.chat, 'block')
         }
     }
 }
