@@ -3,7 +3,7 @@ import yts from "yt-search";
 
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 
-if (!text) return conn.reply(m.chat, `🚩 *Enter a song name or a YouTube link*\n\nExample, !${command} *Alone ft Alan walker*`,  m, rcanal, )
+if (!text) return conn.reply(m.chat, `🚩 *Enter a song name or a YouTube link*\n\nExample, !${command} *Alone ft Alan walker*`)
 
 conn.reply(m.chat, global.wait, m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
