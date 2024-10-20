@@ -5,14 +5,6 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 
 if (!text) return conn.reply(m.chat, `🚩 *Enter a song name or a YouTube link*\n\nExample, !${command} *Alone ft Alan walker*`)
 
-conn.reply(m.chat, global.wait, m, {
-contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
-title: packname,
-body: dev,
-previewType: 0, thumbnail: icons,
-sourceUrl: channel }}})
-
-try { 
 const yt_play = await search(args.join(' '))
 let txt = `*乂  Y O U T U B E  -  P L A Y  乂*\n\n`
     txt += `🚩 *Title:*\n${yt_play[0].title}\n\n`
