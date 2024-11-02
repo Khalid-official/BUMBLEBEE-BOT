@@ -55,7 +55,7 @@ let str = `╭─═[ *🐝INFO USER🐝* ]═─⋆
 ╰─────═┅═──────────
 ${readMore}
 ⃝▣─「*🐝OWNERS-MESSAGE🐝*」─⬣
-│*Hello 👋 user🤗, thiw is the official bumblebee bot${usedPrefix} The bot base is created from the transformers movies*
+│*Hello 👋 user🤗, thiw is the official bumblebee bot. The bot base is created from the transformers movies*
 ▣────────⬣
 
 ┠─═[ *🐝QUICK TEST🐝*]═─⋆
