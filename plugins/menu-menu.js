@@ -23,8 +23,8 @@ let str = `╭─═[ *🐝INFO USER🐝* ]═─⋆
 │╭─────────────···
 ┴│☂︎ *👋Hello🤗* ${taguser}
 ⬡│☂︎ *Bot🚀Owner:* Khalid-official 
-⬡│☂︎ wa${usedPrefix}me/254736958034
-⬡│☂︎ *🎟️ Premium:* ${user${usedPrefix}premiumTime > 0 ? '✅' : (isPrems ? '✅' : '❌') || ''} ''}
+⬡│☂︎ wa.me/254736958034
+⬡│☂︎ *🎟️ Premium:* ${user.premiumTime > 0 ? '✅' : (isPrems ? '✅' : '❌') || ''} ''}
 ┬╰──────────────···
 ┠─═[ *🐝TODAY🐝* ]═─⋆
 │╭──────────────···
@@ -50,7 +50,7 @@ let str = `╭─═[ *🐝INFO USER🐝* ]═─⋆
 ⬡│☂︎ *💎 Diamonds:* ${limit}
 ⬡│☂︎ *👾 BumbleCoins:* ${money}
 ⬡│☂︎ *🪙 Tokens:* ${joincount}
-┬│☂︎ *🎟️ Premium:* ${user${usedPrefix}premiumTime > 0 ? '✅' : (isPrems ? '✅' : '❌') || ''} ''}
+┬│☂︎ *🎟️ Premium:* ${user.premiumTime > 0 ? '✅' : (isPrems ? '✅' : '❌') || ''} ''}
 │╰──────────────···
 ╰─────═┅═──────────
 ${readMore}
@@ -60,410 +60,410 @@ ${readMore}
 
 ┠─═[ *🐝QUICK TEST🐝*]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}alive*
-⬡│☂︎ *${usedPrefix}bot*
-⬡│☂︎ *${usedPrefix}runtime*
-⬡│☂︎ *${usedPrefix}ping*
-⬡│☂︎ *${usedPrefix}infobot*
-⬡│☂︎ *${usedPrefix}sc/script*
-⬡│☂︎ *${usedPrefix}speedtest*
-⬡│☂︎ *${usedPrefix}tyc/terms*
-┬│☂︎ *${usedPrefix}statserver*
+┴│☂︎ *.alive*
+⬡│☂︎ *.bot*
+⬡│☂︎ *.runtime*
+⬡│☂︎ *.ping*
+⬡│☂︎ *.infobot*
+⬡│☂︎ *.sc/script*
+⬡│☂︎ *.speedtest*
+⬡│☂︎ *.tyc/terms*
+┬│☂︎ *.statserver*
 │╰─────────────···
 ╰───────═┅═────────
 
 ┠─═[ *🐝AI SEARCH🐝*]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}ai chatpgpt*
-⬡│☂︎ *${usedPrefix}bee*
-⬡│☂︎ *${usedPrefix}alexa*
-┬│☂︎ *${usedPrefix}gpt*
+┴│☂︎ *.ai chatpgpt*
+⬡│☂︎ *.bee*
+⬡│☂︎ *.alexa*
+┬│☂︎ *.gpt*
 │╰─────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝 MENU 🐝*]═─⋆
 │╭──────────────···
-┴│☂︎ *${usedPrefix}listcmd*
-⬡│☂︎ *${usedPrefix}nsfw*
-⬡│☂︎ *${usedPrefix}audios*
-┬│☂︎ *${usedPrefix}animes*
+┴│☂︎ *.listcmd*
+⬡│☂︎ *.nsfw*
+⬡│☂︎ *.audios*
+┬│☂︎ *.animes*
 │╰──────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝MIPILOT-MENU🐝* ]═─⋆
 │╭──────────────···
-┴│☂︎ *${usedPrefix}deletebot* 
-⬡│☂︎ *${usedPrefix}serbot*
-⬡│☂︎ *${usedPrefix}serbotbroadcast*
-⬡│☂︎ *${usedPrefix}serbotcode*
-⬡│☂︎ *${usedPrefix}serbotinfo*
-┬│☂︎ *${usedPrefix}stopbot*
+┴│☂︎ *.deletebot* 
+⬡│☂︎ *.serbot*
+⬡│☂︎ *.serbotbroadcast*
+⬡│☂︎ *.serbotcode*
+⬡│☂︎ *.serbotinfo*
+┬│☂︎ *.stopbot*
 │╰──────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝CONVERTER-MENU🐝* ]═─⋆
 │╭──────────────···
-┴│☂︎ *${usedPrefix}toanime*
-⬡│☂︎ *${usedPrefix}tts*
-⬡│☂︎ *${usedPrefix}tts2*
-⬡│☂︎ *${usedPrefix}tovideo/tovid*
-⬡│☂︎ *${usedPrefix}tourl*
-⬡│☂︎ *${usedPrefix}tomp3*
-⬡│☂︎ *${usedPrefix}toimg*
-┬│☂︎ *${usedPrefix}togif*
+┴│☂︎ *.toanime*
+⬡│☂︎ *.tts*
+⬡│☂︎ *.tts2*
+⬡│☂︎ *.tovideo/tovid*
+⬡│☂︎ *.tourl*
+⬡│☂︎ *.tomp3*
+⬡│☂︎ *.toimg*
+┬│☂︎ *.togif*
 │╰──────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝ENABLE-DISABLE🐝* ]═─⋆
 │╭──────────────···
-┴│☂︎ *${usedPrefix}enable/disable welcome*
-⬡│☂︎ *${usedPrefix}enable/disable hornymode*
-⬡│☂︎ *${usedPrefix}enable/disable antilink*
-⬡│☂︎ *${usedPrefix}enable/disable antilink2*
-⬡│☂︎ *${usedPrefix}enable/disable detect*
-⬡│☂︎ *${usedPrefix}enable/disable detect2*
-⬡│☂︎ *${usedPrefix}enable/disable audios*
-⬡│☂︎ *${usedPrefix}enable/disable autosticker*
-⬡│☂︎ *${usedPrefix}enable/disable antibot*
-⬡│☂︎ *${usedPrefix}enable/disable antiviewonce*
-⬡│☂︎ *${usedPrefix}enable/disable antitoxic*
-⬡│☂︎ *${usedPrefix}enable/disable antiarabes*
-┬│☂︎ *${usedPrefix}enable/disable adminmode*
+┴│☂︎ *.enable/disable welcome*
+⬡│☂︎ *.enable/disable hornymode*
+⬡│☂︎ *.enable/disable antilink*
+⬡│☂︎ *.enable/disable antilink2*
+⬡│☂︎ *.enable/disable detect*
+⬡│☂︎ *.enable/disable detect2*
+⬡│☂︎ *.enable/disable audios*
+⬡│☂︎ *.enable/disable autosticker*
+⬡│☂︎ *.enable/disable antibot*
+⬡│☂︎ *.enable/disable antiviewonce*
+⬡│☂︎ *.enable/disable antitoxic*
+⬡│☂︎ *.enable/disable antiarabes*
+┬│☂︎ *.enable/disable adminmode*
 │╰──────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝DOWNLOADER-MENU🐝* ]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}apk*
-⬡│☂︎ *${usedPrefix}download (yt link)*
-⬡│☂︎ *${usedPrefix}facbook (link)*
-⬡│☂︎ *${usedPrefix}gdrive*
-⬡│☂︎ *${usedPrefix}gitclone*
-⬡│☂︎ *${usedPrefix}igstalk*
-⬡│☂︎ *${usedPrefix}igstory*
-⬡│☂︎ *${usedPrefix}gimage*
-⬡│☂︎ *${usedPrefix}mediafire*
-⬡│☂︎ *${usedPrefix}Pinterest*
-⬡│☂︎ *${usedPrefix}play*
-⬡│☂︎ *${usedPrefix}playdoc*
-⬡│☂︎ *${usedPrefix}pptiktok*
-⬡│☂︎ *${usedPrefix}ringtone*
-⬡│☂︎ *${usedPrefix}stickerpack*
-⬡│☂ *${usedPrefix}tiktok*
-︎⬡│☂︎ *${usedPrefix}twitter*
-⬡│☂︎ *${usedPrefix}ytmeta*
-┬│☂︎ *${usedPrefix}ytv*
+┴│☂︎ *.apk*
+⬡│☂︎ *.download (yt link)*
+⬡│☂︎ *.facbook (link)*
+⬡│☂︎ *.gdrive*
+⬡│☂︎ *.gitclone*
+⬡│☂︎ *.igstalk*
+⬡│☂︎ *.igstory*
+⬡│☂︎ *.gimage*
+⬡│☂︎ *.mediafire*
+⬡│☂︎ *.Pinterest*
+⬡│☂︎ *.play*
+⬡│☂︎ *.playdoc*
+⬡│☂︎ *.pptiktok*
+⬡│☂︎ *.ringtone*
+⬡│☂︎ *.stickerpack*
+⬡│☂ *.tiktok*
+︎⬡│☂︎ *.twitter*
+⬡│☂︎ *.ytmeta*
+┬│☂︎ *.ytv*
 │╰─────────────···
 ╰────────═┅═────────
 
 ┠─═[ *🐝FUN-MENU🐝* ]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}character*
-⬡│☂︎ *${usedPrefix}dare*
-⬡│☂︎ *${usedPrefix}gay*
-⬡│☂︎ *${usedPrefix}hate*
-⬡│☂︎ *${usedPrefix}love*
-⬡│☂︎ *${usedPrefix}marry*
-⬡│☂︎ *${usedPrefix}personality*
-⬡│☂︎ *${usedPrefix}pickupline*
-⬡│☂︎ *${usedPrefix}propose*
-⬡│☂︎ ${usedPrefix}*question*
-⬡│☂︎ *${usedPrefix}reto*
-⬡│☂︎ *${usedPrefix}simi*
+┴│☂︎ *.character*
+⬡│☂︎ *.dare*
+⬡│☂︎ *.gay*
+⬡│☂︎ *.hate*
+⬡│☂︎ *.love*
+⬡│☂︎ *.marry*
+⬡│☂︎ *.personality*
+⬡│☂︎ *.pickupline*
+⬡│☂︎ *.propose*
+⬡│☂︎ .*question*
+⬡│☂︎ *.reto*
+⬡│☂︎ *.simi*
 ⬡│☂︎ *top*
-⬡│☂︎ *${usedPrefix}tops*
-⬡│☂︎ *${usedPrefix}truth*
-⬡│☂ *${usedPrefix}waste*
-┬│☂︎ *${usedPrefix}zodiac*
+⬡│☂︎ *.tops*
+⬡│☂︎ *.truth*
+⬡│☂ *.waste*
+┬│☂︎ *.zodiac*
 │╰──────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🎮GAME-MENU🐝* ]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}ttt*
+┴│☂︎ *.ttt*
 ⬡│☂︎ *bible*
-⬡│☂︎ *${usedPrefix}guessflag*
-⬡│☂︎ *${usedPrefix}maths*
-⬡│☂︎ *${usedPrefix}pista*
-⬡│☂︎ *${usedPrefix}riddle*
-⬡│☂︎ *${usedPrefix}slot*
-⬡│☂︎ *${usedPrefix}suitpvp*
-⬡│☂︎ *${usedPrefix}wordfind* 
-┬│☂︎ *${usedPrefix}tryluck*
+⬡│☂︎ *.guessflag*
+⬡│☂︎ *.maths*
+⬡│☂︎ *.pista*
+⬡│☂︎ *.riddle*
+⬡│☂︎ *.slot*
+⬡│☂︎ *.suitpvp*
+⬡│☂︎ *.wordfind* 
+┬│☂︎ *.tryluck*
 │╰────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝GROUP-MENU🐝* ]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}active*
-⬡│☂︎ *${usedPrefix}add*
-⬡│☂︎ *${usedPrefix}admins/staff*
-⬡│☂︎ *${usedPrefix}dp*
-⬡│☂︎ *${usedPrefix}classification*
-⬡│☂︎ *${usedPrefix}configtime*
-⬡│☂︎ *${usedPrefix}dashboard*
-⬡│☂︎ *${usedPrefix}delete*
-⬡│☂︎ *${usedPrefix}edit*
-⬡│☂︎ *${usedPrefix}inactive*
-⬡│☂︎ *${usedPrefix}info*
-⬡│☂︎ *${usedPrefix}infogroup*
-⬡│☂︎ *${usedPrefix}kick*
-⬡│☂︎ *${usedPrefix}link*
-⬡│☂︎ *${usedPrefix}listnum/kicknum*
-⬡│☂ *${usedPrefix}warn*
-︎⬡│☂︎ *${usedPrefix}listonline*
-⬡│☂︎ *${usedPrefix}poll*
-⬡│☂︎ *${usedPrefix}promote*
-⬡│☂︎ *${usedPrefix}revoke*
-⬡│☂︎ *${usedPrefix}setbye*
-⬡│☂︎ *${usedPrefix}setname*
-⬡│☂︎ *${usedPrefix}setppgroup*
-⬡│☂︎ *${usedPrefix}setwelcome*
-⬡│☂︎ *${usedPrefix}setwelcome*
-⬡│☂︎ *${usedPrefix}tagall*
-⬡│☂︎ *${usedPrefix}unwarn*
-⬡│☂︎ *${usedPrefix}warn*
+┴│☂︎ *.active*
+⬡│☂︎ *.add*
+⬡│☂︎ *.admins/staff*
+⬡│☂︎ *.dp*
+⬡│☂︎ *.classification*
+⬡│☂︎ *.configtime*
+⬡│☂︎ *.dashboard*
+⬡│☂︎ *.delete*
+⬡│☂︎ *.edit*
+⬡│☂︎ *.inactive*
+⬡│☂︎ *.info*
+⬡│☂︎ *.infogroup*
+⬡│☂︎ *.kick*
+⬡│☂︎ *.link*
+⬡│☂︎ *.listnum/kicknum*
+⬡│☂ *.warn*
+︎⬡│☂︎ *.listonline*
+⬡│☂︎ *.poll*
+⬡│☂︎ *.promote*
+⬡│☂︎ *.revoke*
+⬡│☂︎ *.setbye*
+⬡│☂︎ *.setname*
+⬡│☂︎ *.setppgroup*
+⬡│☂︎ *.setwelcome*
+⬡│☂︎ *.setwelcome*
+⬡│☂︎ *.tagall*
+⬡│☂︎ *.unwarn*
+⬡│☂︎ *.warn*
 ⬡│☂︎ *invite*
-┬│☂︎ *${usedPrefix}totag*
+┬│☂︎ *.totag*
 │╰─────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝INFO-MENU🐝* ]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}clear*
-⬡│☂︎ *${usedPrefix}creator*
-⬡│☂︎ *${usedPrefix}database*
-⬡│☂︎ *${usedPrefix}groupmenu*
-⬡│☂︎ *${usedPrefix}groupofc*
-┬│☂︎ *${usedPrefix}listprem*
+┴│☂︎ *.clear*
+⬡│☂︎ *.creator*
+⬡│☂︎ *.database*
+⬡│☂︎ *.groupmenu*
+⬡│☂︎ *.groupofc*
+┬│☂︎ *.listprem*
 │╰─────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝INTERNET-MENU🐝* ]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}animeinfo*
-⬡│☂︎ *${usedPrefix}gimage*
-⬡│☂︎ *${usedPrefix}githubsearch*
-⬡│☂︎ *${usedPrefix}google*
-⬡│☂︎ *${usedPrefix}itunes*
-⬡│☂︎ *${usedPrefix}lyrics*
-⬡│☂︎ *${usedPrefix}movie*
-⬡│☂︎ *${usedPrefix}playstore*
-⬡│☂︎ *${usedPrefix}stickersearch*
-⬡│☂︎ *${usedPrefix}Wikipedia*
-┬│☂︎ *${usedPrefix}yts*
+┴│☂︎ *.animeinfo*
+⬡│☂︎ *.gimage*
+⬡│☂︎ *.githubsearch*
+⬡│☂︎ *.google*
+⬡│☂︎ *.itunes*
+⬡│☂︎ *.lyrics*
+⬡│☂︎ *.movie*
+⬡│☂︎ *.playstore*
+⬡│☂︎ *.stickersearch*
+⬡│☂︎ *.Wikipedia*
+┬│☂︎ *.yts*
 │╰─────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝MAKER-OWNER🐝* ]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}blur*
-⬡│☂︎ *${usedPrefix}cartoon/tocartoon*
-⬡│☂︎ *${usedPrefix}gay*
-⬡│☂︎ *${usedPrefix}horncard*
-⬡│☂︎ *${usedPrefix}itssostupid*
-⬡│☂︎ *${usedPrefix}logo*
-⬡│☂︎ *${usedPrefix}phmaker*
-⬡│☂︎ *${usedPrefix}pixel*
-⬡│☂︎ *${usedPrefix}simpcard*
-⬡│☂︎ *${usedPrefix}toanime*
-⬡│☂︎ *${usedPrefix}ytcomment* 
-┬│☂︎ *${usedPrefix}animes*
+┴│☂︎ *.blur*
+⬡│☂︎ *.cartoon/tocartoon*
+⬡│☂︎ *.gay*
+⬡│☂︎ *.horncard*
+⬡│☂︎ *.itssostupid*
+⬡│☂︎ *.logo*
+⬡│☂︎ *.phmaker*
+⬡│☂︎ *.pixel*
+⬡│☂︎ *.simpcard*
+⬡│☂︎ *.toanime*
+⬡│☂︎ *.ytcomment* 
+┬│☂︎ *.animes*
 │╰─────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝OWNER-MENU🐝* ]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}addowner*
-⬡│☂︎ *${usedPrefix}delowner*
-⬡│☂︎ *${usedPrefix}addmsg*
-⬡│☂︎ *${usedPrefix}autoadmin*
-⬡│☂︎ *${usedPrefix}autoadmin*
-⬡│☂︎ *${usedPrefix}backup*
-⬡│☂︎ *${usedPrefix}banchat*
-⬡│☂︎ *${usedPrefix}banlist*
-⬡│☂︎ *${usedPrefix}banuser*
-⬡│☂︎ *${usedPrefix}bcgc*
-⬡│☂︎ *${usedPrefix}block*
-⬡│☂︎ *${usedPrefix}unblock*
-⬡│☂︎ *${usedPrefix}blocklist*
-⬡│☂︎ *${usedPrefix}broadcast*
-⬡│☂︎ *${usedPrefix}broadcastchats*
-⬡│☂ *${usedPrefix}bc*
-︎⬡│☂︎ *${usedPrefix}bcgc2*
-⬡│☂︎ *${usedPrefix}cleartmp*
+┴│☂︎ *.addowner*
+⬡│☂︎ *.delowner*
+⬡│☂︎ *.addmsg*
+⬡│☂︎ *.autoadmin*
+⬡│☂︎ *.autoadmin*
+⬡│☂︎ *.backup*
+⬡│☂︎ *.banchat*
+⬡│☂︎ *.banlist*
+⬡│☂︎ *.banuser*
+⬡│☂︎ *.bcgc*
+⬡│☂︎ *.block*
+⬡│☂︎ *.unblock*
+⬡│☂︎ *.blocklist*
+⬡│☂︎ *.broadcast*
+⬡│☂︎ *.broadcastchats*
+⬡│☂ *.bc*
+︎⬡│☂︎ *.bcgc2*
+⬡│☂︎ *.cleartmp*
 ⬡│☂︎ *delmsg/del*
-⬡│☂︎ *${usedPrefix}killgc/kickall*
-⬡│☂︎ *${usedPrefix}demoteall*
-⬡│☂︎ *${usedPrefix}promoteall*
-⬡│☂︎ *${usedPrefix}delprem*
-⬡│☂︎ *${usedPrefix}df*
-⬡│☂︎ *${usedPrefix}exec2*
-⬡│☂︎ *${usedPrefix}fetch*
-⬡│☂︎ *${usedPrefix}getdb*
-⬡│☂︎ *${usedPrefix}getmsg*
-⬡│☂︎ *${usedPrefix}getplugin*
-⬡│☂︎ *${usedPrefix}getsession*
-⬡│☂︎ *${usedPrefix}infinity*
-⬡│☂︎ *${usedPrefix}inspect*
-⬡│☂︎ *${usedPrefix}join*
-⬡│☂︎ *${usedPrefix}leave*
-⬡│☂︎ *${usedPrefix}listmsg*
-⬡│☂︎ *${usedPrefix}logout*
-⬡│☂︎ *${usedPrefix}monitor* 
-⬡│☂︎ *${usedPrefix}msg*
-⬡│☂︎ *${usedPrefix}report*
-⬡│☂︎ *${usedPrefix}resetprefix*
-⬡│☂︎ *${usedPrefix}resetuser*
-⬡│☂︎ *${usedPrefix}restart*
-⬡│☂︎ *${usedPrefix}saveimage*
-⬡│☂︎ *${usedPrefix}setppbot*
-⬡│☂︎ *${usedPrefix}setprefix*
-⬡│☂︎ *${usedPrefix}sf*
-⬡│☂︎ *${usedPrefix}supportwa*
-⬡│☂︎ *${usedPrefix}unbanchat*
-⬡│☂︎ *${usedPrefix}unblock*
-⬡│☂︎ *${usedPrefix}update*
-⬡│☂︎ *${usedPrefix}viewimage*
-┬│☂︎ *${usedPrefix}virus/c2/traba1-8/traba*
+⬡│☂︎ *.killgc/kickall*
+⬡│☂︎ *.demoteall*
+⬡│☂︎ *.promoteall*
+⬡│☂︎ *.delprem*
+⬡│☂︎ *.df*
+⬡│☂︎ *.exec2*
+⬡│☂︎ *.fetch*
+⬡│☂︎ *.getdb*
+⬡│☂︎ *.getmsg*
+⬡│☂︎ *.getplugin*
+⬡│☂︎ *.getsession*
+⬡│☂︎ *.infinity*
+⬡│☂︎ *.inspect*
+⬡│☂︎ *.join*
+⬡│☂︎ *.leave*
+⬡│☂︎ *.listmsg*
+⬡│☂︎ *.logout*
+⬡│☂︎ *.monitor* 
+⬡│☂︎ *.msg*
+⬡│☂︎ *.report*
+⬡│☂︎ *.resetprefix*
+⬡│☂︎ *.resetuser*
+⬡│☂︎ *.restart*
+⬡│☂︎ *.saveimage*
+⬡│☂︎ *.setppbot*
+⬡│☂︎ *.setprefix*
+⬡│☂︎ *.sf*
+⬡│☂︎ *.supportwa*
+⬡│☂︎ *.unbanchat*
+⬡│☂︎ *.unblock*
+⬡│☂︎ *.update*
+⬡│☂︎ *.viewimage*
+┬│☂︎ *.virus/c2/traba1-8/traba*
 │╰─────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝RANDOM-MENU🐝* ]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}anime*
-⬡│☂︎ *${usedPrefix}blackpink*
-⬡│☂︎ *${usedPrefix}cr7*
-⬡│☂︎ *${usedPrefix}cat*
-⬡│☂︎ *${usedPrefix}dog*
-⬡│☂︎ *${usedPrefix}itzy*
-⬡│☂︎ *${usedPrefix}kpop*
-⬡│☂︎ *${usedPrefix}loli*
-⬡│☂︎ *${usedPrefix}lolivid*
-⬡│☂︎ *${usedPrefix}messi*
-⬡│☂︎ *${usedPrefix}navidad*
-⬡│☂︎ *${usedPrefix}neko*
-⬡│☂︎ *${usedPrefix}ppcp*
-⬡│☂︎ *${usedPrefix}waifu*︎ 
-┬│☂︎ *${usedPrefix}courses*
+┴│☂︎ *.anime*
+⬡│☂︎ *.blackpink*
+⬡│☂︎ *.cr7*
+⬡│☂︎ *.cat*
+⬡│☂︎ *.dog*
+⬡│☂︎ *.itzy*
+⬡│☂︎ *.kpop*
+⬡│☂︎ *.loli*
+⬡│☂︎ *.lolivid*
+⬡│☂︎ *.messi*
+⬡│☂︎ *.navidad*
+⬡│☂︎ *.neko*
+⬡│☂︎ *.ppcp*
+⬡│☂︎ *.waifu*︎ 
+┬│☂︎ *.courses*
 │╰─────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝RPG-MENU🐝* ]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}addxp*
-⬡│☂︎ *${usedPrefix}adventure*
-⬡│☂︎ *${usedPrefix}balance*
-⬡│☂︎ *${usedPrefix}daily*
-⬡│☂︎ *${usedPrefix}daily2
-⬡│☂︎ *${usedPrefix}heal*
-⬡│☂︎ *${usedPrefix}hunt*
-⬡│☂︎ *${usedPrefix}leaderboard*
-⬡│☂︎ *${usedPrefix}levelup*
-⬡│☂︎ *${usedPrefix}mine*
-⬡│☂︎ *${usedPrefix}myns*
-⬡│☂︎ *${usedPrefix}profile*
-⬡│☂︎ *${usedPrefix}rob*
-⬡│☂︎ *${usedPrefix}buy*
-⬡│☂︎ *${usedPrefix}mine2*
-⬡│☂ *${usedPrefix}transfer*
-︎⬡│☂︎ *${usedPrefix}unreg*
-⬡│☂︎ *${usedPrefix}verify/reg*
-┬│☂︎ *${usedPrefix}work*
+┴│☂︎ *.addxp*
+⬡│☂︎ *.adventure*
+⬡│☂︎ *.balance*
+⬡│☂︎ *.daily*
+⬡│☂︎ *.daily2
+⬡│☂︎ *.heal*
+⬡│☂︎ *.hunt*
+⬡│☂︎ *.leaderboard*
+⬡│☂︎ *.levelup*
+⬡│☂︎ *.mine*
+⬡│☂︎ *.myns*
+⬡│☂︎ *.profile*
+⬡│☂︎ *.rob*
+⬡│☂︎ *.buy*
+⬡│☂︎ *.mine2*
+⬡│☂ *.transfer*
+︎⬡│☂︎ *.unreg*
+⬡│☂︎ *.verify/reg*
+┬│☂︎ *.work*
 │╰─────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝STICKER-MENU🐝* ]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}scricle/circle*
-⬡│☂︎ *${usedPrefix}dado*
-⬡│☂︎ *${usedPrefix}getsticker*
-⬡│☂︎ *${usedPrefix}kiss*
-⬡│☂︎ *${usedPrefix}pat*
-⬡│☂︎ *${usedPrefix}qc*
-⬡│☂︎ *${usedPrefix}semoji*
-⬡│☂︎ *${usedPrefix}slap*
-⬡│☂︎ *${usedPrefix}smeme*
-⬡│☂︎ *${usedPrefix}sremovebg*
-⬡│☂︎ *${usedPrefix}sticker*
-⬡│☂︎ *${usedPrefix}stickerfilter*
-⬡│☂︎ *${usedPrefix}smaker*
-⬡│☂︎ *${usedPrefix}attp*
-⬡│☂︎ *${usedPrefix}attp2*
-⬡│☂*${usedPrefix}attp3*
-︎⬡│☂︎ *${usedPrefix}ttp5*
-⬡│☂︎ *${usedPrefix}ttp4*
-⬡│☂︎ *${usedPrefix}ttp3*
-⬡│☂︎ *${usedPrefix}ttp2*
-⬡│☂︎ *${usedPrefix}ttp
-┬│☂︎ *${usedPrefix}take/steal*
+┴│☂︎ *.scricle/circle*
+⬡│☂︎ *.dado*
+⬡│☂︎ *.getsticker*
+⬡│☂︎ *.kiss*
+⬡│☂︎ *.pat*
+⬡│☂︎ *.qc*
+⬡│☂︎ *.semoji*
+⬡│☂︎ *.slap*
+⬡│☂︎ *.smeme*
+⬡│☂︎ *.sremovebg*
+⬡│☂︎ *.sticker*
+⬡│☂︎ *.stickerfilter*
+⬡│☂︎ *.smaker*
+⬡│☂︎ *.attp*
+⬡│☂︎ *.attp2*
+⬡│☂*.attp3*
+︎⬡│☂︎ *.ttp5*
+⬡│☂︎ *.ttp4*
+⬡│☂︎ *.ttp3*
+⬡│☂︎ *.ttp2*
+⬡│☂︎ *.ttp
+┬│☂︎ *.take/steal*
 │╰─────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝TOOLS-MENU🐝* ]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}calc*
-⬡│☂︎ *${usedPrefix}carbon*
-⬡│☂︎ *${usedPrefix}climate*
-⬡│☂︎ *${usedPrefix}dalle*
-⬡│☂︎ *${usedPrefix}dropmail*
-⬡│☂︎ *${usedPrefix}element*
-⬡│☂︎ *${usedPrefix}fakereply*
-⬡│☂︎ *${usedPrefix}getbio*
-⬡│☂︎ *${usedPrefix}hd*
-⬡│☂︎ *${usedPrefix}inspect*
-⬡│☂︎ *${usedPrefix}mute*
-⬡│☂︎ *${usedPrefix}nowa*
-⬡│☂︎ *${usedPrefix}ocr*
-⬡│☂︎ *${usedPrefix}qrcode*
-⬡│☂︎ *${usedPrefix}readqr*
-⬡│☂*${usedPrefix}vv/readvo/readviewonce*
-︎⬡│☂︎ *${usedPrefix}resize*
-⬡│☂︎ *${usedPrefix}ssweb*
-⬡│☂︎ *${usedPrefix}styletext*
-⬡│☂︎ *${usedPrefix}symbols*
-⬡│☂︎ *${usedPrefix}technews*
-⬡│☂︎ *${usedPrefix}tinyurl*
-⬡│☂︎ *${usedPrefix}topdf*
-⬡│☂︎ *${usedPrefix}translate*
-⬡│☂︎ *${usedPrefix}waste*
-⬡│☂︎ *${usedPrefix}shazam*
-┬│☂︎ *${usedPrefix}worldclock*
+┴│☂︎ *.calc*
+⬡│☂︎ *.carbon*
+⬡│☂︎ *.climate*
+⬡│☂︎ *.dalle*
+⬡│☂︎ *.dropmail*
+⬡│☂︎ *.element*
+⬡│☂︎ *.fakereply*
+⬡│☂︎ *.getbio*
+⬡│☂︎ *.hd*
+⬡│☂︎ *.inspect*
+⬡│☂︎ *.mute*
+⬡│☂︎ *.nowa*
+⬡│☂︎ *.ocr*
+⬡│☂︎ *.qrcode*
+⬡│☂︎ *.readqr*
+⬡│☂*.vv/readvo/readviewonce*
+︎⬡│☂︎ *.resize*
+⬡│☂︎ *.ssweb*
+⬡│☂︎ *.styletext*
+⬡│☂︎ *.symbols*
+⬡│☂︎ *.technews*
+⬡│☂︎ *.tinyurl*
+⬡│☂︎ *.topdf*
+⬡│☂︎ *.translate*
+⬡│☂︎ *.waste*
+⬡│☂︎ *.shazam*
+┬│☂︎ *.worldclock*
 │╰─────────────···
 ╰───────═┅═───────
 
 ┠─═[ *🐝GROUP-MENU🐝* ]═─⋆
 │╭─────────────···
-┴│☂︎ *${usedPrefix}pack*
-⬡│☂︎ *${usedPrefix}pack2*
-⬡│☂︎ *${usedPrefix}pack3*
-⬡│☂︎ *${usedPrefix}videolesbixxx*
-⬡│☂︎ *${usedPrefix}boobs*
-⬡│☂︎ *${usedPrefix}ecchi*
-⬡│☂︎ *${usedPrefix}furro*
-⬡│☂︎ *${usedPrefix}imagelesbians*
-⬡│☂︎ *${usedPrefix}panties*
-⬡│☂︎ *${usedPrefix}pene*
-⬡│☂︎ *${usedPrefix}porn*
-⬡│☂︎ *${usedPrefix}randomxxx*
-⬡│☂︎ *${usedPrefix}breasts*
-⬡│☂︎ *${usedPrefix}yaoi*
-⬡│☂︎ *${usedPrefix}yaoi2*
-⬡│☂ *${usedPrefix}yuri*
-︎⬡│☂︎ *${usedPrefix}yuri2*
-⬡│☂︎ *${usedPrefix}trapito*
-⬡│☂︎ *${usedPrefix}hentai*
-⬡│☂︎ *${usedPrefix}nsfwloli*
-⬡│☂︎ *${usedPrefix}nsfworgy*
-⬡│☂︎ *${usedPrefix}nsfwfoot*
-⬡│☂︎ *${usedPrefix}nsfwass*
-⬡│☂︎ *${usedPrefix}nsfwbdsm*
-⬡│☂︎ *${usedPrefix}nsfwcum*
-⬡│☂︎ *${usedPrefix}nsfwero*
-⬡│☂︎ *${usedPrefix}nsfwfedom*
-⬡│☂︎ *${usedPrefix}nsfwglass*
-⬡│☂︎ *${usedPrefix}nsfwpdf* 
-┬│☂︎ *${usedPrefix}hentaisearch*
+┴│☂︎ *.pack*
+⬡│☂︎ *.pack2*
+⬡│☂︎ *.pack3*
+⬡│☂︎ *.videolesbixxx*
+⬡│☂︎ *.boobs*
+⬡│☂︎ *.ecchi*
+⬡│☂︎ *.furro*
+⬡│☂︎ *.imagelesbians*
+⬡│☂︎ *.panties*
+⬡│☂︎ *.pene*
+⬡│☂︎ *.porn*
+⬡│☂︎ *.randomxxx*
+⬡│☂︎ *.breasts*
+⬡│☂︎ *.yaoi*
+⬡│☂︎ *.yaoi2*
+⬡│☂ *.yuri*
+︎⬡│☂︎ *.yuri2*
+⬡│☂︎ *.trapito*
+⬡│☂︎ *.hentai*
+⬡│☂︎ *.nsfwloli*
+⬡│☂︎ *.nsfworgy*
+⬡│☂︎ *.nsfwfoot*
+⬡│☂︎ *.nsfwass*
+⬡│☂︎ *.nsfwbdsm*
+⬡│☂︎ *.nsfwcum*
+⬡│☂︎ *.nsfwero*
+⬡│☂︎ *.nsfwfedom*
+⬡│☂︎ *.nsfwglass*
+⬡│☂︎ *.nsfwpdf* 
+┬│☂︎ *.hentaisearch*
 │╰─────────────···
 ╰───────═┅═───────`.trim()
 if (m.isGroup) {
