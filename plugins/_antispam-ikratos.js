@@ -1,1 +1,102 @@
-function _0x4069(_0x150b2c,_0x209dd8){const _0x3c4400=_0x3c44();return _0x4069=function(_0x406999,_0x5492f5){_0x406999=_0x406999-0xe8;let _0x3cec98=_0x3c4400[_0x406999];return _0x3cec98;},_0x4069(_0x150b2c,_0x209dd8);}function _0x3c44(){const _0x12f8bf=['remove','521508oXsFLb','map','includes','*\x20was\x20either\x20not\x20kicked\x20or\x20has\x20already\x20been\x20re-added.','admin','218qZAwmz','lastMessageTime','participant','42972PwdAIa','split','count','3350814WJykpo','chats','.add','updateBlockStatus','now','sender','join','*\x20has\x20been\x20re-added\x20to\x20the\x20group.','sendMessage','1540688MiTEaT','length','404','2390840jCFoOi','4763160ZqBxxP','data','12063546yQTxIW','add','*Ops!*,\x0a*','7BstxXc','filter','isBaileys','key','user','status','text','chat','timestamp','The\x20user\x20*'];_0x3c44=function(){return _0x12f8bf;};return _0x3c44();}(function(_0x27bee0,_0x32d9b5){const _0x18461c=_0x4069,_0x3ebee2=_0x27bee0();while(!![]){try{const _0x388b48=parseInt(_0x18461c(0xe8))/0x1+-parseInt(_0x18461c(0x101))/0x2*(-parseInt(_0x18461c(0x104))/0x3)+-parseInt(_0x18461c(0xfc))/0x4+-parseInt(_0x18461c(0xec))/0x5+parseInt(_0x18461c(0x107))/0x6*(parseInt(_0x18461c(0xf1))/0x7)+-parseInt(_0x18461c(0xeb))/0x8+-parseInt(_0x18461c(0xee))/0x9;if(_0x388b48===_0x32d9b5)break;else _0x3ebee2['push'](_0x3ebee2['shift']());}catch(_0x9a519e){_0x3ebee2['push'](_0x3ebee2['shift']());}}}(_0x3c44,0xe50e7));let spamDetection={},kickedUsers={};export async function before(_0x22eff0,{isAdmin:_0x217871,isBotAdmin:_0x208dad,command:_0x1be707}){const _0x2a5a7b=_0x4069;if(_0x22eff0[_0x2a5a7b(0xf3)]&&_0x22eff0['fromMe'])return!![];let _0x2c1c6f=global['db'][_0x2a5a7b(0xed)][_0x2a5a7b(0x108)][_0x22eff0['chat']],_0x462eab=_0x22eff0[_0x2a5a7b(0xf4)][_0x2a5a7b(0x103)],_0x564c5e=_0x22eff0['key']['id'],_0xdcd26f=global['db'][_0x2a5a7b(0xed)]['settings'][this[_0x2a5a7b(0xf5)]['jid']]||{},_0x52b7c0='@'+_0x22eff0[_0x2a5a7b(0x10c)][_0x2a5a7b(0x105)]`@`[0x0];if(!spamDetection[_0x22eff0[_0x2a5a7b(0xf8)]])spamDetection[_0x22eff0[_0x2a5a7b(0xf8)]]={};if(!spamDetection[_0x22eff0['chat']][_0x22eff0[_0x2a5a7b(0x10c)]])spamDetection[_0x22eff0[_0x2a5a7b(0xf8)]][_0x22eff0[_0x2a5a7b(0x10c)]]={'count':0x0,'lastMessageTime':0x0};let _0x4a154a=Date[_0x2a5a7b(0x10b)](),_0x5e5342=spamDetection[_0x22eff0[_0x2a5a7b(0xf8)]][_0x22eff0[_0x2a5a7b(0x10c)]];_0x4a154a-_0x5e5342[_0x2a5a7b(0x102)]<0x1388?_0x5e5342[_0x2a5a7b(0x106)]+=0x1:_0x5e5342[_0x2a5a7b(0x106)]=0x1;_0x5e5342[_0x2a5a7b(0x102)]=_0x4a154a;if(_0x22eff0['isGroup']){if(_0x5e5342[_0x2a5a7b(0x106)]>0x4){if(_0x208dad){let _0x22ed46=await this['groupMetadata'](_0x22eff0[_0x2a5a7b(0xf8)]),_0x16979d=_0x22ed46['participants'][_0x2a5a7b(0xf2)](_0x1f2c50=>_0x1f2c50[_0x2a5a7b(0x100)]!==null)[_0x2a5a7b(0xfd)](_0x17efd1=>_0x17efd1['id']);if(_0x16979d[_0x2a5a7b(0xfe)](_0x22eff0[_0x2a5a7b(0x10c)])){await this[_0x2a5a7b(0x10f)](_0x22eff0[_0x2a5a7b(0xf8)],{'delete':{'remoteJid':_0x22eff0[_0x2a5a7b(0xf8)],'fromMe':![],'id':_0x564c5e}});return;}let _0x2fc839=_0x16979d[_0x2a5a7b(0xfd)](_0xb091e0=>'@'+_0xb091e0['split']('@')[0x0])[_0x2a5a7b(0x10d)]('\x20');for(let _0x204ba8 of _0x16979d){await this[_0x2a5a7b(0x10f)](_0x204ba8,{'text':'*Ops!*,\x20\x0a*'+_0x52b7c0+'*,\x20SPAM\x20DETECTED\x20AND\x20KICKED\x20FROM\x20THE\x20GROUP!\x20\x0a\x0aTo\x20re-add\x20the\x20user,\x20use\x20the\x20command\x20.add\x20<user>.\x0a\x0aPlease\x20check\x20if\x20the\x20user\x20has\x20been\x20re-added\x20by\x20another\x20admin\x20before\x20using\x20the\x20command.','mentions':[_0x22eff0[_0x2a5a7b(0x10c)]]});}await this['sendMessage'](_0x22eff0['chat'],{'delete':{'remoteJid':_0x22eff0['chat'],'fromMe':![],'id':_0x564c5e,'participant':_0x462eab}});let _0x1a5473=await this['groupParticipantsUpdate'](_0x22eff0[_0x2a5a7b(0xf8)],[_0x22eff0[_0x2a5a7b(0x10c)]],_0x2a5a7b(0xfb));if(_0x1a5473[0x0][_0x2a5a7b(0xf6)]===_0x2a5a7b(0xea))return;kickedUsers[_0x22eff0[_0x2a5a7b(0x10c)]]={'chat':_0x22eff0[_0x2a5a7b(0xf8)],'timestamp':_0x4a154a};}else await this['sendMessage'](_0x22eff0[_0x2a5a7b(0xf8)],{'delete':{'remoteJid':_0x22eff0[_0x2a5a7b(0xf8)],'fromMe':![],'id':_0x564c5e}});}}else _0x5e5342[_0x2a5a7b(0x106)]>0x3&&(await this[_0x2a5a7b(0x10f)](_0x22eff0[_0x2a5a7b(0xf8)],{'text':_0x2a5a7b(0xf0)+_0x52b7c0+'*,\x20YOU\x20ARE\x20SPAMMING\x20AND\x20HAVE\x20BEEN\x20BLOCKED!','mentions':[_0x22eff0[_0x2a5a7b(0x10c)]]}),await this[_0x2a5a7b(0x10a)](_0x22eff0[_0x2a5a7b(0x10c)],'block'),await this[_0x2a5a7b(0x10f)](_0x22eff0[_0x2a5a7b(0xf8)],{'delete':{'remoteJid':_0x22eff0[_0x2a5a7b(0xf8)],'fromMe':![],'id':_0x564c5e}}));if(_0x1be707===_0x2a5a7b(0x109)){if(!_0x217871)return;let _0x22e7a6=_0x22eff0[_0x2a5a7b(0xf7)]['split']('\x20');if(_0x22e7a6[_0x2a5a7b(0xe9)]!==0x2)return;let _0x387fc3=_0x22e7a6[0x1],_0x2b53c7=Object['values'](kickedUsers)['some'](_0x252f8c=>_0x252f8c[_0x2a5a7b(0xf8)]===_0x22eff0[_0x2a5a7b(0xf8)]&&Date[_0x2a5a7b(0x10b)]()-_0x252f8c[_0x2a5a7b(0xf9)]<0xea60);if(_0x2b53c7)try{await this['groupParticipantsUpdate'](_0x22eff0['chat'],[_0x387fc3],_0x2a5a7b(0xef)),await this[_0x2a5a7b(0x10f)](_0x22eff0['chat'],{'text':'*'+_0x387fc3+_0x2a5a7b(0x10e),'mentions':[_0x387fc3]});}catch(_0x1404e7){await this[_0x2a5a7b(0x10f)](_0x22eff0[_0x2a5a7b(0xf8)],{'text':'Failed\x20to\x20re-add\x20*'+_0x387fc3+'*.','mentions':[_0x387fc3]});}else await this['sendMessage'](_0x22eff0['chat'],{'text':_0x2a5a7b(0xfa)+_0x387fc3+_0x2a5a7b(0xff),'mentions':[_0x387fc3]});}return!![];}
+let spamDetection = {}; // Object to store user activity
+let kickedUsers = {}; // Object to keep track of kicked users
+
+export async function before(m, { isAdmin, isBotAdmin, command }) {
+    if (m.isBaileys && m.fromMe) return true;
+
+    let chat = global.db.data.chats[m.chat];
+    let delet = m.key.participant;
+    let bang = m.key.id;
+    let bot = global.db.data.settings[this.user.jid] || {};
+    let user = `@${m.sender.split`@`[0]}`;
+
+    // Initialize user activity if not already present
+    if (!spamDetection[m.chat]) spamDetection[m.chat] = {};
+    if (!spamDetection[m.chat][m.sender]) spamDetection[m.chat][m.sender] = { count: 0, lastMessageTime: 0 };
+
+    let now = Date.now();
+    let userActivity = spamDetection[m.chat][m.sender];
+
+    // Check if the user is spamming
+    if (now - userActivity.lastMessageTime < 5000) { // 5000ms = 5 seconds
+        userActivity.count += 1;
+    } else {
+        userActivity.count = 1;
+    }
+
+    userActivity.lastMessageTime = now;
+
+    // Handle group chats
+    if (m.isGroup) {
+        if (userActivity.count > 4) { // Adjust the spam threshold to 8 messages
+            if (isBotAdmin) {
+                // Get the list of admins and owners
+                let groupMetadata = await this.groupMetadata(m.chat);
+                let adminsAndOwners = groupMetadata.participants.filter(p => p.admin !== null).map(p => p.id);
+
+                // Skip the kicking if the user is an admin or owner
+                if (adminsAndOwners.includes(m.sender)) {
+                    await this.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang }});
+                    return;
+                }
+
+                // Notify admins about the spammer
+                let adminMentions = adminsAndOwners.map(id => `@${id.split('@')[0]}`).join(' ');
+                for (let adminId of adminsAndOwners) {
+                    await this.sendMessage(adminId, {
+                        text: `*Ops!*, \n*${user}*, SPAM DETECTED AND KICKED FROM THE GROUP! \n\nTo re-add the user, use the command .add <user>.\n\nPlease check if the user has been re-added by another admin before using the command.`,
+                        mentions: [m.sender]
+                    });
+                }
+
+                // Delete the spam message
+                await this.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet } });
+
+                // Remove the spammer
+                let response = await this.groupParticipantsUpdate(m.chat, [m.sender], 'remove');
+                if (response[0].status === "404") return;
+
+                // Record the kicked user
+                kickedUsers[m.sender] = { chat: m.chat, timestamp: now };
+
+            } else {
+                // Bot is not an admin, just delete the spam message
+                await this.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang }});
+            }
+        }
+    } else { // Handle private chats
+        if (userActivity.count > 3) { // Adjust the spam threshold as needed
+            await this.sendMessage(m.chat, { text: `*Ops!*,\n*${user}*, YOU ARE SPAMMING AND HAVE BEEN BLOCKED!`, mentions: [m.sender] });
+
+            // Block the user
+            await this.updateBlockStatus(m.sender, 'block');
+
+            // Delete the spam messages
+            await this.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang }});
+        }
+    }
+
+    // Handle the .add command to re-add users
+    if (command === '.add') {
+        if (!isAdmin) return; // Only admins should be able to use this command
+
+        let args = m.text.split(' ');
+        if (args.length !== 2) return;
+
+        let userToAdd = args[1];
+        let isUserAlreadyAdded = Object.values(kickedUsers).some(entry => entry.chat === m.chat && Date.now() - entry.timestamp < 60000); // 1 minute window
+
+        if (isUserAlreadyAdded) {
+            try {
+                await this.groupParticipantsUpdate(m.chat, [userToAdd], 'add');
+                await this.sendMessage(m.chat, { text: `*${userToAdd}* has been re-added to the group.`, mentions: [userToAdd] });
+            } catch (e) {
+                await this.sendMessage(m.chat, { text: `Failed to re-add *${userToAdd}*.`, mentions: [userToAdd] });
+            }
+        } else {
+            await this.sendMessage(m.chat, { text: `The user *${userToAdd}* was either not kicked or has already been re-added.`, mentions: [userToAdd] });
+        }
+    }
+
+    return true;
+}
