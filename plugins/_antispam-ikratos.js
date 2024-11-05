@@ -28,7 +28,7 @@ export async function before(m, { isAdmin, isBotAdmin, command }) {
 
     // Handle group chats
     if (m.isGroup) {
-        if (userActivity.count > 3) { // Adjust the spam threshold to 8 messages
+        if (userActivity.count > 4) { // Adjust the spam threshold to 8 messages
             if (isBotAdmin) {
                 // Get the list of admins and owners
                 let groupMetadata = await this.groupMetadata(m.chat);
