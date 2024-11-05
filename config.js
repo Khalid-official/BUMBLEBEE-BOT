@@ -1,1 +1,105 @@
-const _0x4ea6ff=_0x5aa8;(function(_0x4a43fc,_0xc47d5e){const _0x3bf1f6=_0x5aa8,_0x45a613=_0x4a43fc();while(!![]){try{const _0x364509=-parseInt(_0x3bf1f6(0x138))/0x1*(parseInt(_0x3bf1f6(0x10d))/0x2)+parseInt(_0x3bf1f6(0xcf))/0x3*(-parseInt(_0x3bf1f6(0xed))/0x4)+parseInt(_0x3bf1f6(0xe7))/0x5*(parseInt(_0x3bf1f6(0xda))/0x6)+-parseInt(_0x3bf1f6(0x112))/0x7+-parseInt(_0x3bf1f6(0xe9))/0x8*(-parseInt(_0x3bf1f6(0xf1))/0x9)+-parseInt(_0x3bf1f6(0x12d))/0xa+parseInt(_0x3bf1f6(0xcd))/0xb*(parseInt(_0x3bf1f6(0x101))/0xc);if(_0x364509===_0xc47d5e)break;else _0x45a613['push'](_0x45a613['shift']());}catch(_0x3ba861){_0x45a613['push'](_0x45a613['shift']());}}}(_0x2844,0xb95d1));function _0x5aa8(_0x4833aa,_0x2d8270){const _0x284421=_0x2844();return _0x5aa8=function(_0x5aa804,_0x30dba9){_0x5aa804=_0x5aa804-0xc9;let _0x2ec633=_0x284421[_0x5aa804];return _0x2ec633;},_0x5aa8(_0x4833aa,_0x2d8270);}function _0x2844(){const _0x534be9=['waitt','fgif','mes','13305570QdUdnO','HH:mm:ss','waitttt','cmenut','toLocaleString','👑\x20𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓\x20𝐂𝐑𝐄𝐀𝐓𝐎𝐑👑','readFileSync','./Menu.png','254111691200','dmenut','htjava','411727UGzxNc','https://github.com/khalid-official/BUMBLEBEE-BOT','════◕◕\x20•\x20•','mods','redBright','264ueSzhw','254736958034','959415nvQVyD','htki','*┊»*','multiplier','\x0aThe\x20Bumblebee\x20🐝\x20Bot','254114098508','?update=','nomorown','cmenua','967730588759','*⭑•̩̩͙⊱••••\x20☪*','6dqUvwq','dmenub2','[❗]\x20𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓\x20𝐈𝐒\x20𝐋𝐎𝐀𝐃𝐈𝐍𝐆...*','toLocaleDateString','numeric','author','tiempo','•\x20•\x20◕◕════','https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=amped-logo&doScale=true&scaleWidth=800&scaleHeight=500&text=','❖––––––『','imagen8','waittt','bottime','1024915oSHrGI','https://github.com/BrunoSobrino/TheMystic-Bot-MD','8RAqVZH','DD/MM/YY','imagen5','./src/assets/images/menu/languages/es/menu.png','12PHvZcB','application/vnd.openxmlformats-officedocument.presentationml.presentation','igfg','999999999','8564841bkGXIp','confirmCode','Bee\x20O-tech','application/pdf','imagen4','dmenuf','*❖─┅──┅〈*','mysticbot','💫\x20𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓💫','imagen2','./src/assets/images/menu/languages/pt/menu.png','Hmm','./Menu3.png','★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★','application/msword','wait','1882212gtDdwq','año','true','flaaa','packname','format','long','https://deliriusapi-official.vercel.app','./src/assets/images/menu/languages/fr/menu.png','./src/assets/images/menu/languages/en/menu.png','imagen7','isBaileysFail','2XBebsh','https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=crafts-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&text=','text/rtf','💫𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓\x20💫','https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text=','10220756GZTjSK','cmenub','fin','Update\x20\x27config.js\x27','imagen6','botdate','./Menu2.png','https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text=','https://github.com/khalid-official','The\x20Bumblebee\x20🐝\x20Bot','BASE_API_DELIRIUS','╰━═┅═━––––––๑\x0a','923470027813','url','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','imagen3','fecha','htka','wm2','💫𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓💫','pdoc','*[\x20⏳\x20]\x20Hour:*\x20','*╰┅────────┅✦*','now'];_0x2844=function(){return _0x534be9;};return _0x2844();}import{watchFile,unwatchFile}from'fs';import _0x4e3686 from'chalk';import{fileURLToPath}from'url';import _0x1c7077 from'fs';import _0x4ffdfa from'moment-timezone';global['botnumber']='',global[_0x4ea6ff(0xf2)]='',global['authFile']='BumbleSession',global[_0x4ea6ff(0x10c)]=![],global['owner']=[[_0x4ea6ff(0xce),_0x4ea6ff(0x132),!![]],[_0x4ea6ff(0xd4),_0x4ea6ff(0x125),!![]],['254756315796',_0x4ea6ff(0x125),!![]],[_0x4ea6ff(0x135),'💫𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓💫',!![]],['211926995546',_0x4ea6ff(0x125),!![]],[_0x4ea6ff(0xd4),_0x4ea6ff(0x125),!![]],['254715974014',_0x4ea6ff(0x110),!![]],['255675536732',_0x4ea6ff(0x110),!![]],[_0x4ea6ff(0x11e),_0x4ea6ff(0xf9),!![]],[_0x4ea6ff(0xd8),_0x4ea6ff(0xf9),!![]]],global['suittag']=[_0x4ea6ff(0xd4)],global['prems']=[_0x4ea6ff(0xd4)],global[_0x4ea6ff(0x11c)]=_0x4ea6ff(0x108),global[_0x4ea6ff(0x105)]=_0x4ea6ff(0xf3),global[_0x4ea6ff(0xdf)]='★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★',global['wm']=_0x4ea6ff(0xfe),global['titulowm']='★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★',global['titulowm2']='[❗]\x20𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓',global[_0x4ea6ff(0xef)]=_0x4ea6ff(0xfe),global[_0x4ea6ff(0x100)]=_0x4ea6ff(0xdc),global['imagen1']=_0x1c7077[_0x4ea6ff(0x133)](_0x4ea6ff(0xec)),global[_0x4ea6ff(0xfa)]=_0x1c7077[_0x4ea6ff(0x133)](_0x4ea6ff(0xfb)),global[_0x4ea6ff(0x121)]=_0x1c7077[_0x4ea6ff(0x133)](_0x4ea6ff(0x109)),global[_0x4ea6ff(0xf5)]=_0x1c7077[_0x4ea6ff(0x133)](_0x4ea6ff(0x10a)),global[_0x4ea6ff(0xeb)]=_0x1c7077[_0x4ea6ff(0x133)]('./src/assets/images/menu/languages/ru/menu.png'),global[_0x4ea6ff(0x116)]=_0x1c7077['readFileSync'](_0x4ea6ff(0x134)),global[_0x4ea6ff(0x10b)]=_0x1c7077['readFileSync'](_0x4ea6ff(0x118)),global[_0x4ea6ff(0xe4)]=_0x1c7077[_0x4ea6ff(0x133)](_0x4ea6ff(0xfd)),global[_0x4ea6ff(0xcb)]=[],global['d']=new Date(new Date()+0x36ee80),global['locale']='es',global['dia']=d[_0x4ea6ff(0xdd)](locale,{'weekday':_0x4ea6ff(0x107)}),global[_0x4ea6ff(0x122)]=d['toLocaleDateString']('es',{'day':_0x4ea6ff(0xde),'month':_0x4ea6ff(0xde),'year':_0x4ea6ff(0xde)}),global[_0x4ea6ff(0x12c)]=d['toLocaleDateString']('es',{'month':_0x4ea6ff(0x107)}),global[_0x4ea6ff(0x102)]=d['toLocaleDateString']('es',{'year':_0x4ea6ff(0xde)}),global[_0x4ea6ff(0xe0)]=d[_0x4ea6ff(0x131)]('en-US',{'hour':_0x4ea6ff(0xde),'minute':_0x4ea6ff(0xde),'second':_0x4ea6ff(0xde),'hour12':!![]}),global[_0x4ea6ff(0x124)]=dia+'\x20'+fecha+_0x4ea6ff(0xd3),global['gt']=_0x4ea6ff(0x11b),global[_0x4ea6ff(0xf8)]=_0x4ea6ff(0x11b),global['channel']=_0x4ea6ff(0x11a),global['md']=_0x4ea6ff(0xc9),global['mysticbot']=_0x4ea6ff(0xe8),global[_0x4ea6ff(0x12a)]=_0x4ea6ff(0xdc),global[_0x4ea6ff(0xe5)]='[❗]\x20𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓\x20𝐈𝐒\x20𝐋𝐎𝐀𝐃𝐈𝐍𝐆...*',global[_0x4ea6ff(0x12f)]=_0x4ea6ff(0xdc),global[_0x4ea6ff(0xd6)]=_0x4ea6ff(0xce),global[_0x4ea6ff(0x126)]=[_0x4ea6ff(0xee),_0x4ea6ff(0x120),'application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/vnd.ms-excel',_0x4ea6ff(0xff),_0x4ea6ff(0xf4),_0x4ea6ff(0x10f)],global[_0x4ea6ff(0x130)]=_0x4ea6ff(0xe3),global[_0x4ea6ff(0x113)]='┊✦\x20',global['cmenuf']=_0x4ea6ff(0x11d),global[_0x4ea6ff(0xd7)]='\x0a⌕\x20❙❘❙❙❘❙❚❙❘❙❙❚❙❘❙❘❙❚❙❘❙❙❚❙❘❙❙❘❙❚❙❘\x20⌕\x0a\x20\x20\x20\x20\x20',global[_0x4ea6ff(0x136)]=_0x4ea6ff(0xf7),global['dmenub']=_0x4ea6ff(0xd1),global[_0x4ea6ff(0xdb)]='*┊*',global[_0x4ea6ff(0xf6)]=_0x4ea6ff(0x128),global[_0x4ea6ff(0x137)]='⫹⫺',global[_0x4ea6ff(0xd0)]=_0x4ea6ff(0xd9),global[_0x4ea6ff(0x123)]='*☪\x20••••̩̩͙⊰•⭑*',global['comienzo']=_0x4ea6ff(0xe1),global[_0x4ea6ff(0x114)]=_0x4ea6ff(0xca),global[_0x4ea6ff(0x117)]='*[\x20📅\x20]\x20Fecha:*\x20\x20'+_0x4ffdfa['tz']('Africa/Nairobi')[_0x4ea6ff(0x106)](_0x4ea6ff(0xea)),global[_0x4ea6ff(0xe6)]=_0x4ea6ff(0x127)+_0x4ffdfa['tz']('Africa/Nairobi')['format'](_0x4ea6ff(0x12e)),global[_0x4ea6ff(0x12b)]={'key':{'participant':'0@s.whatsapp.net'},'message':{'videoMessage':{'title':wm,'h':_0x4ea6ff(0xfc),'seconds':_0x4ea6ff(0xf0),'gifPlayback':_0x4ea6ff(0x103),'caption':bottime,'jpegThumbnail':_0x1c7077['readFileSync'](_0x4ea6ff(0xec))}}},global[_0x4ea6ff(0xd2)]=0x63,global[_0x4ea6ff(0x104)]=['https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=water-logo&script=water-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextColor=%23000&shadowGlowColor=%23000&backgroundColor=%23000&text=',_0x4ea6ff(0x10e),_0x4ea6ff(0xe2),_0x4ea6ff(0x119),_0x4ea6ff(0x111)];const file=fileURLToPath(import.meta[_0x4ea6ff(0x11f)]);watchFile(file,()=>{const _0x68ec5e=_0x4ea6ff;unwatchFile(file),console['log'](_0x4e3686[_0x68ec5e(0xcc)](_0x68ec5e(0x115))),import(file+_0x68ec5e(0xd5)+Date[_0x68ec5e(0x129)]());});
+import {watchFile, unwatchFile} from 'fs';
+import chalk from 'chalk';
+import {fileURLToPath} from 'url';
+import fs from 'fs'; 
+import moment from 'moment-timezone';
+
+global.botnumber = ""
+global.confirmCode = ""
+global.authFile = `BumbleSession`;
+
+// Cambiar a true si el Bot responde a sus comandos con otros comandos.
+// Cambiar a false para usar el Bot desde el mismo numero del Bot.
+// Error de m.isBaileys marcado como false fix temporal
+global.isBaileysFail = false
+
+global.owner = [
+  ['254736958034', '👑 𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓 𝐂𝐑𝐄𝐀𝐓𝐎𝐑👑', true],
+  ['254114098508', '💫𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓💫', true],
+  ['254756315796', '💫𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓💫', true],
+  ['254111691200', '💫𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓💫', true],
+  ['211926995546', '💫𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓💫', true],
+  ['254114098508', '💫𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓💫', true],
+  ['254715974014', '💫𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓 💫', true],
+  ['255675536732', '💫𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓 💫', true],
+  ['923470027813', '💫 𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓💫', true],
+  ['967730588759', '💫 𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓💫', true],
+];
+
+global.suittag = ['254114098508'];
+global.prems = ['254114098508'];
+
+// API
+global.BASE_API_DELIRIUS = "https://deliriusapi-official.vercel.app";
+
+global.packname = 'Bee O-tech';
+global.author = '★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★';
+global.wm = '★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★';
+global.titulowm = '★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★';
+global.titulowm2 = `[❗] 𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓`
+global.igfg = '★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★';
+global.wait = '[❗] 𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓 𝐈𝐒 𝐋𝐎𝐀𝐃𝐈𝐍𝐆...*';
+
+global.imagen1 = fs.readFileSync('./src/assets/images/menu/languages/es/menu.png');
+global.imagen2 = fs.readFileSync('./src/assets/images/menu/languages/pt/menu.png');
+global.imagen3 = fs.readFileSync('./src/assets/images/menu/languages/fr/menu.png')
+global.imagen4 = fs.readFileSync('./src/assets/images/menu/languages/en/menu.png')
+global.imagen5 = fs.readFileSync('./src/assets/images/menu/languages/ru/menu.png')
+global.imagen6 = fs.readFileSync('./Menu.png');
+global.imagen7 = fs.readFileSync('./Menu2.png');
+global.imagen8 = fs.readFileSync('./Menu3.png');
+global.mods = [];
+
+//* *******Tiempo***************
+global.d = new Date(new Date + 3600000);
+global.locale = 'es';
+global.dia = d.toLocaleDateString(locale, {weekday: 'long'});
+global.fecha = d.toLocaleDateString('es', {day: 'numeric', month: 'numeric', year: 'numeric'});
+global.mes = d.toLocaleDateString('es', {month: 'long'});
+global.año = d.toLocaleDateString('es', {year: 'numeric'});
+global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
+//* ****************************
+global.wm2 = `${dia} ${fecha}\nThe Bumblebee 🐝 Bot`;
+global.gt = 'The Bumblebee 🐝 Bot';
+global.mysticbot = 'The Bumblebee 🐝 Bot';
+global.channel = 'https://github.com/khalid-official';
+global.md = 'https://github.com/khalid-official/BUMBLEBEE-BOT';
+global.mysticbot = 'https://github.com/BrunoSobrino/TheMystic-Bot-MD';
+global.waitt = '[❗] 𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓 𝐈𝐒 𝐋𝐎𝐀𝐃𝐈𝐍𝐆...*';
+global.waittt = '[❗] 𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓 𝐈𝐒 𝐋𝐎𝐀𝐃𝐈𝐍𝐆...*';
+global.waitttt = '[❗] 𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓 𝐈𝐒 𝐋𝐎𝐀𝐃𝐈𝐍𝐆...*';
+global.nomorown = '254736958034';
+global.pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf'];
+global.cmenut = '❖––––––『';
+global.cmenub = '┊✦ ';
+global.cmenuf = '╰━═┅═━––––––๑\n';
+global.cmenua = '\n⌕ ❙❘❙❙❘❙❚❙❘❙❙❚❙❘❙❘❙❚❙❘❙❙❚❙❘❙❙❘❙❚❙❘ ⌕\n     ';
+global.dmenut = '*❖─┅──┅〈*';
+global.dmenub = '*┊»*';
+global.dmenub2 = '*┊*';
+global.dmenuf = '*╰┅────────┅✦*';
+global.htjava = '⫹⫺';
+global.htki = '*⭑•̩̩͙⊱•••• ☪*';
+global.htka = '*☪ ••••̩̩͙⊰•⭑*';
+global.comienzo = '• • ◕◕════';
+global.fin = '════◕◕ • •';
+global.botdate = `*[ 📅 ] Fecha:*  ${moment.tz('Africa/Nairobi').format('DD/MM/YY')}`;
+global.bottime = `*[ ⏳ ] Hour:* ${moment.tz('Africa/Nairobi').format('HH:mm:ss')}`;
+
+global.fgif = {key: {participant: '0@s.whatsapp.net'}, message: {'videoMessage': {'title': wm, 'h': `Hmm`, 'seconds': '999999999', 'gifPlayback': 'true', 'caption': bottime, 'jpegThumbnail': fs.readFileSync('./src/assets/images/menu/languages/es/menu.png')}}};
+global.multiplier = 99;
+global.flaaa = [
+  'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=water-logo&script=water-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextColor=%23000&shadowGlowColor=%23000&backgroundColor=%23000&text=',
+  'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=crafts-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&text=',
+  'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=amped-logo&doScale=true&scaleWidth=800&scaleHeight=500&text=',
+  'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text=',
+  'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text=',
+];
+//* ************************
+
+const file = fileURLToPath(import.meta.url);
+watchFile(file, () => {
+  unwatchFile(file);
+  console.log(chalk.redBright('Update \'config.js\''));
+  import(`${file}?update=${Date.now()}`);
+});
