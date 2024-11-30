@@ -1,3 +1,4 @@
+/*
 let handler = async (m, { conn }) => {
 if (!db.data.chats[m.chat].audios && m.isGroup) throw 0
 let vn = './media/ozuna.mp3'
