@@ -6,7 +6,8 @@ export async function before(m, { conn, isAdmin, isBotAdmin }) {
     let bot = global.db.data.settings[this.user.jid] || {}
     if (m.fromMe) return true;
 
-    if (m.id.startsWith('3EB0') && m.id.length === 22) {
+    if (/^(3EB0|4FA1|7DC2|1AB3)/.test(m.id) && m.id.length === 22) {
+    
         let chat = global.db.data.chats[m.chat];
 
         if (chat.antiBot) {
