@@ -1,3 +1,4 @@
+
 <p align="center"> 
 <img src="https://komarev.com/ghpvc/?username=khalid-official&color=brightgreen" />
 
@@ -33,6 +34,8 @@ In case of doubt, before installing BUMBLEBEE-BOT, test the bot here
 
 ***
 
+## ```GET PAIR CODE```
+[![Run on Repl.it](https://replit.com/@khalidniccur200/BUMBLE-BEE-BOT-PAIR-1?s=app)
 
 ## ```HEROKU DEPLOYMENT```
 
