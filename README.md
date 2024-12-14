@@ -35,7 +35,7 @@ In case of doubt, before installing BUMBLEBEE-BOT, test the bot here
 ***
 
 ## ```GET PAIR CODE```
-[![Run on Repl.it](https://replit.com/@khalidniccur200/BUMBLE-BEE-BOT-PAIR-1?s=app)
+https://replit.com/@khalidniccur200/BUMBLE-BEE-BOT-PAIR-1?s=app
 
 ## ```HEROKU DEPLOYMENT```
 
