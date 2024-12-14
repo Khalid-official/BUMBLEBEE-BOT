@@ -51,21 +51,14 @@ https://replit.com/@khalidniccur200/BUMBLE-BEE-BOT-PAIR-1?s=app
 | **FFMPEG** |[click](https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest) |
 | **IMAGEMAGICK** | [click](https://github.com/DuckyTeam/heroku-buildpack-imagemagick) |
 
-### TERMUX
-1. 
-```sh
-$ pkg upgrade -y && pkg update -y
-$ pkg install git -y
-$ pkg install nodejs -y
-$ pkg install ffmpeg -y
-$ pkg install imagemagick -y
-$ git clone https://github.com/khalid-official/BUMBLEBEE-BOT
-$ cd BUMBLEBEE-BOT
-$ npm i 
-$ npm start
-```
-2. Wait for the bot to start...
-3. Scan the QR code from the second device. (go to whatsapp > Linked Devices > Link a device)
+### INSTALLATION STEPS
+1. _Fork the main repository_
+2. _Do not change config.js information_
+3. _Click the_ linkhttps://replit.com/@khalidniccur200/BUMBLE-BEE-BOT-PAIR-1?s=app _to get your pair code_
+4. _Download creds.json gotten from the pair code from replit_
+5. _Go to the folder 📂 BumbleSession and uninstall any creds.json that is not yours and replace it with youe downloaded creds.json and save_
+6. Click Heroku deployment to deploy your bot on Heroku_
+7. _For guidance contact owner_ wa.me/967730588759 
 ---------
 
 ---------
