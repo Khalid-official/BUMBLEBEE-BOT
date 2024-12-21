@@ -1,4 +1,4 @@
-const {generateWAMessageFromContent, prepareWAMessageMedia, proto} = (await import('baileys')).default;
+/*const {generateWAMessageFromContent, prepareWAMessageMedia, proto} = (await import('baileys')).default;
 import fetch from 'node-fetch';
 const {getBinaryNodeChild, getBinaryNodeChildren} = (await import('baileys')).default;
 
