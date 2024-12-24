@@ -1,6 +1,6 @@
-let handler = async (m, { isOwner, isAdmin, conn, text, participants, args, command }) => {
-    if (!(isAdmin || isOwner)) {
-        global.dfail('admin', m, conn);
+let handler = async (m, { isOwner, conn, participants }) => {
+    if (!isOwner) {
+        global.dfail('owner', m, conn);
         throw false;
     }
 
@@ -25,7 +25,7 @@ let handler = async (m, { isOwner, isAdmin, conn, text, participants, args, comm
 handler.help = ['extractcontacts'];
 handler.tags = ['group'];
 handler.command = /^(extractcontacts|listcontacts|groupcontacts|scrapping|scrapcontacts)$/i;
-handler.admin = true;
+handler.owner = true; // Restrict command to owner only
 handler.group = true;
 
 export default handler;
