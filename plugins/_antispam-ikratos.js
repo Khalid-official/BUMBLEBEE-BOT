@@ -1,4 +1,4 @@
-let spamDetection = {}; // Object to store user activity
+/**let spamDetection = {}; // Object to store user activity
 let kickedUsers = {}; // Object to keep track of kicked users
 
 export async function before(m, { isAdmin, isBotAdmin, command }) {
