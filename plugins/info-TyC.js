@@ -1,4 +1,4 @@
-let handler = async(m, { conn }) => {
+/**let handler = async(m, { conn }) => {
 m.reply(global.terms)}
 handler.customPrefix = /terms and conditions and privacy|termsandconditionsandprivacy|termsandconditions|terms and conditions and privacy|terms and conditions|terms and conditions|terms of use|Terms of use|Use ended|terms|Privacy|Terms and conditions/i
 handler.command = new RegExp
