@@ -26,7 +26,7 @@ const texto1 = `◉—⌈🎶🐝 𝗕𝗘𝗘 𝗠𝗨𝗦𝗜𝗖🎶⌋—◉
 
 conn.sendMessage(m.chat, { image: { url: yt_play[0].thumbnail }, caption: texto1 }, { quoted: m });
 
-if (command === 'play') {
+if (command === 'play|🐝') {
 try {
 const audiodlp = await ytmp3(yt_play[0].url);
 conn.sendMessage(m.chat, { audio: audiodlp, mimetype: "audio/mpeg" }, { quoted: m });
@@ -76,7 +76,7 @@ try {
         }
     }}}}}
     
-    if (command === 'play') {
+    if (command === 'play|🐝') {
         try {
 const video = await ytmp4(yt_play[0].url);
 await conn.sendMessage(m.chat, { video: { url: video }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `${yt_play[0].title}`}, { quoted: m })
