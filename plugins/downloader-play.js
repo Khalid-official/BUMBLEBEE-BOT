@@ -1,108 +1,145 @@
+import fetch from 'node-fetch';
+import axios from 'axios';
+import yts from 'yt-search';
+import { ogmp3 } from '../src/libraries/youtubedl.js'; 
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const { ytmp3, ytmp4 } = require("@hiudyy/ytdl");
 
-import yts from 'yt-search'
-import ytdl from 'ytdl-core'
-import fs from 'fs'
-import { pipeline } from 'stream'
-import { promisify } from 'util'
-import os from 'os'
-import fg from 'api-dylux'
-import fetch from 'node-fetch'
-let limit = 320
-let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
+let handler = async (m, { conn, args, text, usedPrefix, command }) => {    
+const datas = global;
+const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje;
+const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`));
+const tradutor = _translate.plugins.descargas_play;
+if (!text) throw `${tradutor.texto1[0]} ${usedPrefix + command} ${tradutor.texto1[1]}`;
+      
+  let additionalText = '';
+  if (['play'].includes(command)) {
+    additionalText = 'audio';
+  } else if (['play2'].includes(command)) {
+    additionalText = 'vídeo';
+ }
 
-    if (!text) throw `Example *${usedPrefix + command}* Lil Peep hate my life`
-  let chat = global.db.data.chats[m.chat]
-  let res = await yts(text)
-  //let vid = res.all.find(video => video.seconds < 3600)
-  let vid = res.videos[0]
-  if (!vid) throw `✳️ Vídeo/Audio no encontrado`
-  let isVideo = /vid$/.test(command)
+const yt_play = await search(args.join(' '));
+const ytplay2 = await yts(text);
+const texto1 = `*◉ Descargas de YouTube*\n\n● *Titulo:* ${yt_play[0].title}\n● *Publicado:* ${yt_play[0].ago}\n● *Duracion:* ${secondString(yt_play[0].duration.seconds)}\n● *Vistas:* ${MilesNumber(yt_play[0].views)}\n● *Autor:* ${yt_play[0].author.name}\n● *Link:* ${yt_play[0].url.replace(/^https?:\/\//, '')}\n\n> *_Enviando ${additionalText}, aguarde un momento．．．_*`.trim();
 
-  let play = `
-        ≡ *FG MUSIC*
-┌──────────────
-▢ 📌 *${mssg.title}:* ${vid.title}
-▢ 📆 *${mssg.aploud}:* ${vid.ago}
-▢ ⌚ *${mssg.duration}:* ${vid.timestamp}
-▢ 👀 *${mssg.views}:* ${vid.views.toLocaleString()}
-└──────────────
+conn.sendMessage(m.chat, { image: { url: yt_play[0].thumbnail }, caption: texto1 }, { quoted: m });
 
-_Enviando..._` 
-conn.sendFile(m.chat, vid.thumbnail, 'play', play, m, null, rcanal)
-
-  let q = isVideo ? '360p' : '128kbps' 
+if (command === 'play') {
 try {
+const audiodlp = await ytmp3(yt_play[0].url);
+conn.sendMessage(m.chat, { audio: audiodlp, mimetype: "audio/mpeg" }, { quoted: m });
+} catch {   
+try {                   
+const [input, quality = '320'] = text.split(' '); 
+const validQualities = ['64', '96', '128', '192', '256', '320'];
+const selectedQuality = validQualities.includes(quality) ? quality : '320';
+const res = await ogmp3.download(yt_play[0].url, selectedQuality, 'audio');
+await conn.sendMessage(m.chat, { audio: { url: res.result.download }, mimetype: 'audio/mpeg', fileName: `audio.mp3` }, { quoted: m });
+} catch {   
+try {
+const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp3?url=${yt_play[0].url}`);
+let { data } = await res.json();
+await conn.sendMessage(m.chat, { audio: { url: data.dl }, mimetype: 'audio/mpeg' }, { quoted: m});
+} catch {
+try {  
+const res = await fetch(`https://api.agatz.xyz/api/ytmp3?url=${yt_play[0].url}`)
+let data = await res.json();
+await conn.sendMessage(m.chat, { audio: { url: data.data.downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
+} catch {
+try {
+      const apidownload = await axios.get(`https://skynex.boxmine.xyz/docs/download/ytmp3?url=https://youtube.com/watch?v=${yt_play[0].videoId}&apikey=GataDios`)
+      const responsev2 = await apidownload.data.data.download;
+            
+      await conn.sendMessage(m.chat, { audio: { url: responsev2 }, mimetype: 'audio/mpeg' }, { quoted: m });
+        } catch (e) {
+        conn.reply(m.chat, `[ ❌️ ] OCURRIO UN FALLO AL PROCESAR SU SOLICITUD\n\n${e}`, m);
+        }
+    }}}}}
 
- // let api = await fetch(global.API('fgmods', `/api/downloader/${isVideo ? "ytv" : "yta"}`, { url: vid.url, quality: q}, 'apikey'))
- // let yt = await api.json()
+    if (command === 'play2') {
+        try {
+const video = await ytmp4(yt_play[0].url);
+await conn.sendMessage(m.chat, { video: { url: video }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `${yt_play[0].title}`}, { quoted: m })
+} catch {
+try {   
+const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${yt_play[0].url}`);
+let { data } = await res.json();
+await conn.sendMessage(m.chat, { video: { url: data.dl }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `${yt_play[0].title}`}, { quoted: m })
+} catch {
+try {  
+const res = await fetch(`https://api.agatz.xyz/api/ytmp4?url=${yt_play[0].url}`)
+let data = await res.json();
+await conn.sendMessage(m.chat, { video: { url: data.data.downloadUrl }, fileName: `video.mp4`, caption: `${yt_play[0].title}` }, { quoted: m }) 
+} catch {
+try {
+const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${yt_play[0].url}`)
+let { result } = await res.json()
+await conn.sendMessage(m.chat, { video: { url: result.download.url }, fileName: `video.mp4`, caption: `${yt_play[0].title}` }, { quoted: m }) 
+} catch {
+try {
+const axeelApi = `https://axeel.my.id/api/download/video?url=${yt_play[0].url}`;
+const axeelRes = await fetch(axeelApi);
+const axeelJson = await axeelRes.json();
+if (axeelJson && axeelJson.downloads?.url) {
+const videoUrl = axeelJson.downloads.url;
+await conn.sendMessage(m.chat, { video: { url: videoUrl }, fileName: `${yt_play[0].title}.mp4`, caption: `${yt_play[0].title}` }, { quoted: m }) 
+}} catch {
+try {              
+const apidownload = await axios.get(`https://skynex.boxmine.xyz/docs/download/ytmp4?url=https://youtube.com/watch?v=${yt_play[0].videoId}&apikey=GataDios`)
+ const responsev2 = await apidownload.data.data.download;         
+   await conn.sendMessage(m.chat, { video: { url: responsev2 }, mimetype: 'video/mp4' }, { quoted: m });
+   } catch (e) {
+    conn.reply(m.chat, `[ ❌️ ] OCURRIO UN FALLO AL PROCESAR SU SOLICITUD\n\n${e}`, m);
+   }
+  }}
+ }}
+}}
+};
 
-   let yt = await (isVideo ? fg.ytv : fg.yta)(vid.url, q)
-  let { title, dl_url, quality, size, sizeB } = yt
-  let isLimit = limit * 1024 < sizeB 
+handler.command = ['play', 'play2', 'play1doc', 'play2doc'];
 
-     await conn.loadingMsg(m.chat, '📥 Descargando', ` ${isLimit ? `≡  *FG YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '✅ Descarga Completada' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
+export default handler;
 
-          if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /vid$/.test(command)), `
- ≡  *FG YTDL*
-  
-▢ *📌Título* : ${title}
-▢ *🎞️Calidad* : ${quality}
-▢ *⚖️Peso* : ${size}
-`.trim(), m, false, { mimetype: isVideo ? '' : 'audio/mpeg', asDocument: chat.useDocument })
-
-  } catch {
-  try {
-//  let q = isVideo ? '360p' : '128kbps' 
-  let yt = await (isVideo ? fg.ytmp4 : ytmp3)(vid.url, q)
-  let { title, dl_url, quality, size, sizeB} = yt
-  let isLimit = limit * 1024 < sizeB 
-
-     await conn.loadingMsg(m.chat, '📥 Descargando', ` ${isLimit ? `≡  *FG YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '✅ Descarga Completada' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
-          if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /2$/.test(command)), `
- ≡  *FG YTDL 2*
-  
-*📌${mssg.title}* : ${title}
-*🎞️${mssg.quality}* : ${quality}
-*⚖️${mssg.size}* : ${size}
-`.trim(), m, false, { mimetype: isVideo ? '' : 'audio/mpeg', asDocument: chat.useDocument })
-                m.react(done) 
-
-                 } catch (error) {
-        m.reply(`❎ Error occured, try again later`)
-    }
+async function search(query, options = {}) {
+  const search = await yts.search({query, hl: 'es', gl: 'ES', ...options});
+  return search.videos;
 }
 
+function MilesNumber(number) {
+  const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+  const rep = '$1.';
+  const arr = number.toString().split('.');
+  arr[0] = arr[0].replace(exp, rep);
+  return arr[1] ? arr.join('.') : arr[0];
 }
-handler.help = ['play']
-handler.tags = ['dl']
-handler.command = ['play', 'playvid']
-handler.disabled = true
 
-export default handler
-
-const streamPipeline = promisify(pipeline);
-
-async function ytmp3(url) {
-    const videoInfo = await ytdl.getInfo(url);
-    const { videoDetails } = videoInfo;
-    const { title, thumbnails, lengthSeconds, viewCount, uploadDate } = videoDetails;
-    const thumbnail = thumbnails[0].url;
-
-    const audioStream = ytdl(url, { filter: 'audioonly', quality: 'highestaudio' });
-    const tmpDir = os.tmpdir();
-    const audioFilePath = `${tmpDir}/${title}.mp3`;
-
-    await streamPipeline(audioStream, fs.createWriteStream(audioFilePath));
-
-    return {
-        title,
-        views: viewCount,
-        publish: uploadDate,
-        duration: lengthSeconds,
-        quality: '128kbps',
-        thumb: thumbnail,
-        size: '0mb', 
-        sizeB: '0', 
-        dl_url: audioFilePath
-    };
+function secondString(seconds) {
+  seconds = Number(seconds);
+  const d = Math.floor(seconds / (3600 * 24));
+  const h = Math.floor((seconds % (3600 * 24)) / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = Math.floor(seconds % 60);
+  const dDisplay = d > 0 ? d + (d == 1 ? ' día, ' : ' días, ') : '';
+  const hDisplay = h > 0 ? h + (h == 1 ? ' hora, ' : ' horas, ') : '';
+  const mDisplay = m > 0 ? m + (m == 1 ? ' minuto, ' : ' minutos, ') : '';
+  const sDisplay = s > 0 ? s + (s == 1 ? ' segundo' : ' segundos') : '';
+  return dDisplay + hDisplay + mDisplay + sDisplay;
 }
+
+function bytesToSize(bytes) {
+  return new Promise((resolve, reject) => {
+    const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes === 0) return 'n/a';
+    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
+    if (i === 0) resolve(`${bytes} ${sizes[i]}`);
+    resolve(`${(bytes / (1024 ** i)).toFixed(1)} ${sizes[i]}`);
+  });
+}
+
+const getBuffer = async (url, options) => {
+    options ? options : {};
+    const res = await axios({method: 'get', url, headers: {'DNT': 1, 'Upgrade-Insecure-Request': 1,}, ...options, responseType: 'arraybuffer'});
+    return res.data;
+};
