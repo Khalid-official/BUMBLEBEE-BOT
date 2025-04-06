@@ -66,7 +66,10 @@ await conn.sendMessage(m.chat, { audio: { url: data.data.downloadUrl }, mimetype
 try {
       const apidownload = await axios.get(`https://skynex.boxmine.xyz/docs/download/ytmp3?url=https://youtube.com/watch?v=${yt_play[0].videoId}&apikey=GataDios`)
       const responsev2 = await apidownload.data.data.download;
-            
+     
+       await conn.sendMessage(m.chat, { document: { url: responsev2 }, mimetype: 'audio/mpeg',
+    fileName: `${yt_play[0].title}.mp3`
+  }, { quoted: m });            
       await conn.sendMessage(m.chat, { audio: { url: responsev2 }, mimetype: 'audio/mpeg' }, { quoted: m });
         } catch (e) {
         conn.reply(m.chat, `*[ ❌️ ] An error occurred while processing your request.*\n\n${e}`, m);
