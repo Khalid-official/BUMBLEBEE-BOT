@@ -22,7 +22,7 @@ if (!text) throw `${tradutor.texto1[0]} ${usedPrefix + command} ${tradutor.texto
 
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
-const texto1 = `*◉ Descargas de YouTube*\n\n● *Titulo:* ${yt_play[0].title}\n● *Publicado:* ${yt_play[0].ago}\n● *Duracion:* ${secondString(yt_play[0].duration.seconds)}\n● *Vistas:* ${MilesNumber(yt_play[0].views)}\n● *Autor:* ${yt_play[0].author.name}\n● *Link:* ${yt_play[0].url.replace(/^https?:\/\//, '')}\n\n> *_Enviando ${additionalText}, aguarde un momento．．．_*`.trim();
+const texto1 = `◉—⌈🎶🐝 𝗕𝗘𝗘 𝗠𝗨𝗦𝗜𝗖🎶⌋—◉*\n\n❏ 📌 *𝗧𝗶𝘁𝗹𝗲:* ${yt_play[0].title}\n❏ 📆 *𝗽𝘂𝗯𝗹𝗶𝘀𝗵𝗲𝗱:*  ${yt_play[0].ago}\n❏ ⌚ *Dur𝗮𝘁𝗶𝗼𝗻:* ${secondString(yt_play[0].duration.seconds)}\n❏ 👀 *Vi𝗲𝘄𝘀:* ${MilesNumber(yt_play[0].views)}\n❏ 👤 *Au𝘁𝗵𝗼𝗿:*  ${yt_play[0].author.name}\n❏ 🔗 *L𝗶𝗻𝗸:* ${yt_play[0].url.replace(/^https?:\/\//, '')}\n\n> *_Downloading ${additionalText}, please wait．．．_*`.trim();
 
 conn.sendMessage(m.chat, { image: { url: yt_play[0].thumbnail }, caption: texto1 }, { quoted: m });
 
@@ -54,11 +54,11 @@ try {
             
       await conn.sendMessage(m.chat, { audio: { url: responsev2 }, mimetype: 'audio/mpeg' }, { quoted: m });
         } catch (e) {
-        conn.reply(m.chat, `[ ❌️ ] OCURRIO UN FALLO AL PROCESAR SU SOLICITUD\n\n${e}`, m);
+        conn.reply(m.chat, `*[ ❌️ ] An error occurred while processing your request.*\n\n${e}`, m);
         }
     }}}}}
-
-    if (command === 'play2') {
+    
+    if (command === 'play') {
         try {
 const video = await ytmp4(yt_play[0].url);
 await conn.sendMessage(m.chat, { video: { url: video }, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `${yt_play[0].title}`}, { quoted: m })
@@ -91,7 +91,7 @@ const apidownload = await axios.get(`https://skynex.boxmine.xyz/docs/download/yt
  const responsev2 = await apidownload.data.data.download;         
    await conn.sendMessage(m.chat, { video: { url: responsev2 }, mimetype: 'video/mp4' }, { quoted: m });
    } catch (e) {
-    conn.reply(m.chat, `[ ❌️ ] OCURRIO UN FALLO AL PROCESAR SU SOLICITUD\n\n${e}`, m);
+    conn.reply(m.chat, `*[ ❌️ ] An error occurred while processing your request.*\n\n${e}`, m);
    }
   }}
  }}
@@ -121,10 +121,10 @@ function secondString(seconds) {
   const h = Math.floor((seconds % (3600 * 24)) / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   const s = Math.floor(seconds % 60);
-  const dDisplay = d > 0 ? d + (d == 1 ? ' día, ' : ' días, ') : '';
-  const hDisplay = h > 0 ? h + (h == 1 ? ' hora, ' : ' horas, ') : '';
-  const mDisplay = m > 0 ? m + (m == 1 ? ' minuto, ' : ' minutos, ') : '';
-  const sDisplay = s > 0 ? s + (s == 1 ? ' segundo' : ' segundos') : '';
+  const dDisplay = d > 0 ? d + (d == 1 ? ' day, ' : ' days, ') : '';
+  const hDisplay = h > 0 ? h + (h == 1 ? ' hour, ' : ' hours, ') : '';
+  const mDisplay = m > 0 ? m + (m == 1 ? ' minute, ' : ' minutes, ') : '';
+  const sDisplay = s > 0 ? s + (s == 1 ? ' second' : ' seconds') : '';
   return dDisplay + hDisplay + mDisplay + sDisplay;
 }
 
