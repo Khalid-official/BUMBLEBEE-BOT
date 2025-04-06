@@ -1,1 +1,114 @@
-const _0x53965c=_0x1a71;(function(_0x87590b,_0x1edb03){const _0x46b253=_0x1a71,_0x2fd0c5=_0x87590b();while(!![]){try{const _0x58bf41=parseInt(_0x46b253(0xda))/0x1+-parseInt(_0x46b253(0xe8))/0x2+-parseInt(_0x46b253(0x10c))/0x3+parseInt(_0x46b253(0xcf))/0x4*(parseInt(_0x46b253(0x10a))/0x5)+parseInt(_0x46b253(0xd3))/0x6*(-parseInt(_0x46b253(0xf7))/0x7)+-parseInt(_0x46b253(0xf6))/0x8*(-parseInt(_0x46b253(0x107))/0x9)+parseInt(_0x46b253(0xff))/0xa*(parseInt(_0x46b253(0xd5))/0xb);if(_0x58bf41===_0x1edb03)break;else _0x2fd0c5['push'](_0x2fd0c5['shift']());}catch(_0x5956cb){_0x2fd0c5['push'](_0x2fd0c5['shift']());}}}(_0x50e2,0xb8aaa));import{getTracks}from'@green-code/music-track-data';import{googleImage}from'@bochilteam/scraper';import _0x298953 from'got';function _0x50e2(){const _0x5d12e4=['language','album','users','http://cdn-preview-','API','json','sendMessage','1852750LRqgVZ','/lyrics','&parse=false','replace','getRandom','name','.mp3','readFileSync','299655OQvMiB','error','plugins','1480VWXNxg','quoted','4392000VEMJjt','lirik','lyrics','tags','url','length','title','defaultLenguaje','588fwQhvD','\x20Alone\x20Ft\x20Alan\x20walker*','Error:\x20','\x20\x20*','126yHTLUO','*\x0a\x0a','143tkoUwA','data','https://some-random-api.com','🟨\x20Couldn\x27t\x20find\x20any\x20lyrics\x20for\x20\x22','artist','50111Lqzxzv','audio/mp4','preview','get','.dzcdn.net','.deezer.com','message','image','log','map','command','texto2','Sareth','endpoint','2058170EcIsCO','thumbnail','sender','internet','texto1','chat','help','fullTitle','🟥\x20Provide\x20the\x20name\x20of\x20the\x20song\x20to\x20search\x20the\x20lyrics','text','\x20<Apa>','Lyrics\x20not\x20found.','instrumental','\x20-\x20','232PKRIRj','72758zngRow'];_0x50e2=function(){return _0x5d12e4;};return _0x50e2();}import _0x4c273e from'cheerio';import _0x2965c2 from'fs';const handler=async(_0x5b30da,{conn:_0x59d27b,text:_0x2b18f6,usedPrefix:_0x5cc5e2,command:_0x23e783})=>{const _0x1a4ac2=_0x1a71,_0x583c38=global,_0x52868a=_0x583c38['db'][_0x1a4ac2(0xd6)][_0x1a4ac2(0xfa)][_0x5b30da[_0x1a4ac2(0xea)]][_0x1a4ac2(0xf8)]||global[_0x1a4ac2(0xce)],_0x172532=JSON['parse'](_0x2965c2[_0x1a4ac2(0x106)]('./src/languages/en.json')),_0xac8bd2=_0x172532[_0x1a4ac2(0x109)]['buscador_lyrics'],_0x5dd355=_0x2b18f6?_0x2b18f6:_0x5b30da[_0x1a4ac2(0x10b)]&&_0x5b30da['quoted'][_0x1a4ac2(0xf1)]?_0x5b30da[_0x1a4ac2(0x10b)][_0x1a4ac2(0xf1)]:'';if(!_0x5dd355)throw'*'+_0xac8bd2[_0x1a4ac2(0xec)]+'\x20'+(_0x5cc5e2+_0x23e783)+_0x1a4ac2(0xd0);try{const _0x4041ee=await getTracks(_0x5dd355);let _0x56c76a;_0x4041ee?_0x56c76a=await searchLyrics(_0x4041ee[0x0]?.[_0x1a4ac2(0xd9)]+'\x20'+_0x4041ee[0x0]?.[_0x1a4ac2(0xcd)]):_0x56c76a=await searchLyrics(''+_0x5dd355);const _0x5d89aa=_0x4041ee[0x0]['title']?_0x4041ee[0x0]['title']:_0x56c76a['title'],_0x51ce83=_0x4041ee[0x0][_0x1a4ac2(0xd9)]?_0x4041ee[0x0]['artist']:_0x56c76a[_0x1a4ac2(0xd9)],_0x55f047=await fetch(global[_0x1a4ac2(0xfc)](_0x1a4ac2(0xd7),_0x1a4ac2(0x100),{'title':_0x51ce83+_0x5d89aa})),_0x3a41b4=await _0x55f047[_0x1a4ac2(0xfd)]();let _0x2a5ff0;try{_0x2a5ff0=_0x4041ee[_0x1a4ac2(0xf9)]['artwork'];}catch{try{_0x2a5ff0=_0x3a41b4[_0x1a4ac2(0xe9)]['genius'];}catch{try{const _0x1cddc2=await googleImage(_0x51ce83+'\x20'+_0x5d89aa);_0x2a5ff0=await _0x1cddc2[_0x1a4ac2(0x103)]();}catch{_0x2a5ff0=_0x56c76a[_0x1a4ac2(0xe1)];}}}const _0x466981=_0x4041ee[0x0]?.[_0x1a4ac2(0xdc)][_0x1a4ac2(0x102)](_0x1a4ac2(0xfb),'https://cdns-preview-')['replace'](_0x1a4ac2(0xdf),_0x1a4ac2(0xde)),_0x3f9fcf=_0xac8bd2['texto2'][0x0]+'\x20*'+(_0x5d89aa||'')+'*\x0a'+_0xac8bd2[_0x1a4ac2(0xe5)][0x1]+_0x1a4ac2(0xd2)+(_0x51ce83||'')+_0x1a4ac2(0xd4)+_0xac8bd2[_0x1a4ac2(0xe5)][0x2]+'\x20\x0a'+(_0x56c76a[_0x1a4ac2(0xc9)]||_0x1a4ac2(0xf3));await _0x59d27b[_0x1a4ac2(0xfe)](_0x5b30da[_0x1a4ac2(0xed)],{'image':{'url':_0x2a5ff0},'caption':_0x3f9fcf},{'quoted':_0x5b30da}),await _0x59d27b[_0x1a4ac2(0xfe)](_0x5b30da[_0x1a4ac2(0xed)],{'audio':{'url':_0x466981},'fileName':(_0x51ce83||'-')+_0x1a4ac2(0xf5)+(_0x5d89aa||'-')+_0x1a4ac2(0x105),'mimetype':_0x1a4ac2(0xdb)},{'quoted':_0x5b30da});}catch(_0xfe1a3){console[_0x1a4ac2(0xe2)](_0x1a4ac2(0xd1)+_0xfe1a3[_0x1a4ac2(0xe0)]);throw'*'+_0xac8bd2['texto2'][0x3]+'*';}};handler[_0x53965c(0xee)]=[_0x53965c(0xc8),'letra'][_0x53965c(0xe3)](_0x2d3f7e=>_0x2d3f7e+_0x53965c(0xf2)),handler[_0x53965c(0xca)]=[_0x53965c(0xeb)],handler[_0x53965c(0xe4)]=/^(lirik|lyrics|lyric|letra)$/i;export default handler;function _0x1a71(_0xbbfa08,_0x3df687){const _0x50e2d9=_0x50e2();return _0x1a71=function(_0x1a71e5,_0x3368f1){_0x1a71e5=_0x1a71e5-0xc8;let _0x6fe208=_0x50e2d9[_0x1a71e5];return _0x6fe208;},_0x1a71(_0xbbfa08,_0x3df687);}async function searchLyrics(_0x5958b0){const _0x5cab32=_0x53965c;try{if(!_0x5958b0)return _0x5cab32(0xf0);const _0x182a04=await axios[_0x5cab32(0xdd)]('https://deliriussapi-oficial.vercel.app/search/genius?q='+_0x5958b0),_0x5877d2=_0x182a04[_0x5cab32(0xd6)];if(!_0x5877d2[_0x5cab32(0xcc)])return _0x5cab32(0xd8)+_0x5958b0+'\x22';const _0x4d4503=_0x5877d2[0x0][_0x5cab32(0xcb)],_0x4c24e6=await axios[_0x5cab32(0xdd)]('https://deliriussapi-oficial.vercel.app/search/lyrics?url='+_0x4d4503+_0x5cab32(0x101)),_0x540b66={'status':!![],'creador':_0x5cab32(0xe6),'title':_0x5877d2[0x0][_0x5cab32(0xcd)]||'','fullTitle':_0x5877d2[0x0][_0x5cab32(0xef)]||'','artist':_0x5877d2[0x0]['artist'][_0x5cab32(0x104)]||'','artistUrl':_0x5877d2[0x0]['artist']['url']||'','id':_0x5877d2[0x0]['id']||'','enpoint':_0x5877d2[0x0][_0x5cab32(0xe7)]||'','instrumental':_0x5877d2[0x0][_0x5cab32(0xf4)],'image':_0x5877d2[0x0][_0x5cab32(0xe1)]||'','url':_0x5877d2[0x0][_0x5cab32(0xcb)]||'','lyrics':_0x4c24e6[_0x5cab32(0xd6)][_0x5cab32(0xc9)]||''};return _0x540b66;}catch(_0x24c99a){return console[_0x5cab32(0x108)](_0x24c99a[_0x5cab32(0xe0)]),{'creador':_0x5cab32(0xe6),'status':![],'message':new Error(_0x24c99a)[_0x5cab32(0xe0)]};}}
+import { getTracks } from "@green-code/music-track-data";
+import { googleImage } from "@bochilteam/scraper";
+import got from "got";
+import cheerio from "cheerio";
+import fs from "fs";
+
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+  const datas = global;
+  const idioma =
+    datas.db.data.users[m.sender].language || global.defaultLenguaje;
+  const _translate = JSON.parse(
+    fs.readFileSync(`./src/languages/en.json`),
+  );
+  const tradutor = _translate.plugins.buscador_lyrics;
+  const teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : "";
+  if (!teks) throw `*${tradutor.texto1} ${usedPrefix + command} beret ojala*`;
+  try {
+    const result = await getTracks(teks);
+    let lyrics;
+    if (result) {
+      lyrics = await searchLyrics(`${result[0]?.artist} ${result[0]?.title}`);
+    } else {
+      lyrics = await searchLyrics(`${teks}`);
+    }
+    const tituloL = result[0].title ? result[0].title : lyrics.title;
+    const artistaL = result[0].artist ? result[0].artist : lyrics.artist;
+    const res = await fetch(
+      global.API("https://some-random-api.com", "/lyrics", {
+        title: artistaL + tituloL,
+      }),
+    );
+    const json = await res.json();
+    let img;
+    try {
+      img = result.album.artwork;
+    } catch {
+      try {
+        img = json.thumbnail.genius;
+      } catch {
+        try {
+          const bochil = await googleImage(`${artistaL} ${tituloL}`);
+          img = await bochil.getRandom();
+        } catch {
+          img = lyrics.image;
+        }
+      }
+    }
+
+    const previewUrl = result[0]?.preview
+      .replace("http://cdn-preview-", "https://cdns-preview-")
+      .replace(".deezer.com", ".dzcdn.net");
+
+    const textoLetra = `${tradutor.texto2[0]} *${tituloL || ""}*\n${tradutor.texto2[1]}  *${artistaL || ""}*\n\n${tradutor.texto2[2]} \n${lyrics.lyrics || "Lyrics not found."}`;
+    await conn.sendMessage(
+      m.chat,
+      { image: { url: img }, caption: textoLetra },
+      { quoted: m },
+    );
+    await conn.sendMessage(
+      m.chat,
+      {
+        audio: { url: previewUrl },
+        fileName: `${artistaL || "-"} - ${tituloL || "-"}.mp3`,
+        mimetype: "audio/mp4",
+      },
+      { quoted: m },
+    );
+  } catch (e) {
+    console.log(`Error: ${e.message}`);
+    throw `*${tradutor.texto2[3]}*`;
+  }
+};
+handler.help = ["lirik", "letra"].map((v) => v + " <Apa>");
+handler.tags = ["internet"];
+handler.command = /^(lirik|lyrics|lyric|letra)$/i;
+export default handler;
+
+/* Creditos: https://github.com/darlyn1234 */
+async function searchLyrics(term) {
+  try {
+    if (!term) return "🟥 Provide the name of the song to search the lyrics";
+    const geniusResponse = await axios.get(
+      `https://deliriussapi-oficial.vercel.app/search/genius?q=${term}`,
+    );
+    const geniusData = geniusResponse.data;
+    if (!geniusData.length) return `🟨 Couldn't find any lyrics for "${term}"`;
+    const lyricsUrl = geniusData[0].url;
+    const lyricsResponse = await axios.get(
+      `https://deliriussapi-oficial.vercel.app/search/lyrics?url=${lyricsUrl}&parse=false`,
+    );
+    const result = {
+      status: true,
+      creador: "Sareth",
+      title: geniusData[0].title || "",
+      fullTitle: geniusData[0].fullTitle || "",
+      artist: geniusData[0].artist.name || "",
+      artistUrl: geniusData[0].artist.url || "",
+      id: geniusData[0].id || "",
+      enpoint: geniusData[0].endpoint || "",
+      instrumental: geniusData[0].instrumental,
+      image: geniusData[0].image || "",
+      url: geniusData[0].url || "",
+      lyrics: lyricsResponse.data.lyrics || "",
+    };
+    return result;
+  } catch (error) {
+    console.error(error.message);
+    return {
+      creador: "Sareth",
+      status: false,
+      message: new Error(error).message,
+    };
+  }
+        }
