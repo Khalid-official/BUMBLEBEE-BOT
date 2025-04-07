@@ -25,8 +25,8 @@ const ogmp3 = {
   },
 
   default_fmt: {
-    video: '720',
-    audio: '320'
+    video: '480',
+    audio: '128'
   },
 
   restrictedTimezones: new Set(["-330", "-420", "-480", "-540"]),
