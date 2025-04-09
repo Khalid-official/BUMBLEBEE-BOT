@@ -1,7 +1,6 @@
 import fetch from 'node-fetch';
 import axios from 'axios';
 import yts from 'yt-search';
-import { ytmp3, ytmp4 } from '@hiudyy/ytdl';
 import { ogmp3 } from '../src/libraries/youtubedl.js';
  
 import { createRequire } from 'module';
