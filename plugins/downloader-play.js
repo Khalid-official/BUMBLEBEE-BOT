@@ -123,7 +123,6 @@ await conn.sendMessage(m.chat, { document: isDirect ? mediaData : { url: mediaDa
 } else {
 await conn.sendMessage(m.chat, { audio: isDirect ? mediaData : { url: mediaData }, mimetype: 'audio/mpeg' }, { quoted: m });
 }} else {
-//await m.react('❌');
 }}
 
 if (command === 'play2' || command === 'video') {
@@ -136,7 +135,6 @@ await conn.sendMessage(m.chat, { document: isDirect ? mediaData : { url: mediaDa
 } else {
 await conn.sendMessage(m.chat, { video: isDirect ? mediaData : { url: mediaData }, thumbnail: yt_play[0].thumbnail, ...messageOptions }, { quoted: m });
 }} else {
-//await m.react('❌');
 }}
 
 if (command === 'play3' || command === 'playdoc') {
@@ -144,7 +142,6 @@ const { mediaData, isDirect } = await download(audioApis);
 if (mediaData) {
 await conn.sendMessage(m.chat, { document: isDirect ? mediaData : { url: mediaData }, mimetype: 'audio/mpeg', fileName: `${yt_play[0].title}.mp3`}, { quoted: m });
 } else {
-await m.react('❌');
 }}
 
 if (command === 'play4' || command === 'playdoc2') {
@@ -152,11 +149,10 @@ const { mediaData, isDirect } = await download(videoApis);
 if (mediaData) {
 await conn.sendMessage(m.chat, { document: isDirect ? mediaData : { url: mediaData }, fileName: `${yt_play[0].title}.mp4`, caption: `🔰${await tr("Título")}: ${yt_play[0].title}`, thumbnail: yt_play[0].thumbnail, mimetype: 'video/mp4'}, { quoted: m })
 } else {
-//await m.react('❌');
 }}
 } catch (error) {
 console.error(error);
-m.react("❌️")
+
 } finally {
 delete userRequests[m.sender];
 }}
