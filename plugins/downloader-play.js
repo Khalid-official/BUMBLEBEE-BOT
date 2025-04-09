@@ -37,30 +37,36 @@ const validQualities = ['64', '96', '128', '192', '256', '320'];
 const selectedQuality = validQualities.includes(quality) ? quality : '320';
 const res = await ogmp3.download(yt_play[0].url, selectedQuality, 'audio');
 await conn.sendMessage(m.chat, {
-    document: { url: res.result.download },
-    mimetype: 'audio/mpeg',
-    fileName: `${yt_play[0].title}.mp3`
-  }, { quoted: m });
+  document: { url: res.result.download },
+  mimetype: 'audio/mpeg',
+  fileName: `${yt_play[0].title}.mp3`,
+  caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
+}, { quoted: m });
+
 await conn.sendMessage(m.chat, { audio: { url: res.result.download }, mimetype: 'audio/mpeg', fileName: `audio.mp3` }, { quoted: m });
 } catch {   
 try {
 const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp3?url=${yt_play[0].url}`);
 let { data } = await res.json();
 await conn.sendMessage(m.chat, {
-    document: { url: res.result.download },
-    mimetype: 'audio/mpeg',
-    fileName: `${yt_play[0].title}.mp3`
-  }, { quoted: m });
+  document: { url: res.result.download },
+  mimetype: 'audio/mpeg',
+  fileName: `${yt_play[0].title}.mp3`,
+  caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
+}, { quoted: m });
+
 await conn.sendMessage(m.chat, { audio: { url: data.dl }, mimetype: 'audio/mpeg' }, { quoted: m});
 } catch {
 try {  
 const res = await fetch(`https://api.agatz.xyz/api/ytmp3?url=${yt_play[0].url}`)
 let data = await res.json();
 await conn.sendMessage(m.chat, {
-    document: { url: res.result.download },
-    mimetype: 'audio/mpeg',
-    fileName: `${yt_play[0].title}.mp3`
-  }, { quoted: m });
+  document: { url: res.result.download },
+  mimetype: 'audio/mpeg',
+  fileName: `${yt_play[0].title}.mp3`,
+  caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
+}, { quoted: m });
+
 await conn.sendMessage(m.chat, { audio: { url: data.data.downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
 } catch {
 try {
@@ -68,8 +74,9 @@ try {
       const responsev2 = await apidownload.data.data.download;
      
        await conn.sendMessage(m.chat, { document: { url: responsev2 }, mimetype: 'audio/mpeg',
-    fileName: `${yt_play[0].title}.mp3`
-  }, { quoted: m });            
+      fileName: `${yt_play[0].title}.mp3`,
+  caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
+}, { quoted: m });          
       await conn.sendMessage(m.chat, { audio: { url: responsev2 }, mimetype: 'audio/mpeg' }, { quoted: m });
         } catch (e) {
         conn.reply(m.chat, `*[ ❌️ ] An error occurred while processing your request.*\n\n${e}`, m);
