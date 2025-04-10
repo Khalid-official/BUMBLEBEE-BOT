@@ -25,7 +25,7 @@ const ogmp3 = {
   },
 
   default_fmt: {
-    video: '480',
+    video: '360',
     audio: '320'
   },
 
