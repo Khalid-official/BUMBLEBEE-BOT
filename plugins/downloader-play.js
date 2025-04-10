@@ -1,8 +1,7 @@
 import fetch from 'node-fetch';
 import axios from 'axios';
 import yts from 'yt-search';
-import { ogmp3 } from '../src/libraries/youtubedl.js';
- 
+import { ogmp3 } from '../src/libraries/youtubedl.js'; 
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const { ytmp3, ytmp4 } = require("@hiudyy/ytdl");
@@ -30,55 +29,56 @@ conn.sendMessage(m.chat, { image: { url: yt_play[0].thumbnail }, caption: texto1
 if (command === 'play') {
 try {
 const audiodlp = await ytmp3(yt_play[0].url);
-conn.sendMessage(m.chat, { audio: audiodlp, mimetype: "audio/mpeg" }, { quoted: m });
+conn.sendMessage(m.chat, {
+  document: { url: res.result.download },
+  mimetype: 'audio/mpeg',
+  fileName: `${yt_play[0].title}.mp3`,
+  caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
+}, { quoted: m });
 } catch {   
 try {                   
-const [input, quality = '96'] = text.split(' '); 
+const [input, quality = '320'] = text.split(' '); 
 const validQualities = ['64', '96', '128', '192', '256', '320'];
-const selectedQuality = validQualities.includes(quality) ? quality : '96';
+const selectedQuality = validQualities.includes(quality) ? quality : '320';
 const res = await ogmp3.download(yt_play[0].url, selectedQuality, 'audio');
+
 await conn.sendMessage(m.chat, {
   document: { url: res.result.download },
   mimetype: 'audio/mpeg',
   fileName: `${yt_play[0].title}.mp3`,
   caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
 }, { quoted: m });
-
-await conn.sendMessage(m.chat, { audio: { url: res.result.download }, mimetype: 'audio/mpeg', fileName: `audio.mp3` }, { quoted: m });
 } catch {   
 try {
 const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp3?url=${yt_play[0].url}`);
 let { data } = await res.json();
+
 await conn.sendMessage(m.chat, {
   document: { url: res.result.download },
   mimetype: 'audio/mpeg',
   fileName: `${yt_play[0].title}.mp3`,
   caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
 }, { quoted: m });
-
-await conn.sendMessage(m.chat, { audio: { url: data.dl }, mimetype: 'audio/mpeg' }, { quoted: m});
 } catch {
 try {  
 const res = await fetch(`https://api.agatz.xyz/api/ytmp3?url=${yt_play[0].url}`)
 let data = await res.json();
+
 await conn.sendMessage(m.chat, {
   document: { url: res.result.download },
   mimetype: 'audio/mpeg',
   fileName: `${yt_play[0].title}.mp3`,
   caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
 }, { quoted: m });
-
-await conn.sendMessage(m.chat, { audio: { url: data.data.downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
 } catch {
 try {
       const apidownload = await axios.get(`https://skynex.boxmine.xyz/docs/download/ytmp3?url=https://youtube.com/watch?v=${yt_play[0].videoId}&apikey=GataDios`)
       const responsev2 = await apidownload.data.data.download;
-     
-       await conn.sendMessage(m.chat, { document: { url: responsev2 }, mimetype: 'audio/mpeg',
-      fileName: `${yt_play[0].title}.mp3`,
+         
+      await conn.sendMessage(m.chat, { document: { url: responsev2 }, mimetype: 'audio/mpeg',
+  fileName: `${yt_play[0].title}.mp3`,
   caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
-}, { quoted: m });          
-      await conn.sendMessage(m.chat, { audio: { url: responsev2 }, mimetype: 'audio/mpeg' }, { quoted: m });
+}, { quoted: m });
         } catch (e) {
         conn.reply(m.chat, `*[ ❌️ ] An error occurred while processing your request.*\n\n${e}`, m);
         }
