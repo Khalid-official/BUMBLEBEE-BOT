@@ -28,16 +28,15 @@ conn.sendMessage(m.chat, { image: { url: yt_play[0].thumbnail }, caption: texto1
 
 if (command === 'play') {
 try {
-const audiodlp = await ytmp3(yt_play[0].url);
-conn.sendMessage(m.chat, { document: audiodlp, mimetype: 'audio/mpeg',
+const audiodlp = await ytmp3(yt_play[0].url);await conn.sendMessage(m.chat, { document: audiodlp, mimetype: 'audio/mpeg',
   fileName: `${yt_play[0].title}.mp3`,
   caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
 }, { quoted: m });
 } catch {   
 try {                   
-const [input, quality = '320'] = text.split(' '); 
+const [input, quality = '128'] = text.split(' '); 
 const validQualities = ['64', '96', '128', '192', '256', '320'];
-const selectedQuality = validQualities.includes(quality) ? quality : '320';
+const selectedQuality = validQualities.includes(quality) ? quality : '128';
 const res = await ogmp3.download(yt_play[0].url, selectedQuality, 'audio');
 
 await conn.sendMessage(m.chat, { document: { url: res.result.download }, mimetype: 'audio/mpeg',
