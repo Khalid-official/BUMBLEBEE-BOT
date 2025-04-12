@@ -32,6 +32,7 @@ const audiodlp = await ytmp3(yt_play[0].url);await conn.sendMessage(m.chat, { do
   fileName: `${yt_play[0].title}.mp3`,
   caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
 }, { quoted: m });
+await conn.sendMessage(m.chat, { audio: audiodlp, mimetype: "audio/mpeg" }, { quoted: m });
 } catch {   
 try {                   
 const [input, quality = '320'] = text.split(' '); 
@@ -43,6 +44,7 @@ await conn.sendMessage(m.chat, { document: { url: res.result.download }, mimetyp
   fileName: `${yt_play[0].title}.mp3`,
   caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
 }, { quoted: m });
+await conn.sendMessage(m.chat, { audio: { url: res.result.download }, mimetype: 'audio/mpeg', fileName: `audio.mp3` }, { quoted: m });
 } catch {   
 try {
 const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp3?url=${yt_play[0].url}`);
@@ -52,6 +54,7 @@ await conn.sendMessage(m.chat, { document: { url: data.dl }, mimetype: 'audio/mp
   fileName: `${yt_play[0].title}.mp3`,
   caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
 }, { quoted: m });
+await conn.sendMessage(m.chat, { audio: { url: res.result.download }, mimetype: 'audio/mpeg', fileName: `audio.mp3` }, { quoted: m });
 } catch {
 try {  
 const res = await fetch(`https://api.agatz.xyz/api/ytmp3?url=${yt_play[0].url}`)
@@ -61,6 +64,7 @@ await conn.sendMessage(m.chat, { document: { url: data.data.downloadUrl }, mimet
   fileName: `${yt_play[0].title}.mp3`,
   caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
 }, { quoted: m });
+await conn.sendMessage(m.chat, { audio: { url: res.result.download }, mimetype: 'audio/mpeg', fileName: `audio.mp3` }, { quoted: m });
 } catch {
 try {
       const apidownload = await axios.get(`https://skynex.boxmine.xyz/docs/download/ytmp3?url=https://youtube.com/watch?v=${yt_play[0].videoId}&apikey=GataDios`)
@@ -71,6 +75,7 @@ try {
   fileName: `${yt_play[0].title}.mp3`,
   caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
 }, { quoted: m });
+await conn.sendMessage(m.chat, { audio: { url: responsev2 }, mimetype: 'audio/mpeg' }, { quoted: m });
         } catch (e) {
         conn.reply(m.chat, `*[ ❌️ ] An error occurred while processing your request.*\n\n${e}`, m);
         }
