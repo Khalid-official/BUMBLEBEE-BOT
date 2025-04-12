@@ -34,9 +34,9 @@ const audiodlp = await ytmp3(yt_play[0].url);await conn.sendMessage(m.chat, { do
 }, { quoted: m });
 } catch {   
 try {                   
-const [input, quality = '128'] = text.split(' '); 
+const [input, quality = '320'] = text.split(' '); 
 const validQualities = ['64', '96', '128', '192', '256', '320'];
-const selectedQuality = validQualities.includes(quality) ? quality : '128';
+const selectedQuality = validQualities.includes(quality) ? quality : '320';
 const res = await ogmp3.download(yt_play[0].url, selectedQuality, 'audio');
 
 await conn.sendMessage(m.chat, { document: { url: res.result.download }, mimetype: 'audio/mpeg',
