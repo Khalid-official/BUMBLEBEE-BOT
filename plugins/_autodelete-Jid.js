@@ -6,7 +6,7 @@ export default {
     const blockedJIDs = [
       "254785803178@s.whatsapp.net",
       "254783920842@s.whatsapp.net",
-      "254745194136@s.whatsapp.net"
+      "254101055319@s.whatsapp.net"
     ];
 
     if (m.isGroup && blockedJIDs.includes(m.sender)) {
