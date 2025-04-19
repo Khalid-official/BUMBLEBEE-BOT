@@ -1,40 +1,34 @@
 export default {
-  name: "autodelete-jid",
-  type: "before", // runs before main message processing
-  async before(m, { conn }) {
-    // === AUTO DELETE FOR SPECIFIC JIDs IN GROUPS IF BOT IS ADMIN ===
-    const blockedJIDs = [
-      "254785803178@s.whatsapp.net",
-      "254783920842@s.whatsapp.net",
-      "254101055319@s.whatsapp.net",
-      "525537121258@s.whatsapp.net"
-    ];
+  name: "autodelete-jid",
+  type: "before", // runs before main message processing
+  async before(m) {
+    // === AUTO DELETE FOR SPECIFIC JIDs ===
+    const blockedJIDs = [
+      "254785803178@s.whatsapp.net",
+      "254783920842@s.whatsapp.net",
+      "254745194136@s.whatsapp.net"
+    ];
 
-    // Check if message is from group and sender is in the blocked list
-    if (m.isGroup && blockedJIDs.includes(m.sender)) {
-      try {
-        const groupMetadata = await conn.groupMetadata(m.chat);
-        const botJid = conn.user.jid;
-        const botParticipant = groupMetadata.participants.find(p => p.id === botJid);
+    if (m.isGroup && blockedJIDs.includes(m.sender)) {
+      let bang = m.key.id;
+      let delet = m.key.participant || m.sender;
 
-        // Check if bot is admin
-        if (botParticipant?.admin) {
-          await conn.sendMessage(m.chat, {
-            delete: {
-              remoteJid: m.chat,
-              fromMe: false,
-              id: m.key.id,
-              participant: m.sender
-            }
-          });
-          console.log(`Auto-deleted message from ${m.sender} in group ${m.chat}`);
-          return false; // prevent further processing
-        }
-      } catch (err) {
-        console.error("Error checking group admin status or deleting message:", err);
-      }
-    }
+      try {
+        await this.sendMessage(m.chat, {
+          delete: {
+            remoteJid: m.chat,
+            fromMe: false,
+            id: bang,
+            participant: delet
+          }
+        });
+        console.log(`Message from blocked JID ${m.sender} deleted in ${m.chat}`);
+        return false; // Prevent further processing
+      } catch (err) {
+        console.error("Failed to auto-delete blocked JID message:", err);
+      }
+    }
 
-    return true;
-  }
+    return true;
+  }
 };
