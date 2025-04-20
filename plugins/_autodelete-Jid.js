@@ -1,12 +1,11 @@
-/*export default {
+export default {
   name: "autodelete-jid",
   type: "before", // runs before main message processing
   async before(m) {
     // === AUTO DELETE FOR SPECIFIC JIDs ===
     const blockedJIDs = [
-      "254785803178@s.whatsapp.net",
-      "254783920842@s.whatsapp.net",
-      "254101055319@s.whatsapp.net"
+      "254718609706@s.whatsapp.net",
+      "254750157925@s.whatsapp.net"
     ];
 
     if (m.isGroup && blockedJIDs.includes(m.sender)) {
