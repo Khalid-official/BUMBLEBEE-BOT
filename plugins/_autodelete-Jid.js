@@ -1,4 +1,4 @@
-export default {
+/*export default {
   name: "autodelete-jid",
   type: "before", // runs before main message processing
   async before(m) {
