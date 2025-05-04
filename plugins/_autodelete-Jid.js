@@ -4,7 +4,8 @@ export default {
   async before(m) {
     // === AUTO DELETE FOR SPECIFIC JIDs ===
     const blockedJIDs = [
-      "254787763997@s.whatsapp.net"
+      "254706362818@s.whatsapp.net",
+"254743628873@s.whatsapp.net"
     ];
 
     if (m.isGroup && blockedJIDs.includes(m.sender)) {
