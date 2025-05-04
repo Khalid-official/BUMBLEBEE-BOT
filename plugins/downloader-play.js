@@ -6,6 +6,28 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const { ytmp3, ytmp4 } = require("@hiudyy/ytdl");
 
+const bumblebeeFacts = [
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ɪs ᴏɴᴇ ᴏꜰ ᴛʜᴇ ᴍᴏsᴛ ʟᴏʏᴀʟ ᴀᴜᴛᴏʙᴏᴛs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴄᴀɴ ᴛʀᴀɴsꜰᴏʀᴍ ɪɴᴛᴏ ᴀ ᴄᴀᴍᴀʀᴏ ᴏʀ ᴀ ᴠᴏʟᴋsᴡᴀɢᴇɴ ʙᴇᴇᴛʟᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴀ sᴛʀᴏɴɢ sᴇɴsᴇ ᴏꜰ ᴊᴜsᴛɪᴄᴇ. 🍯",
+  "🐝 ɪɴ ᴛʜᴇ ᴍᴏᴠɪᴇ, ʙᴜᴍʙʟᴇʙᴇᴇ ɪs sʜᴏᴡɴ ᴛᴏ ʜᴀᴠᴇ ᴀ ᴅᴇᴇᴘ ʙᴏɴᴅ ᴡɪᴛʜ ᴄʜᴀʀʟɪᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴀ sᴘᴇᴄɪᴀʟ ᴀʙɪʟɪᴛʏ ᴛᴏ ᴅɪsɢᴜɪsᴇ ʜɪᴍsᴇʟꜰ ᴀs ᴏᴛʜᴇʀ ᴠᴇʜɪᴄʟᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ's ᴠᴏɪᴄᴇ ʙᴏx ᴡᴀs ᴅᴀᴍᴀɢᴇᴅ ɪɴ ᴛʜᴇ ꜰɪʀsᴛ ꜰɪʟᴍ, ᴡʜɪᴄʜ ɪs ᴡʜʏ ʜᴇ ᴜsᴇs ʀᴀᴅɪᴏ sɪɢɴᴀʟs ᴛᴏ ᴄᴏᴍᴍᴜɴɪᴄᴀᴛᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴀ sᴛʀᴏɴɢ ʀᴇʟᴀᴛɪᴏɴsʜɪᴘ ᴡɪᴛʜ ʜᴜᴍᴀɴs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ɪs ᴀ ʙʀɪᴅɢᴇ ʙᴇᴛᴡᴇᴇɴ ʜᴜᴍᴀɴs ᴀɴᴅ ᴀᴜᴛᴏʙᴏᴛs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴀ ꜰᴇᴀʀʟᴇss ɴᴀᴛᴜʀᴇ ᴅᴇsᴘɪᴛᴇ ʜɪs ʀᴇʟᴀᴛɪᴠᴇʟʏ sᴍᴀʟʟ sɪᴢᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴀ sᴛʀᴏɴɢ sᴇɴsᴇ ᴏꜰ ᴏʙʟɪɢᴀᴛɪᴏɴ ᴛᴏ ᴏᴛʜᴇʀ ᴀᴜᴛᴏʙᴏᴛs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴀ sᴛʀᴏɴɢ ᴠᴏɪᴄᴇ ᴡɪᴛʜ ᴍᴀɴʏ ᴇᴍᴏᴛɪᴏɴᴀʟ ʀᴀᴛᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴡᴀs ᴀ ᴇxᴘᴇʀɪᴇɴᴄᴇᴅ ᴠᴇʜɪᴄʟᴇ ᴏꜰ ᴍᴀɴʏ ᴏᴛʜᴇʀ ʙᴇᴇᴛʟᴇ ᴅᴇsᴛɪɴᴇᴅ ᴛᴏ ʟᴇᴀᴅ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴡᴀs ʜɪsᴛᴏʀɪᴄᴀʟʟʏ ᴀᴅᴍɪʀᴇᴅ ᴀs ᴀ ᴅᴇsᴛɪɴᴀᴛɪᴏɴ ɪɴ ᴏᴛʜᴇʀ ʙᴇᴇᴛʟᴇ ᴍᴀᴄʜɪɴᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴏʀɪɢɪɴᴀʟɪᴛʏ ᴀɴᴅ ᴅɪsᴛɪɴᴄᴛɪᴏɴ ᴄᴀᴘᴀʙɪʟɪᴛɪᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ɪs ᴀ ᴅɪsᴛɪɴɢᴜɪsʜᴇᴅ ᴠᴇʜɪᴄʟᴇ ᴏʀᴇ ᴇxᴇʀᴄɪsᴇ ᴏᴇ ʙʀᴇᴇᴋɪɴɢ ᴅᴏᴄᴛᴏʀɢᴏ. 🍯"
+];
+
+function getRandomBumblebeeFact() {
+  return bumblebeeFacts[Math.floor(Math.random() * bumblebeeFacts.length)];
+}
+
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {    
 const datas = global;
 const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje;
@@ -30,7 +52,7 @@ if (command === 'play') {
 try {
 const audiodlp = await ytmp3(yt_play[0].url);await conn.sendMessage(m.chat, { document: audiodlp, mimetype: 'audio/mpeg',
   fileName: `${yt_play[0].title}.mp3`,
-  caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
+  caption: getRandomBumblebeeFact()
 }, { quoted: m });
 await conn.sendMessage(m.chat, { audio: audiodlp, mimetype: "audio/mpeg" }, { quoted: m });
 } catch {   
@@ -42,7 +64,7 @@ const res = await ogmp3.download(yt_play[0].url, selectedQuality, 'audio');
 
 await conn.sendMessage(m.chat, { document: { url: res.result.download }, mimetype: 'audio/mpeg',
   fileName: `${yt_play[0].title}.mp3`,
-  caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
+  caption: getRandomBumblebeeFact()
 }, { quoted: m });
 await conn.sendMessage(m.chat, { audio: { url: res.result.download }, mimetype: 'audio/mpeg', fileName: `audio.mp3` }, { quoted: m });
 } catch {   
@@ -52,7 +74,7 @@ let { data } = await res.json();
 
 await conn.sendMessage(m.chat, { document: { url: data.dl }, mimetype: 'audio/mpeg',
   fileName: `${yt_play[0].title}.mp3`,
-  caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
+  caption: getRandomBumblebeeFact()
 }, { quoted: m });
 await conn.sendMessage(m.chat, { audio: { url: res.result.download }, mimetype: 'audio/mpeg', fileName: `audio.mp3` }, { quoted: m });
 } catch {
@@ -62,7 +84,7 @@ let data = await res.json();
 
 await conn.sendMessage(m.chat, { document: { url: data.data.downloadUrl }, mimetype: 'audio/mpeg',
   fileName: `${yt_play[0].title}.mp3`,
-  caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
+  caption: getRandomBumblebeeFact()
 }, { quoted: m });
 await conn.sendMessage(m.chat, { audio: { url: res.result.download }, mimetype: 'audio/mpeg', fileName: `audio.mp3` }, { quoted: m });
 } catch {
@@ -73,7 +95,7 @@ try {
                 
       await conn.sendMessage(m.chat, { document: { url: responsev2 }, mimetype: 'audio/mpeg',
   fileName: `${yt_play[0].title}.mp3`,
-  caption: `_★𝐁𝐔𝐌𝐁𝐋𝐄𝐁𝐄𝐄🐝𝐁𝐎𝐓★_`
+  caption: getRandomBumblebeeFact()
 }, { quoted: m });
 await conn.sendMessage(m.chat, { audio: { url: responsev2 }, mimetype: 'audio/mpeg' }, { quoted: m });
         } catch (e) {
@@ -84,22 +106,22 @@ await conn.sendMessage(m.chat, { audio: { url: responsev2 }, mimetype: 'audio/mp
     if (command === 'play') {
         try {
 const video = await ytmp4(yt_play[0].url);
-await conn.sendMessage(m.chat, { document: { url: video }, fileName: `${yt_play[0].title}.mp4`, mimetype: 'video/mp4', caption: `${yt_play[0].title}`}, { quoted: m })
+await conn.sendMessage(m.chat, { document: { url: video }, fileName: `${yt_play[0].title}.mp4`, mimetype: 'video/mp4', caption: getRandomBumblebeeFact()}, { quoted: m })
 } catch {
 try {   
 const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${yt_play[0].url}`);
 let { data } = await res.json();
-await conn.sendMessage(m.chat, { document: { url: data.dl }, fileName: `${yt_play[0].title}.mp4`, mimetype: 'video/mp4', caption: `${yt_play[0].title}`}, { quoted: m })
+await conn.sendMessage(m.chat, { document: { url: data.dl }, fileName: `${yt_play[0].title}.mp4`, mimetype: 'video/mp4', caption: getRandomBumblebeeFact()}, { quoted: m })
 } catch {
 try {  
 const res = await fetch(`https://api.agatz.xyz/api/ytmp4?url=${yt_play[0].url}`)
 let data = await res.json();
-await conn.sendMessage(m.chat, { document: { url: data.data.downloadUrl }, fileName: `${yt_play[0].title}.mp4`, caption: `${yt_play[0].title}` }, { quoted: m }) 
+await conn.sendMessage(m.chat, { document: { url: data.data.downloadUrl }, fileName: `${yt_play[0].title}.mp4`, caption: getRandomBumblebeeFact() }, { quoted: m }) 
 } catch {
 try {
 const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${yt_play[0].url}`)
 let { result } = await res.json()
-await conn.sendMessage(m.chat, { document: { url: result.download.url }, fileName: `${yt_play[0].title}.mp4`, caption: `${yt_play[0].title}` }, { quoted: m }) 
+await conn.sendMessage(m.chat, { document: { url: result.download.url }, fileName: `${yt_play[0].title}.mp4`, caption: getRandomBumblebeeFact() }, { quoted: m }) 
 } catch {
 try {
 const axeelApi = `https://axeel.my.id/api/download/video?url=${yt_play[0].url}`;
@@ -107,7 +129,7 @@ const axeelRes = await fetch(axeelApi);
 const axeelJson = await axeelRes.json();
 if (axeelJson && axeelJson.downloads?.url) {
 const videoUrl = axeelJson.downloads.url;
-await conn.sendMessage(m.chat, { document: { url: videoUrl }, fileName: `${yt_play[0].title}.mp4`, caption: `${yt_play[0].title}` }, { quoted: m }) 
+await conn.sendMessage(m.chat, { document: { url: videoUrl }, fileName: `${yt_play[0].title}.mp4`, caption: getRandomBumblebeeFact() }, { quoted: m }) 
 }} catch {
 try {              
 const apidownload = await axios.get(`https://skynex.boxmine.xyz/docs/download/ytmp4?url=https://youtube.com/watch?v=${yt_play[0].videoId}&apikey=GataDios`)
