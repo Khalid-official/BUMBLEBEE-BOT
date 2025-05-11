@@ -59,7 +59,15 @@ if (!text) throw `${tradutor.texto1[0]} ${usedPrefix + command} ${tradutor.texto
 
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
-const texto1 = `◉—⌈🎶🐝 𝗕𝗘𝗘 𝗠𝗨𝗦𝗜𝗖🎶⌋—◉*\n\n❏ 📌 *𝗧𝗶𝘁𝗹𝗲:* ${yt_play[0].title}\n❏ 📆 *𝗽𝘂𝗯𝗹𝗶𝘀𝗵𝗲𝗱:*  ${yt_play[0].ago}\n❏ ⌚ *Dur𝗮𝘁𝗶𝗼𝗻:* ${secondString(yt_play[0].duration.seconds)}\n❏ 👀 *Vi𝗲𝘄𝘀:* ${MilesNumber(yt_play[0].views)}\n❏ 👤 *Au𝘁𝗵𝗼𝗿:*  ${yt_play[0].author.name}\n❏ 🔗 *L𝗶𝗻𝗸:* ${yt_play[0].url.replace(/^https?:\/\//, '')}\n\n> *_Downloading ${additionalText}, please wait．．．_*`.trim();
+const texto1 = `*_⌈🐝🎶𖦤𝗕𝗘𝗘 𝗠𝗨𝗦𝗜𝗖𖦤🎶🐝⌋_*\n𖦤 📌 *𝗧𝗶𝘁𝗹𝗲:* ${yt_play[0].title}
+𖦤 📆 *𝗽𝘂𝗯𝗹𝗶𝘀𝗵𝗲𝗱:* ${yt_play[0].ago}
+𖦤 ⌚ *Dur𝗮𝘁𝗶𝗼𝗻:* ${secondString(yt_play[0].duration.seconds)}
+𖦤 👀 *Vi𝗲𝘄𝘀:* ${`${MilesNumber(yt_play[0].views)}`}
+𖦤 👤 *Au𝘁𝗵𝗼𝗿:* ${yt_play[0].author.name}
+𖦤 ⏯️ *C𝗵𝗮𝗻𝗻𝗲𝗹:* ${yt_play[0].author.url}
+𖦤 🆔 *ID:* ${yt_play[0].videoId}
+𖦤 🪬 *T𝘆𝗽𝗲:* ${yt_play[0].type}
+𖦤 🔗 *L𝗶𝗻𝗸:* ${yt_play[0].url}\n> *_Downloading ${additionalText}, please wait．．．_*`.trim();
 
 conn.sendMessage(m.chat, { image: { url: yt_play[0].thumbnail }, caption: texto1 }, { quoted: m });
 
@@ -121,22 +129,22 @@ await conn.sendMessage(m.chat, { audio: { url: responsev2 }, mimetype: 'audio/mp
     if (command === 'play') {
         try {
 const video = await ytmp4(yt_play[0].url);
-await conn.sendMessage(m.chat, { document: { url: video }, fileName: `${yt_play[0].title}.mp4`, mimetype: 'video/mp4', caption: getRandomBumblebeeFact()}, { quoted: m })
+await conn.sendMessage(m.chat, { video: { url: video }, fileName: `${yt_play[0].title}.mp4`, mimetype: 'video/mp4', caption: getRandomBumblebeeFact()}, { quoted: m })
 } catch {
 try {   
 const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${yt_play[0].url}`);
 let { data } = await res.json();
-await conn.sendMessage(m.chat, { document: { url: data.dl }, fileName: `${yt_play[0].title}.mp4`, mimetype: 'video/mp4', caption: getRandomBumblebeeFact()}, { quoted: m })
+await conn.sendMessage(m.chat, { video: { url: data.dl }, fileName: `${yt_play[0].title}.mp4`, mimetype: 'video/mp4', caption: getRandomBumblebeeFact()}, { quoted: m })
 } catch {
 try {  
 const res = await fetch(`https://api.agatz.xyz/api/ytmp4?url=${yt_play[0].url}`)
 let data = await res.json();
-await conn.sendMessage(m.chat, { document: { url: data.data.downloadUrl }, fileName: `${yt_play[0].title}.mp4`, caption: getRandomBumblebeeFact() }, { quoted: m }) 
+await conn.sendMessage(m.chat, { video: { url: data.data.downloadUrl }, fileName: `${yt_play[0].title}.mp4`, caption: getRandomBumblebeeFact() }, { quoted: m }) 
 } catch {
 try {
 const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${yt_play[0].url}`)
 let { result } = await res.json()
-await conn.sendMessage(m.chat, { document: { url: result.download.url }, fileName: `${yt_play[0].title}.mp4`, caption: getRandomBumblebeeFact() }, { quoted: m }) 
+await conn.sendMessage(m.chat, { video: { url: result.download.url }, fileName: `${yt_play[0].title}.mp4`, caption: getRandomBumblebeeFact() }, { quoted: m }) 
 } catch {
 try {
 const axeelApi = `https://axeel.my.id/api/download/video?url=${yt_play[0].url}`;
@@ -144,12 +152,12 @@ const axeelRes = await fetch(axeelApi);
 const axeelJson = await axeelRes.json();
 if (axeelJson && axeelJson.downloads?.url) {
 const videoUrl = axeelJson.downloads.url;
-await conn.sendMessage(m.chat, { document: { url: videoUrl }, fileName: `${yt_play[0].title}.mp4`, caption: getRandomBumblebeeFact() }, { quoted: m }) 
+await conn.sendMessage(m.chat, { video: { url: videoUrl }, fileName: `${yt_play[0].title}.mp4`, caption: getRandomBumblebeeFact() }, { quoted: m }) 
 }} catch {
 try {              
 const apidownload = await axios.get(`https://skynex.boxmine.xyz/docs/download/ytmp4?url=https://youtube.com/watch?v=${yt_play[0].videoId}&apikey=GataDios`)
  const responsev2 = await apidownload.data.data.download;         
-   await conn.sendMessage(m.chat, { document: { url: responsev2 }, mimetype: 'video/mp4' }, { quoted: m });
+   await conn.sendMessage(m.chat, { video: { url: responsev2 }, mimetype: 'video/mp4' }, { quoted: m });
    } catch (e) {
     conn.reply(m.chat, `*[ ❌️ ] An error occurred while processing your request.*\n\n${e}`, m);
    }
