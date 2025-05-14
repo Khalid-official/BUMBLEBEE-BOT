@@ -435,12 +435,12 @@ global.reloadHandler = async function (_0xbd6a4) {
     conn.ev.off("connection.update", conn.connectionUpdate);
     conn.ev.off("creds.update", conn.credsUpdate);
   }
-  conn.spromote = "https://github.com/Khalid-official *🐝@user HAS BEEN PROMOTED TO ADMINSHIP, ENJOY YOUR RANKING FHAM🥂*";
-  conn.sdemote = "https://github.com/Khalid-official *🐝@user HAS BEEN DEMOTED FROM ADMINSHIP, SO SHAMFULL😢*";
-  conn.sDesc = "https://github.com/Khalid-official *THE DESCRIPTION HAS BEEN MODIFIED*\n\n*NEW DESCRIPTION:* @desc";
-  conn.sSubject = "https://github.com/Khalid-official *🐝GROUP NAME HAS BEEN CHANGED🐝*\n*🐝NEW NAME🐝:* @subject";
-  conn.sIcon = "https://github.com/Khalid-official *🐝THE GROUP PHOTO HAS BEEN CHANGED🐝!!*";
-  conn.sRevoke = "https://github.com/Khalid-official *🐝GROUP LINK HAS BEEN REVOKED🐝!!*\n*NEW LINK:* @revoke";
+  conn.spromote = "*🐝@user HAS BEEN PROMOTED TO ADMINSHIP, ENJOY YOUR RANKING FHAM🥂*";
+  conn.sdemote = "*🐝@user HAS BEEN DEMOTED FROM ADMINSHIP, SO SHAMFULL😢*";
+  conn.sDesc = "*THE DESCRIPTION HAS BEEN MODIFIED*\n\n*NEW DESCRIPTION:* @desc";
+  conn.sSubject = "*🐝GROUP NAME HAS BEEN CHANGED🐝*\n*🐝NEW NAME🐝:* @subject";
+  conn.sIcon = "*🐝THE GROUP PHOTO HAS BEEN CHANGED🐝!!*";
+  conn.sRevoke = "*🐝GROUP LINK HAS BEEN REVOKED🐝!!*\n*NEW LINK:* @revoke";
   conn.handler = handler.handler.bind(global.conn);
   conn.participantsUpdate = handler.participantsUpdate.bind(global.conn);
   conn.groupsUpdate = handler.groupsUpdate.bind(global.conn);
