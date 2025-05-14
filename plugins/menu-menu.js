@@ -260,7 +260,7 @@ ${readMore}
 ⬡│☂︎ *.monitor* 
 ⬡│☂︎ *.msg*
 ⬡│☂︎ *.report*
-⬡│☂︎ *.resetprefix*
+⬡│☂︎ *resetprefix*
 ⬡│☂︎ *.resetuser*
 ⬡│☂︎ *.restart*
 ⬡│☂︎ *.saveimage*
