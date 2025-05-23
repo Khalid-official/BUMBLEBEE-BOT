@@ -1,1 +1,20 @@
+name: Scheduled Deploy
 
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Runs every 6 hours
+  workflow_dispatch:       # Optional: allows manual trigger from GitHub UI
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Deployment Script
+        run: |
+          echo "Deploying project..."
+          # Add your deploy logic here
+          
