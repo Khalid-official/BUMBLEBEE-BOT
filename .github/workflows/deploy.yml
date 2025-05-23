@@ -1,20 +1,41 @@
-name: Scheduled Deploy
+name: Node.js CI with Schedule
 
 on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
   schedule:
-    - cron: '0 */6 * * *' # Runs every 6 hours
-  workflow_dispatch:       # Optional: allows manual trigger from GitHub UI
+    - cron: '0 */6 * * *'  # Runs every 6 hours (UTC)
+  workflow_dispatch:        # Optional manual trigger from GitHub UI
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    strategy:
+      matrix:
+        node-version: [20.x]
 
-      - name: Run Deployment Script
-        run: |
-          echo "Deploying project..."
-          # Add your deploy logic here
-          
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Install ffmpeg
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ffmpeg
+
+    - name: Start application
+      run: npm start
+      
