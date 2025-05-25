@@ -1,4 +1,4 @@
-name: Node.js CI with Schedule
+name: Node.js CI Scheduled Deploy
 
 on:
   push:
@@ -8,8 +8,12 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 */6 * * *'  # Runs every 6 hours (UTC)
-  workflow_dispatch:        # Optional manual trigger from GitHub UI
+    - cron: '0 */6 * * *'   # Every 6 hours UTC
+  workflow_dispatch:         # Optional manual trigger
+
+concurrency:
+  group: deploy-workflow
+  cancel-in-progress: true   # Cancel any previous in-progress run of this group
 
 jobs:
   build:
@@ -37,5 +41,7 @@ jobs:
         sudo apt-get install -y ffmpeg
 
     - name: Start application
-      run: npm start
-      
+      run: |
+        echo "Starting app for scheduled run..."
+        npm start
+        
