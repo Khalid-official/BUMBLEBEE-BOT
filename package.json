@@ -72,6 +72,7 @@
     "mongoose": "^6.3.3",
     "node-fetch": "^3.2.0",
     "node-gtts": "^2.0.2",
+    "node-cache": "^5.1.2",
     "node-id3": "^0.2.6",
     "node-shazam": "*",
     "node-webpmux": "^3.1.1",
