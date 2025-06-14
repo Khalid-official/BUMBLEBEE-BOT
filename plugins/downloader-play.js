@@ -53,7 +53,7 @@ if (!text) throw `${tradutor.texto1[0]} ${usedPrefix + command} ${tradutor.texto
   let additionalText = '';
   if (['play'].includes(command)) {
     additionalText = 'audio';
-  } else if (['play2'].includes(command)) {
+  } else if (['playv'].includes(command)) {
     additionalText = 'vídeo';
  }
 
@@ -126,7 +126,7 @@ await conn.sendMessage(m.chat, { audio: { url: responsev2 }, mimetype: 'audio/mp
         }
     }}}}}
     
-    if (command === 'play') {
+    if (command === 'playv') {
         try {
 const video = await ytmp4(yt_play[0].url);
 await conn.sendMessage(m.chat, { video: { url: video }, fileName: `${yt_play[0].title}.mp4`, mimetype: 'video/mp4', caption: getRandomBumblebeeFact()}, { quoted: m })
@@ -166,7 +166,7 @@ const apidownload = await axios.get(`https://skynex.boxmine.xyz/docs/download/yt
 }}
 };
 
-handler.command = ['play', 'play2', 'play1doc', 'play2doc'];
+handler.command = ['play', 'playv', 'play1doc', 'play2doc'];
 
 export default handler;
 
