@@ -20,45 +20,39 @@
 <h3 align="center">WHATSAPP BOT</h3>
 
 ***
-### Information
+###🐝 Information🐝
 - Change creds.json file replace with yours in [creds.json](https://github.com/Khalid-official/BUMBLEBEE-BOT/edit/main/BumbleSession/creds.json)
 - You can download to the latest version of baileys by editing the package.json [this section](https://github.com/khalid-official/BUMBLEBEE-BOT/blob/main/package.json#L42)
 
-### FREE APIKEY
--  [click here](https://api.fgmods.xyz)
 
-### For example
+###🐝For example🐝
 In case of doubt, before installing BUMBLEBEE-BOT, test the bot here
 
 [![WhatsApp](https://img.shields.io/badge/BUMBLEBEE-BOT-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://linkbio.co/6032406az4dFk) 
 
 ***
 
-## ```GET PAIR CODE```
-https://replit.com/@khalidniccur200/BUMBLE-BEE-BOT-PAIR-1?s=app
+## ```🐝GET PAIR CODE🐝```
+https://pair-code-fqkn.onrender.com/
 
-## ```HEROKU DEPLOYMENT```
+## ```🐝HEROKU DEPLOYMENT🐝```
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Khalid-official/BUMBLEBEE-BOT)
 
 
-## ```USER REPLIT```
-[![Run on Repl.it](https://repl.it/badge/github/xIKRATOSx/Ikratos-MD-v1)](https://repl.it/https://github.com/Khalid-official/BUMBLEBEE-BOT)
+## ```🐝GITHUB AUTOWORKFLOWS🐝```
+deploy.yml file
 
-#### Heroku Buildpack
-| BuildPack | LINK |
-|--------|--------|
-| **FFMPEG** |[click](https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest) |
-| **IMAGEMAGICK** | [click](https://github.com/DuckyTeam/heroku-buildpack-imagemagick) |
 
-### INSTALLATION STEPS
+
+### 🐝INSTALLATION STEPS🐝
 1. _Fork the main repository_
 2. _Do not change config.js information_
-3. _Click the_ linkhttps://replit.com/@khalidniccur200/BUMBLE-BEE-BOT-PAIR-1?s=app _to get your pair code_
-4. _Download creds.json gotten from the pair code from replit_
-5. _Go to the folder 📂 BumbleSession and uninstall any creds.json that is not yours and replace it with youe downloaded creds.json and save_
-6. Click Heroku deployment to deploy your bot on Heroku_
-7. _For guidance contact owner_ wa.me/967730588759 
+3. _Click the_ linkhttps://pair-code-fqkn.onrender.com/ to get your pair code_
+4. _Download creds.json gotten from the pair code from WhatsApp_
+5. _Go to the folder 📂 BumbleSession and uninstall any creds.json that is not yours and replace it with youra downloaded creds.json and save_
+6. Click Heroku deployment to deploy your bot on Heroku or upload the file deploy.yml on the folde <.github/workflows>_
+7. _For guidance contact owner_ wa.me/254114098508
 ---------
 
 ---------
