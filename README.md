@@ -1,4 +1,3 @@
-
 <p align="center"> 
 <img src="https://komarev.com/ghpvc/?username=khalid-official&color=brightgreen" />
 
@@ -42,10 +41,8 @@ https://pair-code-fqkn.onrender.com/
 
 ## ```🐝GITHUB AUTOWORKFLOWS DEPLOYMENT🐝```
 
-You can automate bot startup every 6 hours or trigger it manually using GitHub Actions.
-
-📂 File path: `.github/workflows/deploy.yml`  
-🔗 [View deploy.yml on GitHub](https://github.com/khalid-official/BUMBLEBEE-BOT/blob/main/.github/workflows/deploy.yml)
+To automate bot startup every 6 hours or trigger it manually, use the GitHub Actions workflow below.  
+Place this in `.github/workflows/deploy.yml`:
 
 ```yaml
 name: Node.js CI Scheduled Deploy
@@ -94,18 +91,3 @@ jobs:
       run: |
         echo "Starting Bumblebee Bot..."
         npm start
-
-
-
-
-### 🐝INSTALLATION STEPS🐝
-1. _Fork the main repository_
-2. _Do not change config.js information_
-3. _Click the_ linkhttps://pair-code-fqkn.onrender.com/ to get your pair code_
-4. _Download creds.json gotten from the pair code from WhatsApp_
-5. _Go to the folder 📂 BumbleSession and uninstall any creds.json that is not yours and replace it with youra downloaded creds.json and save_
-6. Click Heroku deployment to deploy your bot on Heroku or upload the file deploy.yml on the folde <.github/workflows>_
-7. _For guidance contact owner_ wa.me/254114098508
----------
-
----------
