@@ -20,12 +20,12 @@
 <h3 align="center">WHATSAPP BOT</h3>
 
 ***
-###🐝 Information🐝
+###```🐝 Information🐝```
 - Change creds.json file replace with yours in [creds.json](https://github.com/Khalid-official/BUMBLEBEE-BOT/edit/main/BumbleSession/creds.json)
 - You can download to the latest version of baileys by editing the package.json [this section](https://github.com/khalid-official/BUMBLEBEE-BOT/blob/main/package.json#L42)
 
 
-###🐝For example🐝
+###```🐝For example```🐝
 In case of doubt, before installing BUMBLEBEE-BOT, test the bot here
 
 [![WhatsApp](https://img.shields.io/badge/BUMBLEBEE-BOT-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://linkbio.co/6032406az4dFk) 
