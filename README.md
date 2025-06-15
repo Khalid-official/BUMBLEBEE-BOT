@@ -35,7 +35,7 @@ In case of doubt, before installing BUMBLEBEE-BOT, test the bot here
 ## ```🐝GET PAIR CODE🐝```
 https://pair-code-fqkn.onrender.com/
 
-### 🐝INSTALLATION STEPS🐝
+## ```🐝INSTALLATION STEPS🐝```
 1. _Fork the main repository_
 2. _Do not change config.js information_
 3. _Click the_ linkhttps://pair-code-fqkn.onrender.com/ to get your pair code_
