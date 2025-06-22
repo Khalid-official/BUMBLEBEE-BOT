@@ -593,7 +593,7 @@ export async function handler(chatUpdate) {
       }
 
 
-       const chat = global.db.data.chats[m.chat];
+      const chat = global.db.data.chats[m.chat];
       if (typeof chat !== 'object') {
         global.db.data.chats[m.chat] = {};
       }
@@ -684,10 +684,11 @@ export async function handler(chatUpdate) {
     } catch (e) {
       console.error(e);
     }
-    const idioma = global.db.data.users[m.sender]?.language ?? 'es'; // is null? np the operator ?? fix that (i hope)
+
+    const idioma = global.db.data.users[m.sender]?.language || global.defaultLenguaje; // is null? np the operator ?? fix that (i hope)
     const _translate = JSON.parse(fs.readFileSync(`./src/languages/en.json`))
     const tradutor = _translate.handler.handler
-    
+
     if (opts['nyimak']) {
       return;
     }
@@ -732,8 +733,8 @@ export async function handler(chatUpdate) {
 
     const groupMetadata = (m.isGroup ? ((conn.chats[m.chat] || {}).metadata || await this.groupMetadata(m.chat).catch((_) => null)) : {}) || {};
     const participants = (m.isGroup ? groupMetadata.participants : []) || [];
-    const user = (m.isGroup ? participants.find((u) => conn.decodeJid(u.id) === m.sender) : {}) || {}; // User Data
-    const bot = (m.isGroup ? participants.find((u) => conn.decodeJid(u.id) == this.user.jid) : {}) || {}; // Your Data
+    const user = (m.isGroup ? participants.find((u) => conn.decodeJid(u.jid) === m.sender) : {}) || {}; // User DataAdd commentMore actions
+    const bot = (m.isGroup ? participants.find((u) => conn.decodeJid(u.jid) == this.user.jid) : {}) || {}; // Your Data
     const isRAdmin = user?.admin == 'superadmin' || false;
     const isAdmin = isRAdmin || user?.admin == 'admin' || false; // Is User Admin?
     const isBotAdmin = bot?.admin || false; // Are you Admin?
@@ -877,7 +878,7 @@ ${tradutor.texto1[1]} ${messageNumber}/3
             if (user.commandCount === 2) {
               const remainingTime = Math.ceil((user.lastCommandTime + 5000 - Date.now()) / 1000);
               if (remainingTime > 0) {
-                const messageText = `*[ ℹ️ ] Please wait* _${remainingTime} seconds_ *before using another command.*`;
+                const messageText = `*[ ℹ️ ] Wait* _${remainingTime} seconds_ *before using another command.*`;
                 m.reply(messageText);
                 return;
               } else {
@@ -949,6 +950,25 @@ ${tradutor.texto1[1]} ${messageNumber}/3
         if (plugin.level > _user.level) {
           mconn.conn.reply(m.chat, `${tradutor.texto3[0]} ${plugin.level} ${tradutor.texto3[1]} ${_user.level}, ${tradutor.texto3[2]} ${usedPrefix}lvl ${tradutor.texto3[3]}`, m);
           continue;
+        }
+        const chatPrim = global.db.data.chats[m.chat] || {};
+        const normalizeJid = (jid) => jid?.replace(/[^0-9]/g, '');
+        const isActiveBot = (jid) => {
+          const normalizedJid = normalizeJid(jid) + '@s.whatsapp.net';
+          return normalizedJid === global.conn.user.jid || 
+         global.conns.some(bot => bot.user.jid === normalizedJid);
+        };
+        if (chatPrim.setPrimaryBot) {
+            const primaryNumber = normalizeJid(chatPrim.setPrimaryBot) + '@s.whatsapp.net';
+            const currentBotNumber = normalizeJid(mconn.conn.user.jid) + '@s.whatsapp.net';
+            if (!isActiveBot(chatPrim.setPrimaryBot)) {
+              console.log(`⚠ Primary bot ${primaryNumber} is not active - Releasing chat`);
+              delete chatPrim.setPrimaryBot;
+              global.db.data.chats[m.chat] = chatPrim
+            }
+            else if (primaryNumber && currentBotNumber !== primaryNumber) {
+            return; 
+          }
         }
         const extra = {
           match,
@@ -1086,6 +1106,7 @@ ${tradutor.texto1[1]} ${messageNumber}/3
   }
 }
 
+
 /**
  * Handle groups participants update
  * @param {import("baileys").BaileysEventMap<unknown>['group-participants.update']} groupsUpdate
@@ -1108,7 +1129,7 @@ export async function participantsUpdate({ id, participants, action }) {
         const groupMetadata = await m?.conn?.groupMetadata(id) || (conn?.chats[id] || {}).metadata;
         for (const user of participants) {
           try {
-          let pp = await m?.conn?.profilePictureUrl(m?.sender, 'image').catch(_ => 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60');
+          let pp = await m?.conn?.profilePictureUrl(user, 'image').catch(_ => 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60');
            const apii = await mconn?.conn?.getFile(pp);
            const antiArab = JSON.parse(fs.readFileSync('./src/antiArab.json'));
            const userPrefix = antiArab.some((prefix) => user.startsWith(prefix));
@@ -1121,9 +1142,7 @@ export async function participantsUpdate({ id, participants, action }) {
             if (responseb[0].status === '404') return;
            const fkontak2 = { 'key': { 'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': 'Halo' }, 'message': { 'contactMessage': { 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` } }, 'participant': '0@s.whatsapp.net' };
            await m?.conn?.sendMessage(id, {
-  text: `*[❗] @${user.split('@')[0]} in this group, Arabic or strange numbers are not allowed, therefore you will be removed from the group*`,
-  mentions: [user]
-}, { quoted: fkontak2 });
+  text: `*[❗] @${user.split('@')[0]} in this group, Arabic or strange numbers are not allowed, therefore you will be removed from the group*`,mentions: [user] }, { quoted: fkontak2 });
            return;
             }
             await m?.conn?.sendFile(id, apii.data, 'pp.jpg', text, null, false, { mentions: [user] });
@@ -1191,7 +1210,6 @@ export async function callUpdate(callUpdate) {
   nk.from,
   `Hello *@${nk.from.split('@')[0]}*, ${nk.isVideo ? 'video calls' : 'calls'} are not allowed, you will be blocked.\n-\nIf you called by accident, please contact my creator to get unblocked!`,
   false, { mentions: [nk.from] });
-
         // let data = global.owner.filter(([id, isCreator]) => id && isCreator)
         // await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
         const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;𝗞𝗵𝗮𝗹𝗶𝗱 𝗧𝗲𝗰𝗵 👑;;;\nFN:𝗞𝗵𝗮𝗹𝗶𝗱 𝗧𝗲𝗰𝗵 👑\nORG:𝗞𝗵𝗮𝗹𝗶𝗱 𝗧𝗲𝗰𝗵 👑\nTITLE:\nitem1.TEL;waid=254736958034:+254 736 958 034\nitem1.X-ABLabel:𝗞𝗵𝗮𝗹𝗶𝗱 𝗧𝗲𝗰𝗵 👑\nX-WA-BIZ-DESCRIPTION:[❗] Kindly you only contact owner when you have something important to say.\nX-WA-BIZ-NAME:𝗞𝗵𝗮𝗹𝗶𝗱 𝗧𝗲𝗰𝗵 👑\nEND:VCARD`;
@@ -1253,7 +1271,25 @@ global.dfail = (type, m, conn) => {
   }[type];
   const aa = { quoted: m, userJid: conn.user.jid };
   const prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: tradutor.texto11[0], body: tradutor.texto11[1], thumbnail: imagen1, sourceUrl: tradutor.texto11[2] } } } }, aa);
-  if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id });
+
+  const chatPrim2 = global.db.data.chats[m.chat] || {};
+  const normalizeJid2 = (jid) => jid?.replace(/[^0-9]/g, '');
+  const isActiveBot2 = (jid) => {
+    const normalizedJid2 = normalizeJid2(jid) + '@s.whatsapp.net';
+    return normalizedJid2 === global.conn.user.jid || 
+      global.conns.some(bot => bot.user.jid === normalizedJid2);
+  };
+  if (chatPrim2.setPrimaryBot) {
+    const primaryNumber2 = normalizeJid2(chatPrim2.setPrimaryBot) + '@s.whatsapp.net';
+    const currentBotNumber2 = normalizeJid2(mconn.conn.user.jid) + '@s.whatsapp.net';
+    if (!isActiveBot2(chatPrim2.setPrimaryBot)) {
+      delete chatPrim2.setPrimaryBot;
+      global.db.data.chats[m.chat] = chatPrim2
+    }
+    else if (primaryNumber2 && currentBotNumber2 !== primaryNumber2) {
+      return; 
+    } 
+  } else if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id });
 };
 
 const file = global.__filename(import.meta.url, true);
