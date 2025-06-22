@@ -377,6 +377,7 @@ global.reloadHandler = async function(restatConn) {
     } catch { }
     conn.ev.removeAllListeners();
     global.conn = makeWASocket(connectionOptions, {chats: oldChats});
+    store?.bind(conn);
     isInit = true;
   }
   if (!isInit) {
