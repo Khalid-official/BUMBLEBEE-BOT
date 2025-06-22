@@ -91,6 +91,7 @@
     "simple-git": "^3.24.0",
     "socket.io": "^4.4.1",
     "syntax-error": "^1.4.0",
+    "api-dylux": "^1.7.2",
     "@hiudyy/ytdl": "^0.2.3",   
     "terminal-image": "^2.0.0",
     "url-regex-safe": "^3.0.0",
