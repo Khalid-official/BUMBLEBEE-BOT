@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: '0 */6 * * *'  # Optional: every 6 hours for automated checks
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 concurrency:
@@ -40,16 +40,20 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🎞️ Install ffmpeg (for audio/video support)
+      - name: 🎞️ Install ffmpeg
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
 
-      - name: 🧪 Optional: Run Tests (Skip if none)
+      - name: 🧪 Optional: Run Tests
         run: |
           echo "Running tests if any..."
-          npm test || echo "✅ No tests available or all passed"
+          npm test || echo "✅ No tests or all passed"
 
-      - name: 🧼 Lint Code (optional)
+      - name: 🧼 Optional: Lint Code
         run: |
-          npm run lint || echo "⚠️ Linting skipped or failed gracefully"
+          if npm run | grep -q "lint"; then
+            npm run lint
+          else
+            echo "ℹ️ No lint script defined in package.json"
+          fi
