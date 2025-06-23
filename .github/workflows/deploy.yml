@@ -1,16 +1,19 @@
-name: Node.js CI for BUMBLEBEE-BOT
+# GitHub Actions workflow for BUMBLEBEE-BOT
+name: Node.js CI Scheduled Deploy
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
+    branches:
+      - main
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 */6 * * *'  # Every 6 hours UTC
   workflow_dispatch:
 
 concurrency:
-  group: bumblebee-ci
+  group: deploy-workflow
   cancel-in-progress: true
 
 jobs:
@@ -21,21 +24,13 @@ jobs:
         node-version: [20.x]
 
     steps:
-      - name: 📥 Checkout code
+      - name: 📥 Checkout repository
         uses: actions/checkout@v3
 
       - name: ⚙️ Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: 🔁 Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
 
       - name: 📦 Install dependencies
         run: npm install
@@ -45,15 +40,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg
 
-      - name: 🧪 Optional: Run Tests
+      - name: 🚀 Start application
         run: |
-          echo "Running tests if any..."
-          npm test || echo "✅ No tests or all passed"
-
-      - name: 🧼 Optional: Lint Code
-        run: |
-          if npm run | grep -q "lint"; then
-            npm run lint
-          else
-            echo "ℹ️ No lint script defined in package.json"
-          fi
+          echo "Starting Bumblebee Bot..."
+          npm start
