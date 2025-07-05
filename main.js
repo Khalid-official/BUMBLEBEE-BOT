@@ -82,10 +82,10 @@ global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.
 global.timestamp = {start: new Date};
 global.videoList = [];
 global.videoListXXX = [];
-const __dirname = global.__dirname(import.meta.url);
+const _dirname = global._dirname(import.meta.url);
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse());
 global.prefix = new RegExp('^[#!/.]');
-global.db = new Low(/https?:\/\//.test(opts['db'] || '') ? new cloudDBAdapter(opts['db']) : new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`));
+global.db = new Low(/https?:\/\//.test(opts['db'] || '') ? new cloudDBAdapter(opts['db']) : new JSONFile(${opts._[0] ? opts._[0] + '_' : ''}database.json));
 
 global.loadDatabase = async function loadDatabase() {
   if (global.db.READ) {
@@ -127,13 +127,13 @@ let opcion;
 if (methodCodeQR) {
   opcion = '1';
 }
-if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}/creds.json`)) {
+if (!methodCodeQR && !methodCode && !fs.existsSync(./${authFile}/creds.json)) {
   do {
-    opcion = await question('[ ℹ️ ] Seleccione una opción:\n1. Con código QR\n2. Con código de texto de 8 dígitos\n---> ');
+    opcion = await question('[ ℹ ] Select an option:\n1. With QR code\n2. With 8-digit text code\n---> ');
     if (!/^[1-2]$/.test(opcion)) {
-      console.log('[ ❗ ] Por favor, seleccione solo 1 o 2.\n');
+      console.log('[ ❗ ] Please select only 1 or 2.\n');
     }
-  } while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`));
+  } while (opcion !== '1' && opcion !== '2' || fs.existsSync(./${authFile}/creds.json));
 }
 
 const filterStrings = [
@@ -167,7 +167,7 @@ const connectionOptions = {
   logger: pino({ level: 'silent' }),
   printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
   mobile: MethodMobile, 
-  browser: opcion === '1' ? ['TheMystic-Bot-MD', 'Safari', '2.0.0'] : methodCodeQR ? ['TheMystic-Bot-MD', 'Safari', '2.0.0'] : ['Ubuntu', 'Chrome', '20.0.04'],
+  browser: opcion === '1' ? ['TheBumbleBee', 'Safari', '2.0.0'] : methodCodeQR ? ['TheBumbleBee', 'Safari', '2.0.0'] : ['Ubuntu', 'Chrome', '20.0.04'],
   auth: {
     creds: state.creds,
     keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
@@ -195,27 +195,27 @@ const connectionOptions = {
 
 global.conn = makeWASocket(connectionOptions);
 
-if (!fs.existsSync(`./${authFile}/creds.json`)) {
+if (!fs.existsSync(./${authFile}/creds.json)) {
   if (opcion === '2' || methodCode) {
     opcion = '2';
     if (!conn.authState.creds.registered) {
-      if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil');
+      if (MethodMobile) throw new Error('A pairing code cannot be used with the mobile API');
 
       let numeroTelefono;
       if (!!phoneNumber) {
         numeroTelefono = phoneNumber.replace(/[^0-9]/g, '');
         if (!Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
-          console.log(chalk.bgBlack(chalk.bold.redBright("Comience con el código de país de su número de WhatsApp.\nEjemplo: +5219992095479\n")));
+          console.log(chalk.bgBlack(chalk.bold.redBright("Start with the country code of your WhatsApp number.\nExample: +5219992095479\n")));
           process.exit(0);
         }
       } else {
         while (true) {
-          numeroTelefono = await question(chalk.bgBlack(chalk.bold.yellowBright('Por favor, escriba su número de WhatsApp.\nEjemplo: +5219992095479\n')));
+          numeroTelefono = await question(chalk.bgBlack(chalk.bold.yellowBright('Please enter your WhatsApp number.\nExample: +5219992095479\n')));
           numeroTelefono = numeroTelefono.replace(/[^0-9]/g, '');
           if (numeroTelefono.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
             break;
           } else {
-            console.log(chalk.bgBlack(chalk.bold.redBright("Por favor, escriba su número de WhatsApp.\nEjemplo: +5219992095479.\n")));
+            console.log(chalk.bgBlack(chalk.bold.redBright("Please enter your WhatsApp number.\nExample: +5219992095479.\n")));
           }
         }
         rl.close();  
@@ -224,16 +224,16 @@ if (!fs.existsSync(`./${authFile}/creds.json`)) {
       setTimeout(async () => {
         let codigo = await conn.requestPairingCode(numeroTelefono);
         codigo = codigo?.match(/.{1,4}/g)?.join("-") || codigo;
-        console.log(chalk.yellow('[ ℹ️ ] introduce el código de emparejamiento en WhatsApp.'));
-        console.log(chalk.black(chalk.bgGreen(`Su código de emparejamiento: `)), chalk.black(chalk.white(codigo)));
-      }, 3000);
+        console.log(chalk.yellow('[ ℹ ] enter the pairing code in WhatsApp.'));
+        console.log(chalk.black(chalk.bgGreen(`Your pairing code: `)), chalk.black(chalk.white(code)));
+}, 3000);
     }
   }
 }
 
 conn.isInit = false;
 conn.well = false;
-conn.logger.info(`[ㅤℹ️­ㅤ] Cargando...\n`);
+conn.logger.info([ㅤℹ­ㅤ] STARTING...\n);
 
 if (!opts['test']) {
   if (global.db) {
@@ -248,7 +248,7 @@ if (opts['server']) (await import('./server.js')).default(global.conn, PORT);
 
 async function resolveLidToRealJid(lidJid, groupJid, maxRetries = 3, retryDelay = 1000) {
     if (!lidJid?.endsWith("@lid") || !groupJid?.endsWith("@g.us")) {
-        return lidJid?.includes("@") ? lidJid : `${lidJid}@s.whatsapp.net`;
+        return lidJid?.includes("@") ? lidJid : ${lidJid}@s.whatsapp.net;
     }
 
     const cached = lidCache.get(lidJid);
@@ -303,7 +303,7 @@ async function extractAndProcessLids(text, groupJid) {
             const realJid = await resolveLidToRealJid(lid, groupJid);
             processedText = processedText.replace(new RegExp(lid, 'g'), realJid);
         } catch (e) {
-            console.error(`Error procesando LID ${lid}:`, e);
+            console.error(Error processing LID ${lid}:, e);
         }
     }
     
@@ -387,7 +387,7 @@ async function processLidsInMessage(message, groupJid) {
 
         return messageCopy;
     } catch (e) {
-        console.error('Error en processLidsInMessage:', e);
+        console.error('Error in processLidsInMessage:', e);
         return message;
     }
 }
@@ -407,50 +407,50 @@ async function connectionUpdate(update) {
     
     if (update.qr != 0 && update.qr != undefined || methodCodeQR) {
         if (opcion == '1' || methodCodeQR) {
-            console.log(chalk.yellow('[ㅤℹ️ㅤㅤ] Escanea el código QR.'));
+            console.log(chalk.yellow('[ㅤℹㅤㅤ] Scan the QR code.'));
         }
     }
     
     if (connection == 'open') {
-        console.log(chalk.yellow('[ㅤℹ️ㅤㅤ] Conectado correctamente.'));
+        console.log(chalk.yellow('[ㅤℹㅤㅤ] Connected successfully.'));
         if (!global.subBotsInitialized) {
             global.subBotsInitialized = true;
             try {
                 await initializeSubBots();
             } catch (error) {
-                console.error(chalk.red('[ ❗ ] Error al inicializar sub-bots:'), error);
+                console.error(chalk.red('[ ❗ ] Error initializing sub-bots:'), error);
             }
         }
     }
     
     let reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
     if (reason == 405) {
-        await fs.unlinkSync("./MysticSession/" + "creds.json");
-        console.log(chalk.bold.redBright(`[ ⚠ ] Conexión replazada, Por favor espere un momento me voy a reiniciar...\nSi aparecen error vuelve a iniciar con : npm start`)); 
+        await fs.unlinkSync("./BumbleSession/" + "creds.json");
+        console.log(chalk.bold.redBright([ ⚠ ] Connection replaced, Please wait a moment I'm going to reboot...\nIf errors appear, restart with: npm start)); 
         process.send('reset');
     }
     
     if (connection === 'close') {
         if (reason === DisconnectReason.badSession) {
-            conn.logger.error(`[ ⚠ ] Sesión incorrecta, por favor elimina la carpeta ${global.authFile} y escanea nuevamente.`);
+            conn.logger.error([ ⚠ ] Bad session, please delete the ${global.authFile} folder and scan again.);
         } else if (reason === DisconnectReason.connectionClosed) {
-            conn.logger.warn(`[ ⚠ ] Conexión cerrada, reconectando...`);
+            conn.logger.warn([ ⚠ ] Connection closed, reconnecting...);
             await global.reloadHandler(true).catch(console.error);
         } else if (reason === DisconnectReason.connectionLost) {
-            conn.logger.warn(`[ ⚠ ] Conexión perdida con el servidor, reconectando...`);
+            conn.logger.warn([ ⚠ ] Connection lost to server, reconnecting...);
             await global.reloadHandler(true).catch(console.error);
         } else if (reason === DisconnectReason.connectionReplaced) {
-            conn.logger.error(`[ ⚠ ] Conexión reemplazada, se ha abierto otra nueva sesión.`);
+            conn.logger.error([ ⚠ ] Connection replaced, another new session has been opened.);
         } else if (reason === DisconnectReason.loggedOut) {
-            conn.logger.error(`[ ⚠ ] Conexion cerrada, por favor elimina la carpeta ${global.authFile} y escanea nuevamente.`);
+            conn.logger.error([ ⚠ ] Connection closed, please delete the ${global.authFile} folder and scan again.);
         } else if (reason === DisconnectReason.restartRequired) {
-            conn.logger.info(`[ ⚠ ] Reinicio necesario, reinicie el servidor si presenta algún problema.`);
+            conn.logger.info([ ⚠ ] Reboot required, please restart the server if you have any problems.);
             await global.reloadHandler(true).catch(console.error);
         } else if (reason === DisconnectReason.timedOut) {
-            conn.logger.warn(`[ ⚠ ] Tiempo de conexión agotado, reconectando...`);
+            conn.logger.warn([ ⚠ ] Connection timed out, reconnecting...);
             await global.reloadHandler(true).catch(console.error);
         } else {
-            conn.logger.warn(`[ ⚠ ] Razón de desconexión desconocida. ${reason || ''}: ${connection || ''}`);
+            conn.logger.warn([ ⚠ ] Unknown disconnection reason. ${reason || ''}: ${connection || ''});
             await global.reloadHandler(true).catch(console.error);
         }
     }
@@ -463,7 +463,7 @@ let handler = await import('./handler.js');
 
 global.reloadHandler = async function(restatConn) {
     try {
-        const Handler = await import(`./handler.js?update=${Date.now()}`).catch(console.error);
+        const Handler = await import(./handler.js?update=${Date.now()}).catch(console.error);
         if (Object.keys(Handler || {}).length) handler = Handler;
     } catch (e) {
         console.error(e);
@@ -480,15 +480,12 @@ global.reloadHandler = async function(restatConn) {
         isInit = true;
     }
     
-    conn.welcome = '👋 ¡Bienvenido/a!\n@user';
-    conn.bye = '👋 ¡Hasta luego!\n@user';
-    conn.spromote = '*[ ℹ️ ] @user Fue promovido a administrador.*';
-    conn.sdemote = '*[ ℹ️ ] @user Fue degradado de administrador.*';
-    conn.sDesc = '*[ ℹ️ ] La descripción del grupo ha sido modificada.*';
-    conn.sSubject = '*[ ℹ️ ] El nombre del grupo ha sido modificado.*';
-    conn.sIcon = '*[ ℹ️ ] Se ha cambiado la foto de perfil del grupo.*';
-    conn.sRevoke = '*[ ℹ️ ] El enlace de invitación al grupo ha sido restablecido.*';
-
+    conn.spromote = 'https://github.com/Khalid-official 🐝@user HAS BEEN PROMOTED TO ADMINSHIP, ENJOY YOUR RANKING FHAM🥂';
+  conn.sdemote = 'https://github.com/Khalid-official 🐝@user HAS BEEN DEMOTED FROM ADMINSHIP, SO SHAMFULL😢';
+  conn.sDesc = 'https://github.com/Khalid-official THE DESCRIPTION HAS BEEN MODIFIED\n\n*NEW DESCRIPTION:* @desc'
+  conn.sSubject = 'https://github.com/Khalid-official 🐝GROUP NAME HAS BEEN CHANGED🐝\n*🐝NEW NAME🐝:* @subject'
+  conn.sIcon = 'https://github.com/Khalid-official 🐝THE GROUP PHOTO HAS BEEN CHANGED🐝!!'
+  conn.sRevoke = 'https://github.com/Khalid-official 🐝GROUP LINK HAS BEEN REVOKED🐝!!\n*NEW LINK:* @revoke';
     conn.handler = async (m) => {
         if (!m) return;
         
@@ -518,7 +515,7 @@ global.reloadHandler = async function(restatConn) {
                 await handler.handler.call(global.conn, handlerInput);
             }
         } catch (e) {
-            console.error('Error en conn.handler:', e);
+            console.error('Error in conn.handler:', e);
         }
     };
 
@@ -547,7 +544,7 @@ global.reloadHandler = async function(restatConn) {
             }
             handler.participantsUpdate.call(global.conn, update);
         } catch (e) {
-            console.error('Error en group-participants.update:', e);
+            console.error('Error in group-participants.update:', e);
         }
     });
 
@@ -555,7 +552,7 @@ global.reloadHandler = async function(restatConn) {
         try {
             return fn.call(global.conn, ...args);
         } catch (e) {
-            console.error('Error en evento:', fn.name, e);
+            console.error('Error in event:', fn.name, e);
         }
     };
 
@@ -569,7 +566,7 @@ global.reloadHandler = async function(restatConn) {
     return true;
 };
 
-const pluginFolder = global.__dirname(join(__dirname, './plugins/index'));
+const pluginFolder = global._dirname(join(_dirname, './plugins/index'));
 const pluginFilter = (filename) => /\.js$/.test(filename);
 global.plugins = {};
 
@@ -594,23 +591,23 @@ global.reload = async (_ev, filename) => {
     if (filename in global.plugins) {
       if (existsSync(dir)) conn.logger.info(` updated plugin - '${filename}'`);
       else {
-        conn.logger.warn(`deleted plugin - '${filename}'`);
+        conn.logger.warn(deleted plugin - '${filename}');
         return delete global.plugins[filename];
       }
-    } else conn.logger.info(`new plugin - '${filename}'`);
+    } else conn.logger.info(new plugin - '${filename}');
     
     const err = syntaxerror(readFileSync(dir), filename, {
       sourceType: 'module',
       allowAwaitOutsideFunction: true,
     });
     
-    if (err) conn.logger.error(`syntax error while loading '${filename}'\n${format(err)}`);
+    if (err) conn.logger.error(syntax error while loading '${filename}'\n${format(err)});
     else {
       try {
-        const module = (await import(`${global.__filename(dir)}?update=${Date.now()}`));
+        const module = (await import(${global.__filename(dir)}?update=${Date.now()}));
         global.plugins[filename] = module.default || module;
       } catch (e) {
-        conn.logger.error(`error require plugin '${filename}\n${format(e)}'`);
+        conn.logger.error(error require plugin '${filename}\n${format(e)}');
       } finally {
         global.plugins = Object.fromEntries(Object.entries(global.plugins).sort(([a], [b]) => a.localeCompare(b)));
       }
@@ -635,11 +632,11 @@ function clearTmp() {
 
 function purgeSession() {
   let prekey = [];
-  let directorio = readdirSync("./MysticSession");
+  let directorio = readdirSync("./BumbleSession");
   let filesFolderPreKeys = directorio.filter(file => file.startsWith('pre-key-'));
   prekey = [...prekey, ...filesFolderPreKeys];
   filesFolderPreKeys.forEach(files => {
-    unlinkSync(`./MysticSession/${files}`);
+    unlinkSync(./BumbleSession/${files});
   });
 } 
 
@@ -648,16 +645,16 @@ function purgeSessionSB() {
     let listaDirectorios = readdirSync('./jadibts/');
     let SBprekey = [];
     listaDirectorios.forEach(directorio => {
-      if (statSync(`./jadibts/${directorio}`).isDirectory()) {
-        let DSBPreKeys = readdirSync(`./jadibts/${directorio}`).filter(fileInDir => fileInDir.startsWith('pre-key-'));
+      if (statSync(./jadibts/${directorio}).isDirectory()) {
+        let DSBPreKeys = readdirSync(./jadibts/${directorio}).filter(fileInDir => fileInDir.startsWith('pre-key-'));
         SBprekey = [...SBprekey, ...DSBPreKeys];
         DSBPreKeys.forEach(fileInDir => {
-          unlinkSync(`./jadibts/${directorio}/${fileInDir}`);
+          unlinkSync(./jadibts/${directorio}/${fileInDir});
         });
       }
     });
   } catch (err) {
-    console.log(chalk.bold.red(`[ ℹ️ ] Algo salio mal durante la eliminación, archivos no eliminados`));
+    console.log(chalk.bold.red([ ℹ ] Something went wrong during deletion, files not deleted));
   }
 }
 
@@ -668,9 +665,32 @@ setInterval(async () => {
 
 setInterval(async () => {
   if (stopped === 'close' || !conn || !conn?.user) return;
+  const bumblebeeFacts = [
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴏꜰᴛᴇɴ ᴜsᴇs ʜɪs ᴇɴᴠɪʀᴏɴᴍᴇɴᴛ ᴛᴏ ɢᴀɪɴ ᴀ ᴛᴀᴄᴛɪᴄᴀʟ ᴀᴅᴠᴀɴᴛᴀɢᴇ ɪɴ ʙᴀᴛᴛʟᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ's sᴍᴀʟʟᴇʀ sɪᴢᴇ ᴀʟʟᴏᴡs ʜɪᴍ ᴛᴏ sʟɪᴘ ᴘᴀsᴛ ᴇɴᴇᴍʏ ᴅᴇꜰᴇɴsᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴄᴀɴ ɢᴏ ꜰʀᴏᴍ ɪɴᴠɪsɪʙʟᴇ ᴛᴏ ᴀᴛᴛᴀᴄᴋ ɪɴ sᴇᴄᴏɴᴅs, sᴜʀᴘʀɪsɪɴɢ ʜɪs ꜰᴏᴇs. 🍯",
+  "🐝 ᴡʜɪʟᴇ ꜰɪɢʜᴛɪɴɢ, ʙᴜᴍʙʟᴇʙᴇᴇ ᴏꜰᴛᴇɴ ᴅɪsᴘʟᴀʏs ɪɴᴄʀᴇᴅɪʙʟᴇ ᴄᴏᴜʀᴀɢᴇ ᴛʜᴀᴛ ɪɴsᴘɪʀᴇs ʜɪs ᴛᴇᴀᴍ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ's ꜰɪɢʜᴛɪɴɢ ʟᴏʏᴀʟᴛʏ ᴏꜰᴛᴇɴ ᴅʀɪᴠᴇs ʜɪᴍ ᴛᴏ ʀɪsᴋ ʜɪs ʟɪꜰᴇ ꜰᴏʀ ᴏᴛʜᴇʀs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴏꜰᴛᴇɴ ᴛᴀᴋᴇs ᴏɴ ᴇɴᴇᴍɪᴇs ᴍᴜᴄʜ ʟᴀʀɢᴇʀ ᴛʜᴀɴ ʜɪᴍ, ᴜsɪɴɢ ʙʀᴀɪɴ ᴏᴠᴇʀ ʙʀᴀᴡɴ. 🍯",
+  "🐝 ᴅᴇsᴘɪᴛᴇ ɪɴᴊᴜʀɪᴇs, ʙᴜᴍʙʟᴇʙᴇᴇ ᴋᴇᴇᴘs ꜰɪɢʜᴛɪɴɢ ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ ʜɪs ᴄᴀᴜsᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴍᴀʏ ʙᴇ sᴍᴀʟʟ, ʙᴜᴛ ʜᴇ ɪs ᴀ ꜰᴇʀᴏᴄɪᴏᴜs ᴡᴀʀʀɪᴏʀ ɪɴ ʙᴀᴛᴛʟᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴜsᴇs ᴀɢɪʟɪᴛʏ ᴀɴᴅ sᴘᴇᴇᴅ ᴛᴏ ᴏᴜᴛᴍᴀɴᴇᴜᴠᴇʀ ᴇɴᴇᴍɪᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴄᴀɴ ᴄᴏᴍʙɪɴᴇ ʜᴀɴᴅ-ᴛᴏ-ʜᴀɴᴅ ᴄᴏᴍʙᴀᴛ ᴡɪᴛʜ ᴡᴇᴀᴘᴏɴʀʏ ꜰᴏʀ ᴍᴀxɪᴍᴜᴍ ɪᴍᴘᴀᴄᴛ. 🍯",
+  "🐝 ᴅᴜʀɪɴɢ ꜰɪɢʜᴛs, ʙᴜᴍʙʟᴇʙᴇᴇ ᴏꜰᴛᴇɴ sᴀᴄʀɪꜰɪᴄᴇs ʜɪᴍsᴇʟꜰ ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ ʜɪs ᴀʟʟɪᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ's ᴄᴏᴍʙᴀᴛ sᴛʏʟᴇ ɪs ᴀ ʙʟᴇɴᴅ ᴏꜰ ᴀᴄʀᴏʙᴀᴛɪᴄs ᴀɴᴅ sᴜʀᴘʀɪsᴇ ᴀᴛᴛᴀᴄᴋs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ɴᴇᴠᴇʀ ɢɪᴠᴇs ᴜᴘ, ᴇᴠᴇɴ ᴡʜᴇɴ ꜰᴀᴄɪɴɢ ʟᴀʀɢᴇʀ ᴀɴᴅ sᴛʀᴏɴɢᴇʀ ꜰᴏᴇs. 🍯",
+  "🐝 ʜɪs ᴀʀᴍ-ᴄᴀɴɴᴏɴs ᴀɴᴅ ʙʟᴀᴅᴇs ᴀʀᴇ sᴘᴇᴄɪᴀʟʟʏ ᴅᴇsɪɢɴᴇᴅ ꜰᴏʀ ᴄʟᴏsᴇ-ʀᴀɴɢᴇ ᴀɴᴅ ᴍɪᴅ-ʀᴀɴɢᴇ ʙᴀᴛᴛʟᴇs. 🍯",
+  "🐝 ᴡʜᴇɴ ɪɴ ᴄᴏᴍʙᴀᴛ, ʙᴜᴍʙʟᴇʙᴇᴇ ᴜsᴇs ʜɪs ᴄʀᴇᴀᴛɪᴠɪᴛʏ ᴛᴏ ᴛᴜʀɴ ᴛʜᴇ ᴛɪᴅᴇ ᴏꜰ ʙᴀᴛᴛʟᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ɪs ᴏɴᴇ ᴏꜰ ᴛʜᴇ ᴍᴏsᴛ ʟᴏʏᴀʟ ᴀᴜᴛᴏʙᴏᴛs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴄᴀɴ ᴛʀᴀɴsꜰᴏʀᴍ ɪɴᴛᴏ ᴀ ᴄᴀᴍᴀʀᴏ ᴏʀ ᴀ ᴠᴏʟᴋsᴡᴀɢᴇɴ ʙᴇᴇᴛʟᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ's ᴠᴏɪᴄᴇ ɪs ᴅɪꜰꜰᴇʀᴇɴᴛ ᴛʜᴀɴ ᴏᴛʜᴇʀ ᴀᴜᴛᴏʙᴏᴛs, ᴍᴀᴋɪɴɢ ʜɪᴍ ᴇᴀsɪʟʏ ᴅɪsᴛɪɴᴄᴛ. 🍯",
+];
+
+  const bio = bumblebeeFacts[Math.floor(Math.random() * bumblebeeFacts.length)];
+  // Optional: keep your uptime logic in case you want it elsewhere
   const _uptime = process.uptime() * 1000;
   const uptime = clockString(_uptime);
-  const bio = `• Activo: ${uptime} | TheMystic-Bot-MD`;
+  // Update profile status with the random fact
   await conn?.updateProfileStatus(bio).catch((_) => _);
 }, 60000);
 
@@ -679,7 +699,7 @@ function clockString(ms) {
   const h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24;
   const m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
   const s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
-  return [d, 'd ️', h, 'h ', m, 'm ', s, 's '].map((v) => v.toString().padStart(2, 0)).join('');
+  return [d, 'd ', h, 'h ', m, 'm ', s, 's '].map((v) => v.toString().padStart(2, 0)).join('');
 }
 
 async function _quickTest() {
