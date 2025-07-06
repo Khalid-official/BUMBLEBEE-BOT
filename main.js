@@ -659,12 +659,12 @@ function purgeSessionSB() {
 }
 
 setInterval(async () => {
-    if (stopped === 'close' || !conn || !conn.user) return;
-  await purgeOldFiles();
-  //console.log(chalk.cyanBright(`\n▣────────[ AUTO_PURGE_OLDFILES ]───────────···\n│\n▣─❧ ARCHIVOS ELIMINADOS ✅\n│\n▣────────────────────────────────────···\n`));
-}, 1000 * 60 * 60);
+  if (stopped === 'close' || !conn || !conn?.user) return;
+  await clearTmp();
+}, 180000);
+
 setInterval(async () => {
-  if (stopped === 'close' || !conn || !conn.user) return;
+  if (stopped === 'close' || !conn || !conn?.user) return;
   const bumblebeeFacts = [
   "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴏꜰᴛᴇɴ ᴜsᴇs ʜɪs ᴇɴᴠɪʀᴏɴᴍᴇɴᴛ ᴛᴏ ɢᴀɪɴ ᴀ ᴛᴀᴄᴛɪᴄᴀʟ ᴀᴅᴠᴀɴᴛᴀɢᴇ ɪɴ ʙᴀᴛᴛʟᴇ. 🍯",
   "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ's sᴍᴀʟʟᴇʀ sɪᴢᴇ ᴀʟʟᴏᴡs ʜɪᴍ ᴛᴏ sʟɪᴘ ᴘᴀsᴛ ᴇɴᴇᴍʏ ᴅᴇꜰᴇɴsᴇs. 🍯",
