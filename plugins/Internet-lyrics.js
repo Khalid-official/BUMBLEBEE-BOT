@@ -111,4 +111,4 @@ async function searchLyrics(term) {
       message: new Error(error).message,
     };
   }
-        }
+}
