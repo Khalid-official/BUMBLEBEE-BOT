@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import PDFDocument from 'pdfkit';
-import {extractImageThumb} from '@whiskeysockets/baileys';
+import {extractImageThumb} from 'baileys';
 const handler = async (m, {conn, text, usedPrefix, command, args}) => {
   if (!db.data.chats[m.chat].modohorny && m.isGroup) throw 'https://github.com/Khalid-official *[❗𝐈𝐍𝐅𝐎❗] This command can only be used by +18, to enable this feature use the command #enable modohorny*';
   if (!text) throw `https://github.com/Khalid-official *[❗]  Enter the name of the correct category of hentai , example: ${usedPrefix + command} miku*`;
