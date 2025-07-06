@@ -1,52 +1,172 @@
 import fetch from 'node-fetch';
 import axios from 'axios';
 import yts from 'yt-search';
-import tools from '@takanashi-soft/tools';
+import { ogmp3 } from '../src/libraries/youtubedl.js'; 
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const { ytmp3, ytmp4 } = require("@hiudyy/ytdl");
 
-let handler = async (m, { conn, args, text, usedPrefix, command }) => {
+const bumblebeeFacts = [
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴏꜰᴛᴇɴ ᴜsᴇs ʜɪs ᴇɴᴠɪʀᴏɴᴍᴇɴᴛ ᴛᴏ ɢᴀɪɴ ᴀ ᴛᴀᴄᴛɪᴄᴀʟ ᴀᴅᴠᴀɴᴛᴀɢᴇ ɪɴ ʙᴀᴛᴛʟᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ's sᴍᴀʟʟᴇʀ sɪᴢᴇ ᴀʟʟᴏᴡs ʜɪᴍ ᴛᴏ sʟɪᴘ ᴘᴀsᴛ ᴇɴᴇᴍʏ ᴅᴇꜰᴇɴsᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴄᴀɴ ɢᴏ ꜰʀᴏᴍ ɪɴᴠɪsɪʙʟᴇ ᴛᴏ ᴀᴛᴛᴀᴄᴋ ɪɴ sᴇᴄᴏɴᴅs, sᴜʀᴘʀɪsɪɴɢ ʜɪs ꜰᴏᴇs. 🍯",
+  "🐝 ᴡʜɪʟᴇ ꜰɪɢʜᴛɪɴɢ, ʙᴜᴍʙʟᴇʙᴇᴇ ᴏꜰᴛᴇɴ ᴅɪsᴘʟᴀʏs ɪɴᴄʀᴇᴅɪʙʟᴇ ᴄᴏᴜʀᴀɢᴇ ᴛʜᴀᴛ ɪɴsᴘɪʀᴇs ʜɪs ᴛᴇᴀᴍ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ's ꜰɪɢʜᴛɪɴɢ ʟᴏʏᴀʟᴛʏ ᴏꜰᴛᴇɴ ᴅʀɪᴠᴇs ʜɪᴍ ᴛᴏ ʀɪsᴋ ʜɪs ʟɪꜰᴇ ꜰᴏʀ ᴏᴛʜᴇʀs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴏꜰᴛᴇɴ ᴛᴀᴋᴇs ᴏɴ ᴇɴᴇᴍɪᴇs ᴍᴜᴄʜ ʟᴀʀɢᴇʀ ᴛʜᴀɴ ʜɪᴍ, ᴜsɪɴɢ ʙʀᴀɪɴ ᴏᴠᴇʀ ʙʀᴀᴡɴ. 🍯",
+  "🐝 ᴅᴇsᴘɪᴛᴇ ɪɴᴊᴜʀɪᴇs, ʙᴜᴍʙʟᴇʙᴇᴇ ᴋᴇᴇᴘs ꜰɪɢʜᴛɪɴɢ ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ ʜɪs ᴄᴀᴜsᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴍᴀʏ ʙᴇ sᴍᴀʟʟ, ʙᴜᴛ ʜᴇ ɪs ᴀ ꜰᴇʀᴏᴄɪᴏᴜs ᴡᴀʀʀɪᴏʀ ɪɴ ʙᴀᴛᴛʟᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴜsᴇs ᴀɢɪʟɪᴛʏ ᴀɴᴅ sᴘᴇᴇᴅ ᴛᴏ ᴏᴜᴛᴍᴀɴᴇᴜᴠᴇʀ ᴇɴᴇᴍɪᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴄᴀɴ ᴄᴏᴍʙɪɴᴇ ʜᴀɴᴅ-ᴛᴏ-ʜᴀɴᴅ ᴄᴏᴍʙᴀᴛ ᴡɪᴛʜ ᴡᴇᴀᴘᴏɴʀʏ ꜰᴏʀ ᴍᴀxɪᴍᴜᴍ ɪᴍᴘᴀᴄᴛ. 🍯",
+  "🐝 ᴅᴜʀɪɴɢ ꜰɪɢʜᴛs, ʙᴜᴍʙʟᴇʙᴇᴇ ᴏꜰᴛᴇɴ sᴀᴄʀɪꜰɪᴄᴇs ʜɪᴍsᴇʟꜰ ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ ʜɪs ᴀʟʟɪᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ's ᴄᴏᴍʙᴀᴛ sᴛʏʟᴇ ɪs ᴀ ʙʟᴇɴᴅ ᴏꜰ ᴀᴄʀᴏʙᴀᴛɪᴄs ᴀɴᴅ sᴜʀᴘʀɪsᴇ ᴀᴛᴛᴀᴄᴋs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ɴᴇᴠᴇʀ ɢɪᴠᴇs ᴜᴘ, ᴇᴠᴇɴ ᴡʜᴇɴ ꜰᴀᴄɪɴɢ ʟᴀʀɢᴇʀ ᴀɴᴅ sᴛʀᴏɴɢᴇʀ ꜰᴏᴇs. 🍯",
+  "🐝 ʜɪs ᴀʀᴍ-ᴄᴀɴɴᴏɴs ᴀɴᴅ ʙʟᴀᴅᴇs ᴀʀᴇ sᴘᴇᴄɪᴀʟʟʏ ᴅᴇsɪɢɴᴇᴅ ꜰᴏʀ ᴄʟᴏsᴇ-ʀᴀɴɢᴇ ᴀɴᴅ ᴍɪᴅ-ʀᴀɴɢᴇ ʙᴀᴛᴛʟᴇs. 🍯",
+  "🐝 ᴡʜᴇɴ ɪɴ ᴄᴏᴍʙᴀᴛ, ʙᴜᴍʙʟᴇʙᴇᴇ ᴜsᴇs ʜɪs ᴄʀᴇᴀᴛɪᴠɪᴛʏ ᴛᴏ ᴛᴜʀɴ ᴛʜᴇ ᴛɪᴅᴇ ᴏꜰ ʙᴀᴛᴛʟᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ɪs ᴏɴᴇ ᴏꜰ ᴛʜᴇ ᴍᴏsᴛ ʟᴏʏᴀʟ ᴀᴜᴛᴏʙᴏᴛs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴄᴀɴ ᴛʀᴀɴsꜰᴏʀᴍ ɪɴᴛᴏ ᴀ ᴄᴀᴍᴀʀᴏ ᴏʀ ᴀ ᴠᴏʟᴋsᴡᴀɢᴇɴ ʙᴇᴇᴛʟᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴀ sᴛʀᴏɴɢ sᴇɴsᴇ ᴏꜰ ᴊᴜsᴛɪᴄᴇ. 🍯",
+  "🐝 ɪɴ ᴛʜᴇ ᴍᴏᴠɪᴇ, ʙᴜᴍʙʟᴇʙᴇᴇ ɪs sʜᴏᴡɴ ᴛᴏ ʜᴀᴠᴇ ᴀ ᴅᴇᴇᴘ ʙᴏɴᴅ ᴡɪᴛʜ ᴄʜᴀʀʟɪᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴀ sᴘᴇᴄɪᴀʟ ᴀʙɪʟɪᴛʏ ᴛᴏ ᴅɪsɢᴜɪsᴇ ʜɪᴍsᴇʟꜰ ᴀs ᴏᴛʜᴇʀ ᴠᴇʜɪᴄʟᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ's ᴠᴏɪᴄᴇ ʙᴏx ᴡᴀs ᴅᴀᴍᴀɢᴇᴅ ɪɴ ᴛʜᴇ ꜰɪʀsᴛ ꜰɪʟᴍ, ᴡʜɪᴄʜ ɪs ᴡʜʏ ʜᴇ ᴜsᴇs ʀᴀᴅɪᴏ sɪɢɴᴀʟs ᴛᴏ ᴄᴏᴍᴍᴜɴɪᴄᴀᴛᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴀ sᴛʀᴏɴɢ ʀᴇʟᴀᴛɪᴏɴsʜɪᴘ ᴡɪᴛʜ ʜᴜᴍᴀɴs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ɪs ᴀ ʙʀɪᴅɢᴇ ʙᴇᴛᴡᴇᴇɴ ʜᴜᴍᴀɴs ᴀɴᴅ ᴀᴜᴛᴏʙᴏᴛs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴀ ꜰᴇᴀʀʟᴇss ɴᴀᴛᴜʀᴇ ᴅᴇsᴘɪᴛᴇ ʜɪs ʀᴇʟᴀᴛɪᴠᴇʟʏ sᴍᴀʟʟ sɪᴢᴇ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴀ sᴛʀᴏɴɢ sᴇɴsᴇ ᴏꜰ ᴏʙʟɪɢᴀᴛɪᴏɴ ᴛᴏ ᴏᴛʜᴇʀ ᴀᴜᴛᴏʙᴏᴛs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴀ sᴛʀᴏɴɢ ᴠᴏɪᴄᴇ ᴡɪᴛʜ ᴍᴀɴʏ ᴇᴍᴏᴛɪᴏɴᴀʟ ʀᴀᴛᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴡᴀs ᴀ ᴇxᴘᴇʀɪᴇɴᴄᴇᴅ ᴠᴇʜɪᴄʟᴇ ᴏꜰ ᴍᴀɴʏ ᴏᴛʜᴇʀ ʙᴇᴇᴛʟᴇ ᴅᴇsᴛɪɴᴇᴅ ᴛᴏ ʟᴇᴀᴅ. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ᴡᴀs ʜɪsᴛᴏʀɪᴄᴀʟʟʏ ᴀᴅᴍɪʀᴇᴅ ᴀs ᴀ ᴅᴇsᴛɪɴᴀᴛɪᴏɴ ɪɴ ᴏᴛʜᴇʀ ʙᴇᴇᴛʟᴇ ᴍᴀᴄʜɪɴᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ʜᴀs ᴏʀɪɢɪɴᴀʟɪᴛʏ ᴀɴᴅ ᴅɪsᴛɪɴᴄᴛɪᴏɴ ᴄᴀᴘᴀʙɪʟɪᴛɪᴇs. 🍯",
+  "🐝 ʙᴜᴍʙʟᴇʙᴇᴇ ɪs ᴀ ᴅɪsᴛɪɴɢᴜɪsʜᴇᴅ ᴠᴇʜɪᴄʟᴇ ᴏʀᴇ ᴇxᴇʀᴄɪsᴇ ᴏᴇ ʙʀᴇᴇᴋɪɴɢ ᴅᴏᴄᴛᴏʀɢᴏ. 🍯"
+];
+
+function getRandomBumblebeeFact() {
+  return bumblebeeFacts[Math.floor(Math.random() * bumblebeeFacts.length)];
+}
+
+let handler = async (m, { conn, args, text, usedPrefix, command }) => {    
 const datas = global;
 const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje;
 const _translate = JSON.parse(fs.readFileSync(`./src/languages/en.json`));
-const tradutor = _translate.plugins.descargas_play
-
-if (!text) throw `${tradutor.texto1[0]} ${usedPrefix + command} ${tradutor.texto1[1]}`;      
-let additionalText = '';
-if (['play'].includes(command)) {
- additionalText = 'audio';
-} else if (['play2'].includes(command)) {
- additionalText = 'vídeo';
-}
+const tradutor = _translate.plugins.descargas_play;
+if (!text) throw `${tradutor.texto1[0]} ${usedPrefix + command} ${tradutor.texto1[1]}`;
+      
+  let additionalText = '';
+  if (['play'].includes(command)) {
+    additionalText = 'audio';
+  } else if (['playv'].includes(command)) {
+    additionalText = 'vídeo';
+ }
 
 const yt_play = await search(args.join(' '));
-const texto1 = `${tradutor.texto2[0]} ${yt_play[0].title}\n${tradutor.texto2[1]} ${yt_play[0].ago}\n${tradutor.texto2[2]} ${yt_play[0].duration.timestamp}\n${tradutor.texto2[3]} ${yt_play[0].views}\n${tradutor.texto2[4]} ${yt_play[0].author.name}\n${tradutor.texto2[5]} ${yt_play[0].videoId}\n${tradutor.texto2[6]} ${yt_play[0].type}\n${tradutor.texto2[7]} ${yt_play[0].url}\n${tradutor.texto2[8]} ${yt_play[0].author.url}\n\n${tradutor.texto2[9]} ${additionalText}, ${tradutor.texto2[10]}`.trim();
+const ytplay2 = await yts(text);
+const texto1 = `*_⌈🐝🎶𖦤𝗕𝗘𝗘 𝗠𝗨𝗦𝗜𝗖𖦤🎶🐝⌋_*\n𖦤 📌 *𝗧𝗶𝘁𝗹𝗲:* ${yt_play[0].title}
+𖦤 📆 *𝗽𝘂𝗯𝗹𝗶𝘀𝗵𝗲𝗱:* ${yt_play[0].ago}
+𖦤 ⌚ *Dur𝗮𝘁𝗶𝗼𝗻:* ${secondString(yt_play[0].duration.seconds)}
+𖦤 👀 *Vi𝗲𝘄𝘀:* ${`${MilesNumber(yt_play[0].views)}`}
+𖦤 👤 *Au𝘁𝗵𝗼𝗿:* ${yt_play[0].author.name}
+𖦤 ⏯️ *C𝗵𝗮𝗻𝗻𝗲𝗹:* ${yt_play[0].author.url}
+𖦤 🆔 *ID:* ${yt_play[0].videoId}
+𖦤 🪬 *T𝘆𝗽𝗲:* ${yt_play[0].type}
+𖦤 🔗 *L𝗶𝗻𝗸:* ${yt_play[0].url}\n> *_Downloading ${additionalText}, please wait．．．_*`.trim();
+
 conn.sendMessage(m.chat, { image: { url: yt_play[0].thumbnail }, caption: texto1 }, { quoted: m });
 
 if (command === 'play') {
 try {
-const audiodlp = await tools.downloader.ytmp3(yt_play[0].url);
-const downloader = audiodlp.download;
-conn.sendMessage(m.chat, { audio: { url: downloader }, mimetype: "audio/mpeg" }, { quoted: m });
-} catch (error) {
- console.log(error);
- conn.reply(m.chat, tradutor.texto6, m);
- }
-}
+const audiodlp = await ytmp3(yt_play[0].url);await conn.sendMessage(m.chat, { document: audiodlp, mimetype: 'audio/mpeg',
+  fileName: `${yt_play[0].title}.mp3`,
+  caption: getRandomBumblebeeFact()
+}, { quoted: m });
+await conn.sendMessage(m.chat, { audio: audiodlp, mimetype: "audio/mpeg" }, { quoted: m });
+} catch {   
+try {                   
+const [input, quality = '320'] = text.split(' '); 
+const validQualities = ['64', '96', '128', '192', '256', '320'];
+const selectedQuality = validQualities.includes(quality) ? quality : '320';
+const res = await ogmp3.download(yt_play[0].url, selectedQuality, 'audio');
 
-if (command === 'play2') {
+await conn.sendMessage(m.chat, { document: { url: res.result.download }, mimetype: 'audio/mpeg',
+  fileName: `${yt_play[0].title}.mp3`,
+  caption: getRandomBumblebeeFact()
+}, { quoted: m });
+await conn.sendMessage(m.chat, { audio: { url: res.result.download }, mimetype: 'audio/mpeg', fileName: `audio.mp3` }, { quoted: m });
+} catch {   
 try {
-const videodlp = await tools.downloader.ytmp4(yt_play[0].url);
-const downloader = videodlp.download;
-conn.sendMessage(m.chat, { video: { url: downloader }, mimetype: "video/mp4" }, { quoted: m });
-} catch (error) {
- console.log(error);
- conn.reply(m.chat, tradutor.texto6, m);
-  }
- }
+const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp3?url=${yt_play[0].url}`);
+let { data } = await res.json();
+
+await conn.sendMessage(m.chat, { document: { url: data.dl }, mimetype: 'audio/mpeg',
+  fileName: `${yt_play[0].title}.mp3`,
+  caption: getRandomBumblebeeFact()
+}, { quoted: m });
+await conn.sendMessage(m.chat, { audio: { url: res.result.download }, mimetype: 'audio/mpeg', fileName: `audio.mp3` }, { quoted: m });
+} catch {
+try {  
+const res = await fetch(`https://api.agatz.xyz/api/ytmp3?url=${yt_play[0].url}`)
+let data = await res.json();
+
+await conn.sendMessage(m.chat, { document: { url: data.data.downloadUrl }, mimetype: 'audio/mpeg',
+  fileName: `${yt_play[0].title}.mp3`,
+  caption: getRandomBumblebeeFact()
+}, { quoted: m });
+await conn.sendMessage(m.chat, { audio: { url: res.result.download }, mimetype: 'audio/mpeg', fileName: `audio.mp3` }, { quoted: m });
+} catch {
+try {
+      const apidownload = await axios.get(`https://skynex.boxmine.xyz/docs/download/ytmp3?url=https://youtube.com/watch?v=${yt_play[0].videoId}&apikey=GataDios`)
+      const responsev2 = await apidownload.data.data.download;
+     
+                
+      await conn.sendMessage(m.chat, { document: { url: responsev2 }, mimetype: 'audio/mpeg',
+  fileName: `${yt_play[0].title}.mp3`,
+  caption: getRandomBumblebeeFact()
+}, { quoted: m });
+await conn.sendMessage(m.chat, { audio: { url: responsev2 }, mimetype: 'audio/mpeg' }, { quoted: m });
+        } catch (e) {
+        conn.reply(m.chat, `*[ ❌️ ] An error occurred while processing your request.*\n\n${e}`, m);
+        }
+    }}}}}
+    
+    if (command === 'playv') {
+        try {
+const video = await ytmp4(yt_play[0].url);
+await conn.sendMessage(m.chat, { video: { url: video }, fileName: `${yt_play[0].title}.mp4`, mimetype: 'video/mp4', caption: getRandomBumblebeeFact()}, { quoted: m })
+} catch {
+try {   
+const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${yt_play[0].url}`);
+let { data } = await res.json();
+await conn.sendMessage(m.chat, { video: { url: data.dl }, fileName: `${yt_play[0].title}.mp4`, mimetype: 'video/mp4', caption: getRandomBumblebeeFact()}, { quoted: m })
+} catch {
+try {  
+const res = await fetch(`https://api.agatz.xyz/api/ytmp4?url=${yt_play[0].url}`)
+let data = await res.json();
+await conn.sendMessage(m.chat, { video: { url: data.data.downloadUrl }, fileName: `${yt_play[0].title}.mp4`, caption: getRandomBumblebeeFact() }, { quoted: m }) 
+} catch {
+try {
+const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${yt_play[0].url}`)
+let { result } = await res.json()
+await conn.sendMessage(m.chat, { video: { url: result.download.url }, fileName: `${yt_play[0].title}.mp4`, caption: getRandomBumblebeeFact() }, { quoted: m }) 
+} catch {
+try {
+const axeelApi = `https://axeel.my.id/api/download/video?url=${yt_play[0].url}`;
+const axeelRes = await fetch(axeelApi);
+const axeelJson = await axeelRes.json();
+if (axeelJson && axeelJson.downloads?.url) {
+const videoUrl = axeelJson.downloads.url;
+await conn.sendMessage(m.chat, { video: { url: videoUrl }, fileName: `${yt_play[0].title}.mp4`, caption: getRandomBumblebeeFact() }, { quoted: m }) 
+}} catch {
+try {              
+const apidownload = await axios.get(`https://skynex.boxmine.xyz/docs/download/ytmp4?url=https://youtube.com/watch?v=${yt_play[0].videoId}&apikey=GataDios`)
+ const responsev2 = await apidownload.data.data.download;         
+   await conn.sendMessage(m.chat, { video: { url: responsev2 }, mimetype: 'video/mp4' }, { quoted: m });
+   } catch (e) {
+    conn.reply(m.chat, `*[ ❌️ ] An error occurred while processing your request.*\n\n${e}`, m);
+   }
+  }}
+ }}
+}}
 };
 
-handler.help = ['play', 'play2'];
-handler.tags = ['downloader'];
-handler.command = ['play', 'play2'];
+handler.command = ['play', 'playv', 'play1doc', 'play2doc'];
 
 export default handler;
 
@@ -69,10 +189,10 @@ function secondString(seconds) {
   const h = Math.floor((seconds % (3600 * 24)) / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   const s = Math.floor(seconds % 60);
-  const dDisplay = d > 0 ? d + (d == 1 ? ' día, ' : ' días, ') : '';
-  const hDisplay = h > 0 ? h + (h == 1 ? ' hora, ' : ' horas, ') : '';
-  const mDisplay = m > 0 ? m + (m == 1 ? ' minuto, ' : ' minutos, ') : '';
-  const sDisplay = s > 0 ? s + (s == 1 ? ' segundo' : ' segundos') : '';
+  const dDisplay = d > 0 ? d + (d == 1 ? ' day, ' : ' days, ') : '';
+  const hDisplay = h > 0 ? h + (h == 1 ? ' hour, ' : ' hours, ') : '';
+  const mDisplay = m > 0 ? m + (m == 1 ? ' minute, ' : ' minutes, ') : '';
+  const sDisplay = s > 0 ? s + (s == 1 ? ' second' : ' seconds') : '';
   return dDisplay + hDisplay + mDisplay + sDisplay;
 }
 
