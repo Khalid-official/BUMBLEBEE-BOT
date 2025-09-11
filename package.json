@@ -1,32 +1,32 @@
 {
-"name": "Megumin-Bot-MD",
-"version": "1.0.5",
-"description": "El Bot Más Explosivo De WhatsApp",
-"main": "index.js",
-"type": "module",
-"directories": {
-"lib": "lib",
-"src": "src",
-"plugins": "plugins"
-},
+  "name": "bumblebee-bot",
+  "version": "1.0.0",
+  "description": "If You Like It, Kindly Give a 5 Star",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib",
+    "src": "src",
+    "plugins": "plugins"
+  },
 "scripts": {
 "start": "node index.js",
 "qr": "node index.js qr",
 "code": "node index.js code",
 "eslint": "eslint .",
 "eslintfix": "eslint --fix ."
-},
-"homepage": "https://github.com/David-Chian/Megumin-Bot-MD",
-"author": {
-"name": "David-Chian"
-},
-"repository": {
-"type": "git",
-"url": "git+https://github.com/David-Chian/Megumin-Bot-MD.git"
-},
-"bugs": {
-"url": "https://github.com/David-Chian/Megumin-Bot-MD/issues"
-},
+ },
+  "homepage": "https://github.com/khalid-official/BUMBLEBEE-BOT",
+  "author": {
+    "name": "KhalidOfficial"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khalid-official/BUMBLEBEE-BOT.git"
+  },
+  "bugs": {
+    "url": "https://github.com/khalid-official/BUMBLEBEE-BOT/issues"
+  },
 "license": "GPL-3.0-or-later",
 "dependencies": {
 "@whiskeysockets/baileys": "github:EdderBot02/bail",
